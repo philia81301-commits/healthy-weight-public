@@ -1,0 +1,96 @@
+schema_version: "yaml_image_deck_v1"
+
+deck:
+  title: "健康體重管理 4 頁簡報"
+  audience: "一般成年民眾（還沒就醫的普羅大眾）"
+  purpose: "用 4 頁講清楚：為什麼管理體重、怎麼自評、正確模式、如何開始"
+  takeaway: "減 5–10% 就有感；飲食×運動×合適藥物三腳凳，紅燈就掛減重門診"
+  language: "zh-TW"
+  output_mode: "plate"
+  planning_mode: "yaml_spec"
+  generation_strategy: "sequential"
+  style_lock: "golden_sample"
+  slide_count: 4
+
+canvas:
+  target_ratio: "16:9"
+  safe_area_pct: {left: 6, right: 6, top: 10, bottom: 10}
+
+design_system:
+  visual_direction: "可愛親民的扁平插畫衛教風：圓潤造型、粗輪廓線、奶油底色、暖橘／草綠／粉藍點綴、大量留白、健康教育氛圍"
+  palette:
+    background: "#F7F2E7"
+    primary: "#0A8A4D"
+    highlight: "#C2620A"
+    accent: "#3563C9"
+    flag: "#C82D1B"
+    text: "#21281F"
+  typography:
+    font_feel: "粗圓、飽滿、低稜角的繁體中文無襯線字"
+    avoid: "尖角、窄長、機械感、科技模板字"
+    plate_font_preferences:
+      - "jf open 粉圓 2.1"
+  style_reference: "slides/images/page_03.png"
+  negative_prompt:
+    - "不要任何文字、字母、數字"
+    - "不要 Logo 或浮水印"
+    - "不要螢幕、投影幕或簡報 mockup"
+    - "不要寫實人像臉部"
+
+layout_router:
+  focus: "cover_hero"
+  classification: "classification_grid"
+  hierarchy: "relationship_map"
+  action: "action_next_step"
+
+slides:
+  - page: 1
+    role: "cover"
+    core_point: "肥胖是慢性病；減掉 5–10% 健康就有感"
+    semantic_structure: "focus"
+    layout: {id: "cover_hero", variant: "left_text_right_visual"}
+    visible_text:
+      title: "為什麼要管理體重？"
+      subtitle: "肥胖是一種慢性病，不是意志力問題"
+      chips: ["減 5–10% 就有感", "血糖・血壓改善", "脂肪肝・膝蓋減負擔"]
+    visual: "右側一個圓滾滾的可愛吉祥物開心站在友善的體重計上，旁邊漂浮小愛心與上升的小樹芽；左側 45% 為乾淨奶油色留白文字區"
+    output: "slides/images/page_01.png"
+  - page: 2
+    role: "classification"
+    core_point: "BMI＋腰圍 30 秒自評，分綠黃紅燈"
+    semantic_structure: "classification"
+    layout: {id: "classification_grid", variant: "three_column_traffic"}
+    visible_text:
+      title: "30 秒自我評估"
+      metrics: ["BMI＝體重(kg)÷身高(m)²｜24 過重・27 肥胖", "腰圍｜男 <90 cm・女 <80 cm"]
+      groups: ["🟢 維持現況", "🟡 開始調整飲食運動", "🔴 建議減重門診評估"]
+    visual: "上緣橫幅留白為標題與兩條量測公式區；下方三個等寬圓角卡片，底色分別淡綠、淡黃、淡紅，各卡片上半有留白文字區，卡片間漂浮可愛皮尺與圓形小徽章"
+    output: "slides/images/page_02.png"
+  - page: 3
+    role: "hierarchy"
+    core_point: "正確減重模式＝飲食×運動×合適藥物的三腳凳"
+    semantic_structure: "hierarchy"
+    layout: {id: "relationship_map", variant: "three_leg_stool_center"}
+    visible_text:
+      title: "正確的減重模式：三腳凳"
+      labels: ["飲食｜主引擎", "運動｜守護肌肉", "藥物｜醫師評估的助推器"]
+      footnote: "缺一隻腳，另外兩隻要加倍出力"
+    visual: "畫面中央一張可愛的圓木凳有三隻腳，三腳分別是暖橘、草綠、粉藍；腳邊各漂浮一個圓形圖示：餐盤與叉子、跑步鞋、膠囊藥丸；頂部橫幅與三腳旁各留乾淨文字區"
+    output: "slides/images/page_03.png"
+  - page: 4
+    role: "action"
+    core_point: "今天就能開始的三步，紅燈就掛號"
+    semantic_structure: "action"
+    layout: {id: "action_next_step", variant: "path_to_door"}
+    visible_text:
+      title: "現在就開始"
+      steps: ["① 記下今天的體重與腰圍", "② 吃對＋動起來（不是挨餓）", "③ 紅燈族群→減重門診評估"]
+      footnote: "就醫不是最後手段，是最有效率的起點"
+    visual: "一條圓潤的小路從左下往右上延伸，路上三個圓形站點，終點是一扇溫暖的診所小門（門上有愛心十字）；小路左上方與各站點旁留乾淨文字區"
+    output: "slides/images/page_04.png"
+
+validation:
+  regenerate_on:
+    - "出現任何文字或數字"
+    - "版型或風格漂移"
+    - "留白文字區被圖案佔據"
