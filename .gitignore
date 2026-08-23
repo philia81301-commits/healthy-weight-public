@@ -1,0 +1,10 @@
+desktop.ini
+*.tmp
+~$*
+.env
+*.key
+credentials.*
+_local/
+*.xlsx
+*.xls
+*.csv
