@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>吃：不是吃少，是吃對｜健康體重管理</title>
+<meta name="description" content="先戒喝的熱量；菜半盤、蛋白質一掌、飯一拳；外食族與超商族都做得到。">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@400;700&family=Noto+Sans+TC:wght@400;500;700&display=swap">
+<style>
+:root{
+  --ink:#21281F; --muted:#66705F; --line:#DFDFD4; --paper:#FBFAF4;
+  --diet:#C2620A; --diet-soft:#FCE9D4;
+  --move:#0A8A4D; --move-soft:#DCF3E5;
+  --rx:#3563C9;   --rx-soft:#E1E9FB;
+  --flag:#C82D1B;
+  --gold:#9A6B2A; --gold-soft:#F5EDDD;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif;
+  font-size:17px;line-height:1.78;
+  background-image:linear-gradient(180deg,#fff 0,var(--paper) 420px)}
+a{color:var(--rx)}
+.wrap{max-width:940px;margin:0 auto;padding:0 20px}
+
+.top{border-bottom:1px solid var(--line);background:rgba(255,255,255,.9);
+  position:sticky;top:0;z-index:9;backdrop-filter:blur(6px)}
+.top .wrap{display:flex;align-items:center;gap:14px;height:62px;font-size:14.5px}
+.top a{color:var(--muted);text-decoration:none}
+.top a:hover{color:var(--ink)}
+.top .home{font-family:"LXGW WenKai TC","DFKai-SB",serif;
+  font-weight:700;color:var(--ink);font-size:21px;letter-spacing:.02em}
+.top .sp{flex:1}
+
+.hero{padding:44px 0 26px}
+.hero h1{font-family:"LXGW WenKai TC",serif;font-size:32px;margin:0 0 10px;letter-spacing:.02em}
+.hero p{margin:0;color:var(--muted);font-size:16px;max-width:62ch}
+.pill{display:inline-block;background:var(--move-soft);color:var(--move);
+  border-radius:99px;padding:2px 13px;font-size:12.5px;font-weight:700;letter-spacing:.06em;margin-bottom:12px}
+
+.sec{margin:34px 0 10px;font-size:13px;font-weight:700;letter-spacing:.12em;color:var(--muted)}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(268px,1fr));gap:16px}
+.card{display:block;background:#fff;border:1px solid var(--line);border-radius:12px;
+  padding:18px 20px;text-decoration:none;color:inherit;transition:.16s;position:relative;overflow:hidden}
+.card:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(0,0,0,.09);border-color:#C9C9BA}
+.card .lv{font-size:11.5px;font-weight:700;letter-spacing:.08em;color:var(--move)}
+.card h3{margin:5px 0 7px;font-size:19px;font-family:"LXGW WenKai TC",serif}
+.card p{margin:0;font-size:14.5px;color:var(--muted);line-height:1.68}
+.card::after{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--move)}
+.card.eat::after{background:var(--diet)}   .card.eat .lv{color:var(--diet)}
+.card.meds::after{background:var(--rx)}    .card.meds .lv{color:var(--rx)}
+.card.clinic::after{background:var(--flag)}.card.clinic .lv{color:var(--flag)}
+.card.tool{background:var(--move-soft)}
+.card.tool::after{background:var(--move)}
+
+article{background:#fff;border:1px solid var(--line);border-radius:14px;
+  padding:34px 40px 44px;margin:26px 0 40px}
+article h1{font-family:"LXGW WenKai TC",serif;font-size:29px;margin:0 0 6px;padding-bottom:14px;border-bottom:2px solid var(--ink)}
+article h2{font-family:"LXGW WenKai TC",serif;font-size:22px;margin:36px 0 10px;
+  padding-left:11px;border-left:5px solid var(--move)}
+article h3{font-size:17.5px;margin:26px 0 6px;color:var(--diet);letter-spacing:.01em}
+article p{margin:.5em 0}
+article ul,article ol{padding-left:1.35em;margin:.5em 0}
+article li{margin:.3em 0}
+article blockquote{margin:16px 0;padding:13px 18px;background:var(--gold-soft);
+  border-radius:8px;color:#5A4520;font-size:15px}
+article hr{border:0;border-top:1px solid var(--line);margin:30px 0}
+article code{background:#F0F0E7;border-radius:4px;padding:1px 5px;font-size:.9em}
+article strong{font-weight:700}
+article figure{margin:18px 0;text-align:center}
+article img{max-width:100%;height:auto;border-radius:10px;border:1px solid var(--line)}
+article figcaption{font-size:13.5px;color:var(--muted);margin-top:6px}
+.src{font-size:13px;color:var(--muted);margin:.2em 0 1.2em;border-left:3px solid var(--line);padding-left:10px}
+.draft{background:var(--gold-soft);border-left:4px solid var(--gold);border-radius:8px;
+  padding:10px 16px;font-size:14px;color:#5A4520;margin:0 0 20px}
+.tw{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:460px}
+th,td{border:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top}
+th{background:#F4F4EC;font-weight:700;white-space:nowrap}
+
+.toc{background:#F7F7EF;border:1px solid var(--line);border-radius:10px;
+  padding:14px 18px 15px;margin:0 0 26px;max-height:40vh;overflow-y:auto;overscroll-behavior:contain}
+.toc-t{font-size:12px;font-weight:700;letter-spacing:.1em;color:var(--muted);margin-bottom:8px}
+.toc-s{margin-bottom:7px}
+.toc-s:last-child{margin-bottom:0}
+.toc-h{display:inline-block;font-weight:700;font-size:15.5px;color:var(--ink);text-decoration:none;line-height:1.5}
+.toc-h:hover{color:var(--move)}
+.toc-k{display:flex;flex-wrap:wrap;gap:3px 14px;margin:1px 0 0 2px}
+.toc-k a{font-size:13.6px;color:var(--muted);text-decoration:none;line-height:1.65}
+.toc-k a:hover{color:var(--move);text-decoration:underline}
+article h2,article h3{scroll-margin-top:76px}
+
+/* 章間導航 */
+.chnav{display:flex;justify-content:space-between;gap:12px;margin:0 0 40px}
+.chnav a{flex:1;background:#fff;border:1px solid var(--line);border-radius:10px;
+  padding:12px 16px;text-decoration:none;color:var(--ink);font-size:14.5px;transition:.16s}
+.chnav a:hover{border-color:var(--move);color:var(--move)}
+.chnav .next{text-align:right}
+
+/* 自評工具 */
+.calc{background:#fff;border:1px solid var(--line);border-radius:14px;padding:28px 32px;margin:26px 0}
+.calc .row{display:flex;flex-wrap:wrap;gap:14px;margin:14px 0}
+.calc label{display:block;font-size:14px;font-weight:700;margin-bottom:5px}
+.calc .f{flex:1;min-width:130px}
+.calc input[type=number]{width:100%;padding:9px 12px;border:1px solid var(--line);border-radius:8px;
+  font-size:17px;font-family:inherit;background:var(--paper)}
+.calc .seg{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.calc .seg button{flex:1;padding:9px 0;border:0;background:#fff;font-size:15px;font-family:inherit;cursor:pointer;color:var(--muted)}
+.calc .seg button.on{background:var(--move);color:#fff;font-weight:700}
+.calc .cbs{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:15px}
+.calc .cbs label{font-weight:400;display:flex;align-items:center;gap:6px;margin:0}
+.calc .go{margin-top:18px;width:100%;padding:13px 0;border:0;border-radius:10px;
+  background:var(--move);color:#fff;font-size:17px;font-weight:700;font-family:inherit;cursor:pointer}
+.calc .go:hover{filter:brightness(1.06)}
+#res{display:none;margin-top:22px;border-radius:12px;padding:20px 24px;line-height:1.8}
+#res.g{display:block;background:var(--move-soft)}
+#res.y{display:block;background:#FBF3D9}
+#res.r{display:block;background:#FDECEA}
+#res.u{display:block;background:var(--rx-soft)}
+#res .big{font-size:21px;font-weight:700;margin-bottom:6px}
+#res .nums{font-size:15px;color:var(--muted);margin-bottom:10px}
+.priv{font-size:13.5px;color:var(--muted);margin-top:14px}
+
+footer{border-top:1px solid var(--line);margin-top:20px;padding:26px 0 46px;
+  font-size:14px;color:var(--muted)}
+footer b{color:var(--ink)}
+.warn{background:#FDECEA;border-left:4px solid var(--flag);border-radius:8px;
+  padding:14px 18px;font-size:15px;margin:20px 0;color:#7A2016;line-height:1.7}
+
+.totop{position:fixed;right:20px;bottom:20px;width:44px;height:44px;border-radius:50%;
+  border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer;
+  box-shadow:0 4px 14px rgba(0,0,0,.14);display:flex;align-items:center;justify-content:center;
+  opacity:0;visibility:hidden;transition:.18s;z-index:20;padding:0}
+.totop.on{opacity:1;visibility:visible}
+.totop:hover{border-color:var(--move);color:var(--move)}
+.totop svg{width:20px;height:20px}
+
+@media(max-width:640px){
+  .top .wrap{height:56px;gap:10px}
+  .top .home{font-size:18px}
+  .top .crumb{display:none}
+  .hero h1{font-size:26px}
+  article{padding:24px 20px 32px;border-radius:10px}
+  article h1{font-size:22px}
+  .calc{padding:20px 18px}
+  .toc{padding:12px 14px 13px;margin-bottom:20px;max-height:38vh}
+  .totop{right:14px;bottom:14px}
+}
+</style>
+</head>
+<body>
+<nav class="top"><div class="wrap">
+  <a class="home" href="./">健康體重管理</a>
+  <span class="sp"></span>
+  <span class="crumb"><a href="./">總覽</a><span style="color:#C9C9BA"> / </span>吃：不是吃少，是吃對</span>
+  <a href="https://philia81301-commits.github.io/">← 工具集首頁</a>
+</div></nav>
+<div class="wrap"><article><h1 id="第章吃不是吃少是吃對">第④章　吃：不是吃少，是吃對</h1>
+<nav class="toc"><div class="toc-t">本頁內容</div><div class="toc-s"><a class="toc-h" href="#本章想讓讀者帶走的三句話">本章想讓讀者帶走的三句話</a></div><div class="toc-s"><a class="toc-h" href="#4-1第一步永遠是戒掉喝的熱量">4-1 第一步永遠是：戒掉喝的熱量</a></div><div class="toc-s"><a class="toc-h" href="#4-2餐盤這樣擺菜半盤蛋白質一掌飯一拳">4-2 餐盤這樣擺：菜半盤、蛋白質一掌、飯一拳</a></div><div class="toc-s"><a class="toc-h" href="#4-3吃的順序菜蛋白質飯">4-3 吃的順序：菜 → 蛋白質 → 飯</a></div><div class="toc-s"><a class="toc-h" href="#4-4外食族這樣選每10個人有7個天天外食">4-4 外食族這樣選（每 10 個人有 7 個天天外食）</a></div><div class="toc-s"><a class="toc-h" href="#4-5這些捷徑別走極端節食與單一食物法">4-5 這些「捷徑」別走：極端節食與單一食物法</a></div></nav>
+<hr>
+<h2 id="本章想讓讀者帶走的三句話">本章想讓讀者帶走的三句話</h2>
+<ol>
+<li>先管<strong>喝的</strong>：含糖飲料是最容易砍掉、效果最快的熱量。</li>
+<li>餐盤照「<strong>菜半盤、蛋白質一掌、飯一拳</strong>」擺，不用算熱量也能瘦。</li>
+<li>外食一樣做得到——會<strong>選</strong>，比會煮重要。</li>
+</ol>
+<hr>
+<h2 id="4-1第一步永遠是戒掉喝的熱量">4-1 第一步永遠是：戒掉喝的熱量</h2>
+<p>一杯全糖手搖飲的熱量，快走一小時都消耗不完。飲料的糖不佔胃、不會飽，喝完照樣吃正餐——它是純粹多出來的熱量。所以減重第一步不是餓肚子，是<strong>把含糖飲料換成水、無糖茶或黑咖啡</strong>。做到這一件事，很多人第一個月就看得到體重動。酒也一樣算「喝的熱量」，先減量。</p>
+<p class="src">出處：含糖飲料與肥胖關聯通則</p>
+<h2 id="4-2餐盤這樣擺菜半盤蛋白質一掌飯一拳">4-2 餐盤這樣擺：菜半盤、蛋白質一掌、飯一拳</h2>
+<p>不用算熱量，用眼睛和手就能分配一餐——</p>
+<ul>
+<li><strong>蔬菜佔半盤</strong>：體積大、熱量低，先把胃佔住</li>
+<li><strong>蛋白質一個掌心</strong>：蛋、豆腐、魚、雞肉；蛋白質夠，才不容易餓、瘦到的才是脂肪不是肌肉</li>
+<li><strong>飯麵一個拳頭</strong>：不是不能吃澱粉，是別讓它佔滿盤子；能選糙米、地瓜更好</li>
+</ul>
+<p>這個比例，自助餐、便當、家裡煮都套得上。</p>
+<p class="src">出處：國健署「我的餐盤」均衡飲食口訣（簡化）</p>
+<h2 id="4-3吃的順序菜蛋白質飯">4-3 吃的順序：菜 → 蛋白質 → 飯</h2>
+<p>同一餐，先吃菜、再吃蛋白質、最後吃飯，血糖上升比較平穩、也比較快有飽足感。配上<strong>細嚼慢嚥</strong>——大腦要 15–20 分鐘才收到「吃飽了」的訊號，吃太快的人常常在飽足感來之前就吃過量了。</p>
+<p class="src">出處：進食順序與餐後血糖研究方向</p>
+<h2 id="4-4外食族這樣選每10個人有7個天天外食">4-4 外食族這樣選（每 10 個人有 7 個天天外食）</h2>
+<p>外食不是罪，選錯才是。三個原則：</p>
+<ul>
+<li><strong>選看得到原型食物的店</strong>：自助餐、便當店比麵包、鍋貼更容易湊出「菜半盤＋掌心蛋白質」</li>
+<li><strong>便當可以客製</strong>：飯減半、去炸皮、多換一格青菜，老闆都聽得懂</li>
+<li><strong>麵店加點燙青菜和滷蛋豆干</strong>，湯麵的湯少喝（鈉和油都在裡面）</li>
+</ul>
+<p>超商也行：茶葉蛋＋無糖豆漿＋生菜盒，就是一餐合格的組合。</p>
+<p class="src">出處：本院 270 份問卷（僅引比例）＋外食選擇通則</p>
+<h2 id="4-5這些捷徑別走極端節食與單一食物法">4-5 這些「捷徑」別走：極端節食與單一食物法</h2>
+<p>只吃水果、完全不碰澱粉、一天只吃一餐、來路不明的「代謝茶」……這些方法的共同點：<strong>短期掉秤快，掉的是水分和肌肉；恢復吃飯就反彈，而且更難瘦</strong>。第③章說過，身體會把激烈節食當飢荒處理。看到「一週瘦 5 公斤」的廣告，先想起這一段。</p>
+<p class="src">出處：極端節食與體組成影響通則</p>
+<hr></article><div class="chnav"><a href="model.html">← 第③章：正確的減重模式</a><a class="next" href="move.html">第⑤章：動：不是苦練，是動得對 →</a></div></div>
+<footer><div class="wrap">
+  <b>潘湘如醫師｜家醫科</b>　·　一般民眾健康體重管理衛教<br>
+  本站內容為衛教參考，不能取代個別醫療評估；用藥請務必與醫師討論。本站不收集任何個人資料。<br>
+  想深入了解 GLP-1 減重治療？請見 <a href="https://philia81301-commits.github.io/obesity-education-clinic/">GLP-1 減重衛教（病人版）</a>　·
+  原始碼：<a href="https://github.com/philia81301-commits/healthy-weight-public">GitHub</a>
+</div></footer>
+<button class="totop" type="button" aria-label="回到頂端">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>
+</button>
+<script>
+(function(){
+  var b=document.querySelector('.totop');
+  if(!b)return;
+  var show=function(){ b.classList.toggle('on', window.scrollY>420); };
+  window.addEventListener('scroll', show, {passive:true});
+  show();
+  b.addEventListener('click', function(){ window.scrollTo({top:0, behavior:'smooth'}); });
+})();
+</script>
+</body>
+</html>

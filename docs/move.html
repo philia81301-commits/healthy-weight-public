@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>動：不是苦練，是動得對｜健康體重管理</title>
+<meta name="description" content="從每天走路開始，每週 150 分鐘＋肌力 2 次；膝蓋不好也有安全的動法。">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@400;700&family=Noto+Sans+TC:wght@400;500;700&display=swap">
+<style>
+:root{
+  --ink:#21281F; --muted:#66705F; --line:#DFDFD4; --paper:#FBFAF4;
+  --diet:#C2620A; --diet-soft:#FCE9D4;
+  --move:#0A8A4D; --move-soft:#DCF3E5;
+  --rx:#3563C9;   --rx-soft:#E1E9FB;
+  --flag:#C82D1B;
+  --gold:#9A6B2A; --gold-soft:#F5EDDD;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif;
+  font-size:17px;line-height:1.78;
+  background-image:linear-gradient(180deg,#fff 0,var(--paper) 420px)}
+a{color:var(--rx)}
+.wrap{max-width:940px;margin:0 auto;padding:0 20px}
+
+.top{border-bottom:1px solid var(--line);background:rgba(255,255,255,.9);
+  position:sticky;top:0;z-index:9;backdrop-filter:blur(6px)}
+.top .wrap{display:flex;align-items:center;gap:14px;height:62px;font-size:14.5px}
+.top a{color:var(--muted);text-decoration:none}
+.top a:hover{color:var(--ink)}
+.top .home{font-family:"LXGW WenKai TC","DFKai-SB",serif;
+  font-weight:700;color:var(--ink);font-size:21px;letter-spacing:.02em}
+.top .sp{flex:1}
+
+.hero{padding:44px 0 26px}
+.hero h1{font-family:"LXGW WenKai TC",serif;font-size:32px;margin:0 0 10px;letter-spacing:.02em}
+.hero p{margin:0;color:var(--muted);font-size:16px;max-width:62ch}
+.pill{display:inline-block;background:var(--move-soft);color:var(--move);
+  border-radius:99px;padding:2px 13px;font-size:12.5px;font-weight:700;letter-spacing:.06em;margin-bottom:12px}
+
+.sec{margin:34px 0 10px;font-size:13px;font-weight:700;letter-spacing:.12em;color:var(--muted)}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(268px,1fr));gap:16px}
+.card{display:block;background:#fff;border:1px solid var(--line);border-radius:12px;
+  padding:18px 20px;text-decoration:none;color:inherit;transition:.16s;position:relative;overflow:hidden}
+.card:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(0,0,0,.09);border-color:#C9C9BA}
+.card .lv{font-size:11.5px;font-weight:700;letter-spacing:.08em;color:var(--move)}
+.card h3{margin:5px 0 7px;font-size:19px;font-family:"LXGW WenKai TC",serif}
+.card p{margin:0;font-size:14.5px;color:var(--muted);line-height:1.68}
+.card::after{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--move)}
+.card.eat::after{background:var(--diet)}   .card.eat .lv{color:var(--diet)}
+.card.meds::after{background:var(--rx)}    .card.meds .lv{color:var(--rx)}
+.card.clinic::after{background:var(--flag)}.card.clinic .lv{color:var(--flag)}
+.card.tool{background:var(--move-soft)}
+.card.tool::after{background:var(--move)}
+
+article{background:#fff;border:1px solid var(--line);border-radius:14px;
+  padding:34px 40px 44px;margin:26px 0 40px}
+article h1{font-family:"LXGW WenKai TC",serif;font-size:29px;margin:0 0 6px;padding-bottom:14px;border-bottom:2px solid var(--ink)}
+article h2{font-family:"LXGW WenKai TC",serif;font-size:22px;margin:36px 0 10px;
+  padding-left:11px;border-left:5px solid var(--move)}
+article h3{font-size:17.5px;margin:26px 0 6px;color:var(--diet);letter-spacing:.01em}
+article p{margin:.5em 0}
+article ul,article ol{padding-left:1.35em;margin:.5em 0}
+article li{margin:.3em 0}
+article blockquote{margin:16px 0;padding:13px 18px;background:var(--gold-soft);
+  border-radius:8px;color:#5A4520;font-size:15px}
+article hr{border:0;border-top:1px solid var(--line);margin:30px 0}
+article code{background:#F0F0E7;border-radius:4px;padding:1px 5px;font-size:.9em}
+article strong{font-weight:700}
+article figure{margin:18px 0;text-align:center}
+article img{max-width:100%;height:auto;border-radius:10px;border:1px solid var(--line)}
+article figcaption{font-size:13.5px;color:var(--muted);margin-top:6px}
+.src{font-size:13px;color:var(--muted);margin:.2em 0 1.2em;border-left:3px solid var(--line);padding-left:10px}
+.draft{background:var(--gold-soft);border-left:4px solid var(--gold);border-radius:8px;
+  padding:10px 16px;font-size:14px;color:#5A4520;margin:0 0 20px}
+.tw{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:460px}
+th,td{border:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top}
+th{background:#F4F4EC;font-weight:700;white-space:nowrap}
+
+.toc{background:#F7F7EF;border:1px solid var(--line);border-radius:10px;
+  padding:14px 18px 15px;margin:0 0 26px;max-height:40vh;overflow-y:auto;overscroll-behavior:contain}
+.toc-t{font-size:12px;font-weight:700;letter-spacing:.1em;color:var(--muted);margin-bottom:8px}
+.toc-s{margin-bottom:7px}
+.toc-s:last-child{margin-bottom:0}
+.toc-h{display:inline-block;font-weight:700;font-size:15.5px;color:var(--ink);text-decoration:none;line-height:1.5}
+.toc-h:hover{color:var(--move)}
+.toc-k{display:flex;flex-wrap:wrap;gap:3px 14px;margin:1px 0 0 2px}
+.toc-k a{font-size:13.6px;color:var(--muted);text-decoration:none;line-height:1.65}
+.toc-k a:hover{color:var(--move);text-decoration:underline}
+article h2,article h3{scroll-margin-top:76px}
+
+/* 章間導航 */
+.chnav{display:flex;justify-content:space-between;gap:12px;margin:0 0 40px}
+.chnav a{flex:1;background:#fff;border:1px solid var(--line);border-radius:10px;
+  padding:12px 16px;text-decoration:none;color:var(--ink);font-size:14.5px;transition:.16s}
+.chnav a:hover{border-color:var(--move);color:var(--move)}
+.chnav .next{text-align:right}
+
+/* 自評工具 */
+.calc{background:#fff;border:1px solid var(--line);border-radius:14px;padding:28px 32px;margin:26px 0}
+.calc .row{display:flex;flex-wrap:wrap;gap:14px;margin:14px 0}
+.calc label{display:block;font-size:14px;font-weight:700;margin-bottom:5px}
+.calc .f{flex:1;min-width:130px}
+.calc input[type=number]{width:100%;padding:9px 12px;border:1px solid var(--line);border-radius:8px;
+  font-size:17px;font-family:inherit;background:var(--paper)}
+.calc .seg{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.calc .seg button{flex:1;padding:9px 0;border:0;background:#fff;font-size:15px;font-family:inherit;cursor:pointer;color:var(--muted)}
+.calc .seg button.on{background:var(--move);color:#fff;font-weight:700}
+.calc .cbs{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:15px}
+.calc .cbs label{font-weight:400;display:flex;align-items:center;gap:6px;margin:0}
+.calc .go{margin-top:18px;width:100%;padding:13px 0;border:0;border-radius:10px;
+  background:var(--move);color:#fff;font-size:17px;font-weight:700;font-family:inherit;cursor:pointer}
+.calc .go:hover{filter:brightness(1.06)}
+#res{display:none;margin-top:22px;border-radius:12px;padding:20px 24px;line-height:1.8}
+#res.g{display:block;background:var(--move-soft)}
+#res.y{display:block;background:#FBF3D9}
+#res.r{display:block;background:#FDECEA}
+#res.u{display:block;background:var(--rx-soft)}
+#res .big{font-size:21px;font-weight:700;margin-bottom:6px}
+#res .nums{font-size:15px;color:var(--muted);margin-bottom:10px}
+.priv{font-size:13.5px;color:var(--muted);margin-top:14px}
+
+footer{border-top:1px solid var(--line);margin-top:20px;padding:26px 0 46px;
+  font-size:14px;color:var(--muted)}
+footer b{color:var(--ink)}
+.warn{background:#FDECEA;border-left:4px solid var(--flag);border-radius:8px;
+  padding:14px 18px;font-size:15px;margin:20px 0;color:#7A2016;line-height:1.7}
+
+.totop{position:fixed;right:20px;bottom:20px;width:44px;height:44px;border-radius:50%;
+  border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer;
+  box-shadow:0 4px 14px rgba(0,0,0,.14);display:flex;align-items:center;justify-content:center;
+  opacity:0;visibility:hidden;transition:.18s;z-index:20;padding:0}
+.totop.on{opacity:1;visibility:visible}
+.totop:hover{border-color:var(--move);color:var(--move)}
+.totop svg{width:20px;height:20px}
+
+@media(max-width:640px){
+  .top .wrap{height:56px;gap:10px}
+  .top .home{font-size:18px}
+  .top .crumb{display:none}
+  .hero h1{font-size:26px}
+  article{padding:24px 20px 32px;border-radius:10px}
+  article h1{font-size:22px}
+  .calc{padding:20px 18px}
+  .toc{padding:12px 14px 13px;margin-bottom:20px;max-height:38vh}
+  .totop{right:14px;bottom:14px}
+}
+</style>
+</head>
+<body>
+<nav class="top"><div class="wrap">
+  <a class="home" href="./">健康體重管理</a>
+  <span class="sp"></span>
+  <span class="crumb"><a href="./">總覽</a><span style="color:#C9C9BA"> / </span>動：不是苦練，是動得對</span>
+  <a href="https://philia81301-commits.github.io/">← 工具集首頁</a>
+</div></nav>
+<div class="wrap"><article><h1 id="第章動不是苦練是動得對">第⑤章　動：不是苦練，是動得對</h1>
+<div class="draft">本章內容仍在最終審訂中，細節可能調整。</div><nav class="toc"><div class="toc-t">本頁內容</div><div class="toc-s"><a class="toc-h" href="#本章想讓讀者帶走的三句話">本章想讓讀者帶走的三句話</a></div><div class="toc-s"><a class="toc-h" href="#5-1從走路開始每10個人有6個沒有運動習慣">5-1 從走路開始（每 10 個人有 6 個沒有運動習慣）</a></div><div class="toc-s"><a class="toc-h" href="#5-2有氧的目標每週150分鐘會喘還能講話">5-2 有氧的目標：每週 150 分鐘，「會喘、還能講話」</a></div><div class="toc-s"><a class="toc-h" href="#5-3肌力運動每週2次在家就能做">5-3 肌力運動每週 2 次：在家就能做</a></div><div class="toc-s"><a class="toc-h" href="#5-4把活動藏進生活">5-4 把活動藏進生活</a></div><div class="toc-s"><a class="toc-h" href="#5-5膝蓋不好體重較重怎麼動才安全">5-5 膝蓋不好、體重較重，怎麼動才安全？</a></div></nav>
+<hr>
+<h2 id="本章想讓讀者帶走的三句話">本章想讓讀者帶走的三句話</h2>
+<ol>
+<li>運動不是懲罰，是<strong>保住肌肉</strong>的方法——肌肉在，代謝在，瘦下來才守得住。</li>
+<li>起點只有一個：<strong>每天走路 30 分鐘</strong>，可以拆成 3 次、每次 10 分鐘。</li>
+<li>一週兩次<strong>肌力運動</strong>，在家徒手就能做，不用健身房。</li>
+</ol>
+<hr>
+<h2 id="5-1從走路開始每10個人有6個沒有運動習慣">5-1 從走路開始（每 10 個人有 6 個沒有運動習慣）</h2>
+<p>如果你已經很久沒運動——你不孤單，我們門診每 10 個人有將近 6 個和你一樣。所以起點不是跑步、不是健身房，是<strong>走路</strong>：每天 30 分鐘，可以拆成 3 次、每次 10 分鐘；不用流汗喘吁吁，<strong>走得到、走得久，比走得快重要</strong>。先連續做兩週，讓「每天有動」變成習慣，再談強度。</p>
+<p class="src">出處：本院 270 份問卷（僅引比例）＋病人版運動介入第一階段（醫師審定 2026-08-22）</p>
+<h2 id="5-2有氧的目標每週150分鐘會喘還能講話">5-2 有氧的目標：每週 150 分鐘，「會喘、還能講話」</h2>
+<p>習慣養成後，把量往上加：目標是<strong>每週累積 150 分鐘中等強度有氧</strong>——大約是每天快走 30 分鐘、一週 5 天。「中等強度」怎麼抓？<strong>會喘，但還能講話；能講話，但唱不了歌</strong>。快走、騎腳踏車、游泳、跳舞都算，挑你不討厭的那一種，才做得久。</p>
+<p class="src">出處：WHO 身體活動指引／國健署全民身體活動指引</p>
+<h2 id="5-3肌力運動每週2次在家就能做">5-3 肌力運動每週 2 次：在家就能做</h2>
+<p>這是多數人漏掉、卻最關鍵的一塊。減重時不練肌力，瘦掉的體重有一部分是肌肉——引擎變小，之後更容易復胖。每週 2 次、每次 15–20 分鐘，在家徒手就夠：</p>
+<ul>
+<li><strong>椅子起立</strong>：從椅子站起來再坐下，10 下一組，做 2–3 組（就是最實用的深蹲）</li>
+<li><strong>扶椅深蹲</strong>：屁股往後坐、膝蓋不超過腳尖</li>
+<li><strong>橋式</strong>：躺著抬屁股，練核心和臀腿</li>
+<li><strong>彈力帶划船</strong>：練背，姿勢比重量重要</li>
+</ul>
+<p>隔天肌肉痠是正常的，代表有練到；痛在關節才要停。</p>
+<p class="src">出處：WHO 肌力訓練建議＋病人版低衝擊肌力模組（醫師審定 2026-08-22）</p>
+<h2 id="5-4把活動藏進生活">5-4 把活動藏進生活</h2>
+<p>沒有完整 30 分鐘？零碎的動加起來也很可觀：能走樓梯就不搭電梯、提早一站下車、講電話時站起來走、追劇時邊看邊踏步。這些「不像運動的活動」一整天累積下來，消耗不輸一次正式運動——對「就是討厭運動」的人，這是最好的起點。</p>
+<p class="src">出處：能量消耗組成通則（病人版醫師審定 2026-08-22）</p>
+<h2 id="5-5膝蓋不好體重較重怎麼動才安全">5-5 膝蓋不好、體重較重，怎麼動才安全？</h2>
+<p>膝蓋會痛，不代表不能動——是<strong>換一種動法</strong>。體重較重或膝蓋退化的人，先避開跑跳，在家就能做這四類：</p>
+<ul>
+<li><strong>大腿肌力</strong>：扶著椅背做<strong>正確深蹲</strong>——屁股往後坐、膝蓋不超過腳尖</li>
+<li><strong>椅上運動</strong>：<strong>坐在椅子上</strong>輪流伸直膝蓋抬腿，練大腿、不壓膝蓋</li>
+<li><strong>地板核心</strong>：<strong>橋式</strong>——躺著抬屁股，練核心和臀腿</li>
+<li><strong>站立平衡</strong>：<strong>扶牆單腳站</strong>，練平衡防跌倒</li>
+</ul>
+<p>每天挑兩樣，各做 10 下、2–3 回合。記住：<strong>大腿有力，就是膝蓋最好的護膝。</strong> 練肌力不是傷膝蓋，是保護膝蓋。</p>
+<p class="src">出處：病人版 S1-E3 低衝擊肌力模組（醫師審定 2026-08-22）＋退化性關節炎運動通則</p>
+<hr></article><div class="chnav"><a href="eat.html">← 第④章：吃：不是吃少，是吃對</a><a class="next" href="meds.html">第⑥章：認識減重藥物 →</a></div></div>
+<footer><div class="wrap">
+  <b>潘湘如醫師｜家醫科</b>　·　一般民眾健康體重管理衛教<br>
+  本站內容為衛教參考，不能取代個別醫療評估；用藥請務必與醫師討論。本站不收集任何個人資料。<br>
+  想深入了解 GLP-1 減重治療？請見 <a href="https://philia81301-commits.github.io/obesity-education-clinic/">GLP-1 減重衛教（病人版）</a>　·
+  原始碼：<a href="https://github.com/philia81301-commits/healthy-weight-public">GitHub</a>
+</div></footer>
+<button class="totop" type="button" aria-label="回到頂端">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>
+</button>
+<script>
+(function(){
+  var b=document.querySelector('.totop');
+  if(!b)return;
+  var show=function(){ b.classList.toggle('on', window.scrollY>420); };
+  window.addEventListener('scroll', show, {passive:true});
+  show();
+  b.addEventListener('click', function(){ window.scrollTo({top:0, behavior:'smooth'}); });
+})();
+</script>
+</body>
+</html>

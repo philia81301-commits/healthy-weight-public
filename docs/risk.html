@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>為什麼要管理體重｜健康體重管理</title>
+<meta name="description" content="肥胖是慢性病，不是意志力問題。減掉 5–10%，血糖、血壓、脂肪肝、膝蓋都有感。">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@400;700&family=Noto+Sans+TC:wght@400;500;700&display=swap">
+<style>
+:root{
+  --ink:#21281F; --muted:#66705F; --line:#DFDFD4; --paper:#FBFAF4;
+  --diet:#C2620A; --diet-soft:#FCE9D4;
+  --move:#0A8A4D; --move-soft:#DCF3E5;
+  --rx:#3563C9;   --rx-soft:#E1E9FB;
+  --flag:#C82D1B;
+  --gold:#9A6B2A; --gold-soft:#F5EDDD;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif;
+  font-size:17px;line-height:1.78;
+  background-image:linear-gradient(180deg,#fff 0,var(--paper) 420px)}
+a{color:var(--rx)}
+.wrap{max-width:940px;margin:0 auto;padding:0 20px}
+
+.top{border-bottom:1px solid var(--line);background:rgba(255,255,255,.9);
+  position:sticky;top:0;z-index:9;backdrop-filter:blur(6px)}
+.top .wrap{display:flex;align-items:center;gap:14px;height:62px;font-size:14.5px}
+.top a{color:var(--muted);text-decoration:none}
+.top a:hover{color:var(--ink)}
+.top .home{font-family:"LXGW WenKai TC","DFKai-SB",serif;
+  font-weight:700;color:var(--ink);font-size:21px;letter-spacing:.02em}
+.top .sp{flex:1}
+
+.hero{padding:44px 0 26px}
+.hero h1{font-family:"LXGW WenKai TC",serif;font-size:32px;margin:0 0 10px;letter-spacing:.02em}
+.hero p{margin:0;color:var(--muted);font-size:16px;max-width:62ch}
+.pill{display:inline-block;background:var(--move-soft);color:var(--move);
+  border-radius:99px;padding:2px 13px;font-size:12.5px;font-weight:700;letter-spacing:.06em;margin-bottom:12px}
+
+.sec{margin:34px 0 10px;font-size:13px;font-weight:700;letter-spacing:.12em;color:var(--muted)}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(268px,1fr));gap:16px}
+.card{display:block;background:#fff;border:1px solid var(--line);border-radius:12px;
+  padding:18px 20px;text-decoration:none;color:inherit;transition:.16s;position:relative;overflow:hidden}
+.card:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(0,0,0,.09);border-color:#C9C9BA}
+.card .lv{font-size:11.5px;font-weight:700;letter-spacing:.08em;color:var(--move)}
+.card h3{margin:5px 0 7px;font-size:19px;font-family:"LXGW WenKai TC",serif}
+.card p{margin:0;font-size:14.5px;color:var(--muted);line-height:1.68}
+.card::after{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--move)}
+.card.eat::after{background:var(--diet)}   .card.eat .lv{color:var(--diet)}
+.card.meds::after{background:var(--rx)}    .card.meds .lv{color:var(--rx)}
+.card.clinic::after{background:var(--flag)}.card.clinic .lv{color:var(--flag)}
+.card.tool{background:var(--move-soft)}
+.card.tool::after{background:var(--move)}
+
+article{background:#fff;border:1px solid var(--line);border-radius:14px;
+  padding:34px 40px 44px;margin:26px 0 40px}
+article h1{font-family:"LXGW WenKai TC",serif;font-size:29px;margin:0 0 6px;padding-bottom:14px;border-bottom:2px solid var(--ink)}
+article h2{font-family:"LXGW WenKai TC",serif;font-size:22px;margin:36px 0 10px;
+  padding-left:11px;border-left:5px solid var(--move)}
+article h3{font-size:17.5px;margin:26px 0 6px;color:var(--diet);letter-spacing:.01em}
+article p{margin:.5em 0}
+article ul,article ol{padding-left:1.35em;margin:.5em 0}
+article li{margin:.3em 0}
+article blockquote{margin:16px 0;padding:13px 18px;background:var(--gold-soft);
+  border-radius:8px;color:#5A4520;font-size:15px}
+article hr{border:0;border-top:1px solid var(--line);margin:30px 0}
+article code{background:#F0F0E7;border-radius:4px;padding:1px 5px;font-size:.9em}
+article strong{font-weight:700}
+article figure{margin:18px 0;text-align:center}
+article img{max-width:100%;height:auto;border-radius:10px;border:1px solid var(--line)}
+article figcaption{font-size:13.5px;color:var(--muted);margin-top:6px}
+.src{font-size:13px;color:var(--muted);margin:.2em 0 1.2em;border-left:3px solid var(--line);padding-left:10px}
+.draft{background:var(--gold-soft);border-left:4px solid var(--gold);border-radius:8px;
+  padding:10px 16px;font-size:14px;color:#5A4520;margin:0 0 20px}
+.tw{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:460px}
+th,td{border:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top}
+th{background:#F4F4EC;font-weight:700;white-space:nowrap}
+
+.toc{background:#F7F7EF;border:1px solid var(--line);border-radius:10px;
+  padding:14px 18px 15px;margin:0 0 26px;max-height:40vh;overflow-y:auto;overscroll-behavior:contain}
+.toc-t{font-size:12px;font-weight:700;letter-spacing:.1em;color:var(--muted);margin-bottom:8px}
+.toc-s{margin-bottom:7px}
+.toc-s:last-child{margin-bottom:0}
+.toc-h{display:inline-block;font-weight:700;font-size:15.5px;color:var(--ink);text-decoration:none;line-height:1.5}
+.toc-h:hover{color:var(--move)}
+.toc-k{display:flex;flex-wrap:wrap;gap:3px 14px;margin:1px 0 0 2px}
+.toc-k a{font-size:13.6px;color:var(--muted);text-decoration:none;line-height:1.65}
+.toc-k a:hover{color:var(--move);text-decoration:underline}
+article h2,article h3{scroll-margin-top:76px}
+
+/* 章間導航 */
+.chnav{display:flex;justify-content:space-between;gap:12px;margin:0 0 40px}
+.chnav a{flex:1;background:#fff;border:1px solid var(--line);border-radius:10px;
+  padding:12px 16px;text-decoration:none;color:var(--ink);font-size:14.5px;transition:.16s}
+.chnav a:hover{border-color:var(--move);color:var(--move)}
+.chnav .next{text-align:right}
+
+/* 自評工具 */
+.calc{background:#fff;border:1px solid var(--line);border-radius:14px;padding:28px 32px;margin:26px 0}
+.calc .row{display:flex;flex-wrap:wrap;gap:14px;margin:14px 0}
+.calc label{display:block;font-size:14px;font-weight:700;margin-bottom:5px}
+.calc .f{flex:1;min-width:130px}
+.calc input[type=number]{width:100%;padding:9px 12px;border:1px solid var(--line);border-radius:8px;
+  font-size:17px;font-family:inherit;background:var(--paper)}
+.calc .seg{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.calc .seg button{flex:1;padding:9px 0;border:0;background:#fff;font-size:15px;font-family:inherit;cursor:pointer;color:var(--muted)}
+.calc .seg button.on{background:var(--move);color:#fff;font-weight:700}
+.calc .cbs{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:15px}
+.calc .cbs label{font-weight:400;display:flex;align-items:center;gap:6px;margin:0}
+.calc .go{margin-top:18px;width:100%;padding:13px 0;border:0;border-radius:10px;
+  background:var(--move);color:#fff;font-size:17px;font-weight:700;font-family:inherit;cursor:pointer}
+.calc .go:hover{filter:brightness(1.06)}
+#res{display:none;margin-top:22px;border-radius:12px;padding:20px 24px;line-height:1.8}
+#res.g{display:block;background:var(--move-soft)}
+#res.y{display:block;background:#FBF3D9}
+#res.r{display:block;background:#FDECEA}
+#res.u{display:block;background:var(--rx-soft)}
+#res .big{font-size:21px;font-weight:700;margin-bottom:6px}
+#res .nums{font-size:15px;color:var(--muted);margin-bottom:10px}
+.priv{font-size:13.5px;color:var(--muted);margin-top:14px}
+
+footer{border-top:1px solid var(--line);margin-top:20px;padding:26px 0 46px;
+  font-size:14px;color:var(--muted)}
+footer b{color:var(--ink)}
+.warn{background:#FDECEA;border-left:4px solid var(--flag);border-radius:8px;
+  padding:14px 18px;font-size:15px;margin:20px 0;color:#7A2016;line-height:1.7}
+
+.totop{position:fixed;right:20px;bottom:20px;width:44px;height:44px;border-radius:50%;
+  border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer;
+  box-shadow:0 4px 14px rgba(0,0,0,.14);display:flex;align-items:center;justify-content:center;
+  opacity:0;visibility:hidden;transition:.18s;z-index:20;padding:0}
+.totop.on{opacity:1;visibility:visible}
+.totop:hover{border-color:var(--move);color:var(--move)}
+.totop svg{width:20px;height:20px}
+
+@media(max-width:640px){
+  .top .wrap{height:56px;gap:10px}
+  .top .home{font-size:18px}
+  .top .crumb{display:none}
+  .hero h1{font-size:26px}
+  article{padding:24px 20px 32px;border-radius:10px}
+  article h1{font-size:22px}
+  .calc{padding:20px 18px}
+  .toc{padding:12px 14px 13px;margin-bottom:20px;max-height:38vh}
+  .totop{right:14px;bottom:14px}
+}
+</style>
+</head>
+<body>
+<nav class="top"><div class="wrap">
+  <a class="home" href="./">健康體重管理</a>
+  <span class="sp"></span>
+  <span class="crumb"><a href="./">總覽</a><span style="color:#C9C9BA"> / </span>為什麼要管理體重</span>
+  <a href="https://philia81301-commits.github.io/">← 工具集首頁</a>
+</div></nav>
+<div class="wrap"><article><h1 id="第章體重與健康為什麼要管理體重">第①章　體重與健康：為什麼要管理體重？</h1>
+<nav class="toc"><div class="toc-t">本頁內容</div><div class="toc-s"><a class="toc-h" href="#本章想讓讀者帶走的三句話">本章想讓讀者帶走的三句話</a></div><div class="toc-s"><a class="toc-h" href="#1-1肥胖是一種病不是意志力問題">1-1 肥胖是一種病，不是意志力問題</a></div><div class="toc-s"><a class="toc-h" href="#1-2你的體重正在影響哪些地方">1-2 你的體重，正在影響哪些地方？</a></div><div class="toc-s"><a class="toc-h" href="#1-3兩個數字看出你的風險BMI與腰圍">1-3 兩個數字，看出你的風險：BMI 與腰圍</a></div><div class="toc-s"><a class="toc-h" href="#1-4好消息減510健康就有感控制體重的效益">1-4 好消息：減 5–10%，健康就有感（控制體重的效益）</a></div><div class="toc-s"><a class="toc-h" href="#1-5在地的提醒你不是一個人">1-5 在地的提醒：你不是一個人</a></div></nav>
+<hr>
+<h2 id="本章想讓讀者帶走的三句話">本章想讓讀者帶走的三句話</h2>
+<ol>
+<li>肥胖不是外表問題，是一種<strong>慢性疾病</strong>，和糖尿病、高血壓一樣需要被治療。</li>
+<li>體重多出來的每一公斤，都在對血糖、血壓、肝臟、關節、睡眠<strong>收利息</strong>。</li>
+<li>不用瘦成模特兒——<strong>減掉原本體重的 5–10%</strong>，健康就有看得見的改善。</li>
+</ol>
+<hr>
+<h2 id="1-1肥胖是一種病不是意志力問題">1-1 肥胖是一種病，不是意志力問題</h2>
+<p>很多人以為胖是「懶」或「不節制」。醫學上不是這樣看的——體重由大腦、荷爾蒙、腸胃道訊號共同調控，肥胖是這套系統失衡的<strong>慢性疾病</strong>。世界衛生組織早已把肥胖列為疾病，它也是最容易被忽略的慢性病之一。把肥胖當成病，你就會明白：<strong>它可以被診斷、被治療，也值得去看醫生</strong>。</p>
+<p class="src">出處：WHO 肥胖疾病定位；瘦體素／飢餓素機轉（Lehninger 筆記白話化）</p>
+<h2 id="1-2你的體重正在影響哪些地方">1-2 你的體重，正在影響哪些地方？</h2>
+<p>體重超標時，全身都在默默受影響——</p>
+<ul>
+<li><strong>血糖</strong>：脂肪讓胰島素「叫不動」細胞，血糖慢慢失控，走向第 2 型糖尿病</li>
+<li><strong>血壓與心血管</strong>：心臟要把血打進更大的身體，血壓上升，心肌梗塞與中風風險跟著升</li>
+<li><strong>肝臟</strong>：吃進來用不完的熱量堆在肝臟，變成<strong>脂肪肝</strong>——台灣成人非常普遍，多數人不知道自己有</li>
+<li><strong>關節</strong>：走路時膝蓋承受的力量是體重的好幾倍，多的體重讓膝蓋提早磨損</li>
+<li><strong>睡眠</strong>：脖子與胸腹的脂肪壓迫呼吸道，<strong>打鼾、睡眠呼吸中止</strong>，白天精神差</li>
+<li><strong>癌症風險</strong>：肥胖與多種癌症（大腸癌、乳癌、子宮內膜癌等）風險升高有關</li>
+</ul>
+<p class="src">出處：肥胖共病通則（AACE/國健署肥胖防治指引方向）</p>
+<h2 id="1-3兩個數字看出你的風險BMI與腰圍">1-3 兩個數字，看出你的風險：BMI 與腰圍</h2>
+<p>不用抽血，先看兩個數字——</p>
+<ul>
+<li><strong>BMI</strong>＝體重（公斤）÷ 身高（公尺）÷ 身高（公尺）。台灣標準：<strong>24 以上是過重，27 以上是肥胖</strong>。</li>
+<li><strong>腰圍</strong>：男性 <strong>90 公分</strong>（約 35.5 吋）、女性 <strong>80 公分</strong>（約 31.5 吋）以上，代表內臟脂肪過多——就算 BMI 正常，腰圍超標一樣有風險。</li>
+<li>下一章有計算工具，30 秒算出你的分級。</li>
+</ul>
+<p class="src">出處：國健署成人肥胖定義（BMI 24/27；腰圍男 90／女 80 cm）</p>
+<h2 id="1-4好消息減510健康就有感控制體重的效益">1-4 好消息：減 5–10%，健康就有感（控制體重的效益）</h2>
+<p>管理體重最值得知道的一件事：<strong>不需要瘦回 20 歲</strong>。以 80 公斤為例，減 4–8 公斤（5–10%）就能：</p>
+<ul>
+<li><strong>血糖</strong>：明顯降低變成糖尿病的機會——大型研究顯示，減重加上規律運動，預防糖尿病的效果<strong>比吃降血糖藥更好</strong>，發生率下降超過一半</li>
+<li><strong>血壓、血脂</strong>：下降到可能減少用藥的程度（由醫師評估）</li>
+<li><strong>脂肪肝</strong>：肝臟脂肪開始消退，減 7–10% 連肝臟發炎都可能改善</li>
+<li><strong>膝蓋</strong>：每減 1 公斤，走路時膝蓋少扛好幾公斤，疼痛與磨損都減輕</li>
+<li><strong>睡眠與精神</strong>：打鼾改善、白天更有精神</li>
+<li>額外的好處：衣服變合身、體力變好、對自己更有信心</li>
+</ul>
+<p class="src">出處：DPP 研究（NEJM 2002）；減重幅度與共病改善對照（AACE 指引方向）</p>
+<h2 id="1-5在地的提醒你不是一個人">1-5 在地的提醒：你不是一個人</h2>
+<p>在我們的減重門診裡，<strong>每 10 個人有 7 個天天外食、將近 6 個完全沒有運動習慣</strong>——如果你也是，這很正常，這正是多數人變胖的環境。差別只在：有人開始管理了，有人還沒。下一章，先花 30 秒看看自己站在哪裡。</p>
+<p class="src">出處：本院減重門診 270 份問卷（2025-09～2026-05，僅引比例）</p>
+<hr></article><div class="chnav"><span></span><a class="next" href="check.html">第②章：我需要管理體重嗎 →</a></div></div>
+<footer><div class="wrap">
+  <b>潘湘如醫師｜家醫科</b>　·　一般民眾健康體重管理衛教<br>
+  本站內容為衛教參考，不能取代個別醫療評估；用藥請務必與醫師討論。本站不收集任何個人資料。<br>
+  想深入了解 GLP-1 減重治療？請見 <a href="https://philia81301-commits.github.io/obesity-education-clinic/">GLP-1 減重衛教（病人版）</a>　·
+  原始碼：<a href="https://github.com/philia81301-commits/healthy-weight-public">GitHub</a>
+</div></footer>
+<button class="totop" type="button" aria-label="回到頂端">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>
+</button>
+<script>
+(function(){
+  var b=document.querySelector('.totop');
+  if(!b)return;
+  var show=function(){ b.classList.toggle('on', window.scrollY>420); };
+  window.addEventListener('scroll', show, {passive:true});
+  show();
+  b.addEventListener('click', function(){ window.scrollTo({top:0, behavior:'smooth'}); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>認識減重藥物｜健康體重管理</title>
+<meta name="description" content="三類藥物地圖與「瘦瘦針」解析：誰適合、治療長什麼樣、為什麼絕對不要網購。">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@400;700&family=Noto+Sans+TC:wght@400;500;700&display=swap">
+<style>
+:root{
+  --ink:#21281F; --muted:#66705F; --line:#DFDFD4; --paper:#FBFAF4;
+  --diet:#C2620A; --diet-soft:#FCE9D4;
+  --move:#0A8A4D; --move-soft:#DCF3E5;
+  --rx:#3563C9;   --rx-soft:#E1E9FB;
+  --flag:#C82D1B;
+  --gold:#9A6B2A; --gold-soft:#F5EDDD;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif;
+  font-size:17px;line-height:1.78;
+  background-image:linear-gradient(180deg,#fff 0,var(--paper) 420px)}
+a{color:var(--rx)}
+.wrap{max-width:940px;margin:0 auto;padding:0 20px}
+
+.top{border-bottom:1px solid var(--line);background:rgba(255,255,255,.9);
+  position:sticky;top:0;z-index:9;backdrop-filter:blur(6px)}
+.top .wrap{display:flex;align-items:center;gap:14px;height:62px;font-size:14.5px}
+.top a{color:var(--muted);text-decoration:none}
+.top a:hover{color:var(--ink)}
+.top .home{font-family:"LXGW WenKai TC","DFKai-SB",serif;
+  font-weight:700;color:var(--ink);font-size:21px;letter-spacing:.02em}
+.top .sp{flex:1}
+
+.hero{padding:44px 0 26px}
+.hero h1{font-family:"LXGW WenKai TC",serif;font-size:32px;margin:0 0 10px;letter-spacing:.02em}
+.hero p{margin:0;color:var(--muted);font-size:16px;max-width:62ch}
+.pill{display:inline-block;background:var(--move-soft);color:var(--move);
+  border-radius:99px;padding:2px 13px;font-size:12.5px;font-weight:700;letter-spacing:.06em;margin-bottom:12px}
+
+.sec{margin:34px 0 10px;font-size:13px;font-weight:700;letter-spacing:.12em;color:var(--muted)}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(268px,1fr));gap:16px}
+.card{display:block;background:#fff;border:1px solid var(--line);border-radius:12px;
+  padding:18px 20px;text-decoration:none;color:inherit;transition:.16s;position:relative;overflow:hidden}
+.card:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(0,0,0,.09);border-color:#C9C9BA}
+.card .lv{font-size:11.5px;font-weight:700;letter-spacing:.08em;color:var(--move)}
+.card h3{margin:5px 0 7px;font-size:19px;font-family:"LXGW WenKai TC",serif}
+.card p{margin:0;font-size:14.5px;color:var(--muted);line-height:1.68}
+.card::after{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--move)}
+.card.eat::after{background:var(--diet)}   .card.eat .lv{color:var(--diet)}
+.card.meds::after{background:var(--rx)}    .card.meds .lv{color:var(--rx)}
+.card.clinic::after{background:var(--flag)}.card.clinic .lv{color:var(--flag)}
+.card.tool{background:var(--move-soft)}
+.card.tool::after{background:var(--move)}
+
+article{background:#fff;border:1px solid var(--line);border-radius:14px;
+  padding:34px 40px 44px;margin:26px 0 40px}
+article h1{font-family:"LXGW WenKai TC",serif;font-size:29px;margin:0 0 6px;padding-bottom:14px;border-bottom:2px solid var(--ink)}
+article h2{font-family:"LXGW WenKai TC",serif;font-size:22px;margin:36px 0 10px;
+  padding-left:11px;border-left:5px solid var(--move)}
+article h3{font-size:17.5px;margin:26px 0 6px;color:var(--diet);letter-spacing:.01em}
+article p{margin:.5em 0}
+article ul,article ol{padding-left:1.35em;margin:.5em 0}
+article li{margin:.3em 0}
+article blockquote{margin:16px 0;padding:13px 18px;background:var(--gold-soft);
+  border-radius:8px;color:#5A4520;font-size:15px}
+article hr{border:0;border-top:1px solid var(--line);margin:30px 0}
+article code{background:#F0F0E7;border-radius:4px;padding:1px 5px;font-size:.9em}
+article strong{font-weight:700}
+article figure{margin:18px 0;text-align:center}
+article img{max-width:100%;height:auto;border-radius:10px;border:1px solid var(--line)}
+article figcaption{font-size:13.5px;color:var(--muted);margin-top:6px}
+.src{font-size:13px;color:var(--muted);margin:.2em 0 1.2em;border-left:3px solid var(--line);padding-left:10px}
+.draft{background:var(--gold-soft);border-left:4px solid var(--gold);border-radius:8px;
+  padding:10px 16px;font-size:14px;color:#5A4520;margin:0 0 20px}
+.tw{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:460px}
+th,td{border:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top}
+th{background:#F4F4EC;font-weight:700;white-space:nowrap}
+
+.toc{background:#F7F7EF;border:1px solid var(--line);border-radius:10px;
+  padding:14px 18px 15px;margin:0 0 26px;max-height:40vh;overflow-y:auto;overscroll-behavior:contain}
+.toc-t{font-size:12px;font-weight:700;letter-spacing:.1em;color:var(--muted);margin-bottom:8px}
+.toc-s{margin-bottom:7px}
+.toc-s:last-child{margin-bottom:0}
+.toc-h{display:inline-block;font-weight:700;font-size:15.5px;color:var(--ink);text-decoration:none;line-height:1.5}
+.toc-h:hover{color:var(--move)}
+.toc-k{display:flex;flex-wrap:wrap;gap:3px 14px;margin:1px 0 0 2px}
+.toc-k a{font-size:13.6px;color:var(--muted);text-decoration:none;line-height:1.65}
+.toc-k a:hover{color:var(--move);text-decoration:underline}
+article h2,article h3{scroll-margin-top:76px}
+
+/* 章間導航 */
+.chnav{display:flex;justify-content:space-between;gap:12px;margin:0 0 40px}
+.chnav a{flex:1;background:#fff;border:1px solid var(--line);border-radius:10px;
+  padding:12px 16px;text-decoration:none;color:var(--ink);font-size:14.5px;transition:.16s}
+.chnav a:hover{border-color:var(--move);color:var(--move)}
+.chnav .next{text-align:right}
+
+/* 自評工具 */
+.calc{background:#fff;border:1px solid var(--line);border-radius:14px;padding:28px 32px;margin:26px 0}
+.calc .row{display:flex;flex-wrap:wrap;gap:14px;margin:14px 0}
+.calc label{display:block;font-size:14px;font-weight:700;margin-bottom:5px}
+.calc .f{flex:1;min-width:130px}
+.calc input[type=number]{width:100%;padding:9px 12px;border:1px solid var(--line);border-radius:8px;
+  font-size:17px;font-family:inherit;background:var(--paper)}
+.calc .seg{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.calc .seg button{flex:1;padding:9px 0;border:0;background:#fff;font-size:15px;font-family:inherit;cursor:pointer;color:var(--muted)}
+.calc .seg button.on{background:var(--move);color:#fff;font-weight:700}
+.calc .cbs{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:15px}
+.calc .cbs label{font-weight:400;display:flex;align-items:center;gap:6px;margin:0}
+.calc .go{margin-top:18px;width:100%;padding:13px 0;border:0;border-radius:10px;
+  background:var(--move);color:#fff;font-size:17px;font-weight:700;font-family:inherit;cursor:pointer}
+.calc .go:hover{filter:brightness(1.06)}
+#res{display:none;margin-top:22px;border-radius:12px;padding:20px 24px;line-height:1.8}
+#res.g{display:block;background:var(--move-soft)}
+#res.y{display:block;background:#FBF3D9}
+#res.r{display:block;background:#FDECEA}
+#res.u{display:block;background:var(--rx-soft)}
+#res .big{font-size:21px;font-weight:700;margin-bottom:6px}
+#res .nums{font-size:15px;color:var(--muted);margin-bottom:10px}
+.priv{font-size:13.5px;color:var(--muted);margin-top:14px}
+
+footer{border-top:1px solid var(--line);margin-top:20px;padding:26px 0 46px;
+  font-size:14px;color:var(--muted)}
+footer b{color:var(--ink)}
+.warn{background:#FDECEA;border-left:4px solid var(--flag);border-radius:8px;
+  padding:14px 18px;font-size:15px;margin:20px 0;color:#7A2016;line-height:1.7}
+
+.totop{position:fixed;right:20px;bottom:20px;width:44px;height:44px;border-radius:50%;
+  border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer;
+  box-shadow:0 4px 14px rgba(0,0,0,.14);display:flex;align-items:center;justify-content:center;
+  opacity:0;visibility:hidden;transition:.18s;z-index:20;padding:0}
+.totop.on{opacity:1;visibility:visible}
+.totop:hover{border-color:var(--move);color:var(--move)}
+.totop svg{width:20px;height:20px}
+
+@media(max-width:640px){
+  .top .wrap{height:56px;gap:10px}
+  .top .home{font-size:18px}
+  .top .crumb{display:none}
+  .hero h1{font-size:26px}
+  article{padding:24px 20px 32px;border-radius:10px}
+  article h1{font-size:22px}
+  .calc{padding:20px 18px}
+  .toc{padding:12px 14px 13px;margin-bottom:20px;max-height:38vh}
+  .totop{right:14px;bottom:14px}
+}
+</style>
+</head>
+<body>
+<nav class="top"><div class="wrap">
+  <a class="home" href="./">健康體重管理</a>
+  <span class="sp"></span>
+  <span class="crumb"><a href="./">總覽</a><span style="color:#C9C9BA"> / </span>認識減重藥物</span>
+  <a href="https://philia81301-commits.github.io/">← 工具集首頁</a>
+</div></nav>
+<div class="wrap"><article><h1 id="第章認識減重藥物合適的人在醫師評估下使用">第⑥章　認識減重藥物：合適的人，在醫師評估下使用</h1>
+<div class="draft">本章內容仍在最終審訂中，細節可能調整。</div><nav class="toc"><div class="toc-t">本頁內容</div><div class="toc-s"><a class="toc-h" href="#本章想讓讀者帶走的三句話">本章想讓讀者帶走的三句話</a></div><div class="toc-s"><a class="toc-h" href="#6-1什麼時候該考慮藥物">6-1 什麼時候該考慮藥物？</a></div><div class="toc-s"><a class="toc-h" href="#6-2目前有哪些類型民眾版地圖">6-2 目前有哪些類型？（民眾版地圖）</a></div><div class="toc-s"><a class="toc-h" href="#6-3聚焦瘦瘦針腸泌素類針劑">6-3 聚焦「瘦瘦針」：腸泌素類針劑</a></div><div class="toc-s"><a class="toc-h" href="#6-4三個誠實的提醒">6-4 三個誠實的提醒</a></div><div class="toc-s"><a class="toc-h" href="#6-5絕對不要網購代購朋友分讓">6-5 絕對不要：網購、代購、朋友分讓</a></div><div class="toc-s"><a class="toc-h" href="#6-6民眾最常問的三題">6-6 民眾最常問的三題</a></div></nav>
+<hr>
+<h2 id="本章想讓讀者帶走的三句話">本章想讓讀者帶走的三句話</h2>
+<ol>
+<li>減重藥物是<strong>正規醫療的一部分</strong>，合適的人用對藥，效果實實在在。</li>
+<li>每一種藥都有適合與不適合的人——<strong>一定要經過醫師評估</strong>，沒有例外。</li>
+<li><strong>網購、代購、朋友分讓，一律不要</strong>——假藥與劑量錯誤的風險是真實存在的。</li>
+</ol>
+<hr>
+<h2 id="6-1什麼時候該考慮藥物">6-1 什麼時候該考慮藥物？</h2>
+<p>不是想瘦就吃藥。一般是這樣的人才考慮：</p>
+<ul>
+<li>第②章的<strong>紅燈族群</strong>（BMI 27 以上；或 24 以上加上血壓、血糖異常等）</li>
+<li>而且<strong>已經認真調整飲食運動一段時間，體重仍然下不來</strong></li>
+</ul>
+<p>藥物的角色是第③章說的「助推器」：幫你控制食慾、突破卡關，讓飲食運動的努力更有效——不是取代它們。</p>
+<p class="src">出處：台灣肥胖藥物治療適應症通則</p>
+<h2 id="6-2目前有哪些類型民眾版地圖">6-2 目前有哪些類型？（民眾版地圖）</h2>
+<p>台灣經衛福部核准的減重藥物，大致分三類——</p>
+<ul>
+<li><strong>腸泌素類針劑</strong>（新聞常說的「瘦瘦針／瘦瘦筆」）：模擬腸道飽足荷爾蒙，讓食慾下降、容易飽，是近年效果最受注目的一類，每週施打一次的劑型為主</li>
+<li><strong>口服食慾調節類</strong>：作用在大腦的食慾中樞，減少想吃的慾望</li>
+<li><strong>油脂吸收抑制類</strong>：讓吃進去的部分油脂不被吸收、隨糞便排出</li>
+</ul>
+<p>哪一類適合你？取決於你的身體狀況、共病、生活型態——<strong>這正是需要醫師評估的原因</strong>，沒有「最好的藥」，只有「適合你的藥」。</p>
+<p class="src">出處：衛福部核准減重藥物類別（民眾層級概覽）</p>
+<h2 id="6-3聚焦瘦瘦針腸泌素類針劑">6-3 聚焦「瘦瘦針」：腸泌素類針劑</h2>
+<p>新聞裡的「瘦瘦針／瘦瘦筆」，正式名稱是<strong>腸泌素類針劑</strong>。把它講清楚：</p>
+<ul>
+<li><strong>它是什麼</strong>：模擬你吃飽後腸道自然分泌的「飽足荷爾蒙」，讓大腦提早收到「飽了」的訊號、胃排空變慢——於是<strong>食慾下降、容易飽、對食物的渴望變小</strong>。它不是「燃脂針」，是幫你自然吃得少。</li>
+<li><strong>為什麼受注目</strong>：第③章說過，身體的設定點會用飢餓感把體重拉回去——這類藥正好作用在「食慾」這個減重最難纏的環節，所以效果在目前的減重藥物中最受肯定。</li>
+<li><strong>治療長什麼樣</strong>：多為<strong>每週一次</strong>的皮下注射，劑量由醫師<strong>從低慢慢調</strong>，並定期回診追蹤。初期常見腸胃不適（噁心、脹、沒胃口），多數人隨身體適應會改善——怎麼調整，交給你的醫師。</li>
+<li><strong>要特別注意</strong>：食量變小的期間，<strong>蛋白質要吃夠、肌力要照練</strong>（第④⑤章），否則瘦掉的會有一部分是肌肉。</li>
+<li><strong>誰不適合</strong>：孕婦、備孕與哺乳中，以及某些特定病史者——這正是需要醫師評估的原因，不要跳過這一關。</li>
+</ul>
+<p class="src">出處：腸泌素機轉（病人版 S1 醫師審定 2026-08-22 白話化）＋GLP-1 RA 民眾衛教通則</p>
+<h2 id="6-4三個誠實的提醒">6-4 三個誠實的提醒</h2>
+<p>開始用藥前，先知道三件事：</p>
+<ol>
+<li><strong>藥在幫你的時候，習慣要跟著建立</strong>——藥物控制食慾的期間，正是把「吃對、動起來」練成習慣的黃金期；只靠藥、不改習慣，停藥後體重多半會回來</li>
+<li><strong>這是需要追蹤的治療</strong>——定期回診調整，不是拿了藥就結束</li>
+<li><strong>多數減重藥物屬自費</strong>——費用與療程長短，就診時和醫師討論清楚</li>
+</ol>
+<p class="src">出處：肥胖藥物治療通則＋醫師臨床衛教經驗</p>
+<h2 id="6-5絕對不要網購代購朋友分讓">6-5 絕對不要：網購、代購、朋友分讓</h2>
+<p>「瘦瘦筆」爆紅之後，網路上出現大量來路不明的貨源。請記住：</p>
+<ul>
+<li><strong>網購或代購的針劑，你無法確認是真藥還是假藥</strong>——查獲的仿冒品裡，有的根本不含有效成分，有的成分和標示完全不同</li>
+<li><strong>劑量需要醫師逐步調整</strong>，自己打、照別人的劑量打，噁心嘔吐甚至更嚴重的狀況都可能發生，而且沒有人幫你把關</li>
+<li><strong>處方藥轉讓、販售是違法的</strong>，朋友「分你一支」也一樣</li>
+</ul>
+<p>在台灣，這些藥<strong>憑醫師處方</strong>才能合法取得——這不是門檻，是保護。</p>
+<p class="src">出處：處方藥管理規範＋仿冒藥品風險通則</p>
+<h2 id="6-6民眾最常問的三題">6-6 民眾最常問的三題</h2>
+<ul>
+<li><strong>Q：吃減重藥會不會傷身體？</strong>&lt;br&gt;A：經核准的藥物在醫師監測下使用，安全性是有把關的；真正傷身的是來路不明的藥、和放著肥胖不處理的共病。</li>
+<li><strong>Q：要用多久？</strong>&lt;br&gt;A：因人而異——這是慢性病管理的概念，療程由你和醫師依進度討論，不是固定套餐。</li>
+<li><strong>Q：停藥會復胖嗎？</strong>&lt;br&gt;A：有這個風險，尤其習慣沒建立的話。所以治療期間的重點永遠是：讓藥幫你把「吃對、動起來」練成不需要藥也維持得住的日常。</li>
+</ul>
+<p class="src">出處：醫師臨床衛教經驗</p>
+<hr></article><div class="chnav"><a href="move.html">← 第⑤章：動：不是苦練，是動得對</a><a class="next" href="clinic.html">第⑦章：何時該就醫 →</a></div></div>
+<footer><div class="wrap">
+  <b>潘湘如醫師｜家醫科</b>　·　一般民眾健康體重管理衛教<br>
+  本站內容為衛教參考，不能取代個別醫療評估；用藥請務必與醫師討論。本站不收集任何個人資料。<br>
+  想深入了解 GLP-1 減重治療？請見 <a href="https://philia81301-commits.github.io/obesity-education-clinic/">GLP-1 減重衛教（病人版）</a>　·
+  原始碼：<a href="https://github.com/philia81301-commits/healthy-weight-public">GitHub</a>
+</div></footer>
+<button class="totop" type="button" aria-label="回到頂端">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>
+</button>
+<script>
+(function(){
+  var b=document.querySelector('.totop');
+  if(!b)return;
+  var show=function(){ b.classList.toggle('on', window.scrollY>420); };
+  window.addEventListener('scroll', show, {passive:true});
+  show();
+  b.addEventListener('click', function(){ window.scrollTo({top:0, behavior:'smooth'}); });
+})();
+</script>
+</body>
+</html>
