@@ -3,15 +3,18 @@
 > 任何 Agent、任何電腦接手前**必讀**；收工時**必更新**。本檔只放交接必需的精簡資訊，詳細脈絡放 Obsidian（L3）。
 
 ## ⏯️ 目前做到哪
-**網站已上線**：<https://philia81301-commits.github.io/healthy-weight-public/>
-（7 章節頁＋BMI/腰圍自評工具＋首頁；手機驗證無橫向溢出；QR 在 `design/site-qr.png`）。
+**網站已上線並完成一輪 UI 迭代**：<https://philia81301-commits.github.io/healthy-weight-public/>
+本輪：F 能量斜紋底圖（右上淡出、濃度 0.12）、首頁嵌入 4 頁簡報圖（寬版 1240px 容器、
+點頁進章節、附 PPTX 下載）、自評工具改同寬橫幅＋黃色立體「開始測」按鈕、
+頁首「總覽」黃色立體按鈕、站名放大 26px、移除工具集連結（民眾動線單純化）。
+已上架工具集首頁與 QR 總表（另一 session 已收工補記）。
 七章內容：①–④已審定；⑤⑥⑦待審（⑤5-5、⑦7-3/7-4 已依審稿修訂）。
-**4 頁簡報 PPTX 已產出**：`slides/健康體重管理-4頁簡報.pptx`。
 
 ## 🚦 目前狀態
 - 全站骨幹訊息六條與各章狀態見 `content/index.md`（紅燈條件、切點、三腳凳等跨章口徑都鎖在那裡）
 - 簡報：spec 在 `slides/spec.yaml`，底圖在 `slides/images/`（deck-p* 原圖、page_0N 裁切版）；
   文字用「jf open 粉圓 2.1」疊在 PPTX 層，改字直接開 PPTX；裁切帶 p1(80,80) p2(100,60) p3(130,30) p4(30,130)
+- **簡報改版後**要重跑 `slides/export/` 頁圖輸出（python win32com `Slide.Export`）再 build，首頁嵌圖才會同步
 - **PDF 先不轉**（轉法：python win32com SaveAs 32；PowerShell COM 會 TYPE_E_CANTLOADLIBRARY）
 - 待醫師提供：⑦7-4 本院掛號資訊（連結／時段）
 
@@ -28,6 +31,6 @@
 - 自評工具不收任何資料——與篩檢工具的模式刻意不同，不要「補上」資料回傳
 
 ## 🕐 最後更新
-- 時間：2026-08-24
+- 時間：2026-08-24（傍晚，第二次收工：網站上線＋UI 迭代）
 - 更新者：Claude Code（Fable 5）@ DESKTOP-LVSV9Q5
 - Git push：✅ 已推（philia81301-commits/healthy-weight-public）

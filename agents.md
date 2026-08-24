@@ -39,9 +39,10 @@ healthy-weight-public/
 ├── handoff.md         # 交接檔
 ├── rdq/
 │   └── RDQ-spec-healthy-weight-public-20260824.md   # 需求規格卡（confirmed）
-├── content/           # 衛教內容 *.md（逐章審稿）
-├── design/            # 視覺（自病人版移植）
-├── tools/             # build-site.js（自病人版移植改造）
+├── content/           # 衛教內容 *.md（逐章審稿）＋index.md（體系總覽、跨章口徑）
+├── design/            # 插圖（腰圍 SVG＋寫實照 generated/）、site-qr.png
+├── slides/            # 4 頁簡報：spec.yaml＋images/ 底圖＋export/ 頁圖＋PPTX
+├── tools/             # build-site.js（自病人版移植改造：剝醫師備註、自評工具、寬版首頁）
 └── docs/              # GitHub Pages 網站（build 產生，勿手改）
 ```
 
