@@ -31,11 +31,11 @@ a{color:var(--rx)}
 
 .top{border-bottom:1px solid var(--line);background:rgba(255,255,255,.9);
   position:sticky;top:0;z-index:9;backdrop-filter:blur(6px)}
-.top .wrap{display:flex;align-items:center;gap:14px;height:62px;font-size:14.5px}
+.top .wrap{display:flex;align-items:center;gap:14px;height:68px;font-size:14.5px}
 .top a{color:var(--muted);text-decoration:none}
 .top a:hover{color:var(--ink)}
 .top .home{font-family:"LXGW WenKai TC","DFKai-SB",serif;
-  font-weight:700;color:var(--ink);font-size:21px;letter-spacing:.02em}
+  font-weight:700;color:var(--ink);font-size:26px;letter-spacing:.02em}
 .top .sp{flex:1}
 
 .hero{padding:44px 0 26px}
@@ -58,6 +58,14 @@ a{color:var(--rx)}
 .card.clinic::after{background:var(--flag)}.card.clinic .lv{color:var(--flag)}
 .card.tool{background:var(--move-soft)}
 .card.tool::after{background:var(--move)}
+
+/* 首頁簡報四格 */
+.slides{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.slides a{display:block;border-radius:12px;overflow:hidden;border:1px solid var(--line);
+  transition:.16s;background:#fff}
+.slides a:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(0,0,0,.12);border-color:#C9C9BA}
+.slides img{display:block;width:100%;height:auto}
+.dl{font-size:13.5px;color:var(--muted);margin-top:10px}
 
 article{background:#fff;border:1px solid var(--line);border-radius:14px;
   padding:34px 40px 44px;margin:26px 0 40px}
@@ -142,8 +150,8 @@ footer b{color:var(--ink)}
 .totop svg{width:20px;height:20px}
 
 @media(max-width:640px){
-  .top .wrap{height:56px;gap:10px}
-  .top .home{font-size:18px}
+  .top .wrap{height:58px;gap:10px}
+  .top .home{font-size:21px}
   .top .crumb{display:none}
   .hero h1{font-size:26px}
   article{padding:24px 20px 32px;border-radius:10px}
@@ -172,6 +180,15 @@ footer b{color:var(--ink)}
   <div class="cards">
     <a class="card tool" href="check-tool.html"><span class="lv">30 秒</span><h3>BMI／腰圍自評工具</h3><p>輸入三個數字，馬上知道你是綠燈、黃燈還是紅燈。純本機計算，不上傳任何資料。</p></a>
   </div>
+
+  <div class="sec">一分鐘看懂（點任一頁進對應章節）</div>
+  <div class="slides">
+    <a href="risk.html"><img src="assets/slide1.png" alt="為什麼要管理體重：肥胖是慢性病，減 5–10% 就有感" loading="lazy"></a>
+    <a href="check-tool.html"><img src="assets/slide2.png" alt="30 秒自我評估：BMI 與腰圍，綠黃紅燈" loading="lazy"></a>
+    <a href="model.html"><img src="assets/slide3.png" alt="正確的減重模式：飲食、運動、藥物三腳凳" loading="lazy"></a>
+    <a href="clinic.html"><img src="assets/slide4.png" alt="現在就開始：三步行動與就醫指引" loading="lazy"></a>
+  </div>
+  <p class="dl">這四頁可自由下載使用：<a href="https://github.com/philia81301-commits/healthy-weight-public/raw/master/slides/%E5%81%A5%E5%BA%B7%E9%AB%94%E9%87%8D%E7%AE%A1%E7%90%86-4%E9%A0%81%E7%B0%A1%E5%A0%B1.pptx">簡報檔（PPTX）</a></p>
 
   <div class="sec">七章指南</div>
   <div class="cards">
