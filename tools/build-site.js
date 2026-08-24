@@ -233,6 +233,13 @@ a{color:var(--rx)}
 .top .home{font-family:"LXGW WenKai TC","DFKai-SB",serif;
   font-weight:700;color:var(--ink);font-size:26px;letter-spacing:.02em}
 .top .sp{flex:1}
+/* 總覽：黃色立體按鈕（回首頁主要動線，手機也保留） */
+.top .ovbtn{display:inline-block;background:linear-gradient(180deg,#FFD75E,#F2B63B);
+  color:#5A4520;font-weight:700;font-size:16px;letter-spacing:.08em;
+  padding:8px 22px;border-radius:11px;border:1px solid #DDA62C;text-decoration:none;
+  box-shadow:0 3px 0 #C08A1F,0 5px 10px rgba(0,0,0,.15);transition:.12s}
+.top .ovbtn:hover{filter:brightness(1.06);color:#5A4520}
+.top .ovbtn:active{transform:translateY(2px);box-shadow:0 1px 0 #C08A1F,0 2px 5px rgba(0,0,0,.15)}
 
 .hero{padding:44px 0 26px}
 .hero h1{font-family:"LXGW WenKai TC",serif;font-size:32px;margin:0 0 10px;letter-spacing:.02em}
@@ -348,6 +355,7 @@ footer b{color:var(--ink)}
 @media(max-width:640px){
   .top .wrap{height:58px;gap:10px}
   .top .home{font-size:21px}
+  .top .ovbtn{font-size:14.5px;padding:6px 16px}
   .top .crumb{display:none}
   .hero h1{font-size:26px}
   article{padding:24px 20px 32px;border-radius:10px}
@@ -507,7 +515,7 @@ CHAPTERS.forEach((b, idx) => {
   const raw = fs.readFileSync(src, 'utf8');
   const isDraft = /^> 狀態：\*\*草稿\*\*/m.test(raw);
   const md = transform(raw);
-  const crumb = `<span class="crumb"><a href="./">總覽</a><span style="color:#C9C9BA"> / </span>${esc(b.title)}</span>`;
+  const crumb = `<span class="crumb">${esc(b.title)}</span><a class="ovbtn" href="./">總覽</a>`;
   const { html: bodyHtml, headings } = mdToHtml(md);
   const draftNote = isDraft ? '<div class="draft">本章內容仍在最終審訂中，細節可能調整。</div>' : '';
   let withToc = bodyHtml.replace(/(<\/h1>)/, `$1\n${draftNote}${buildToc(headings)}`);
@@ -531,7 +539,7 @@ CHAPTERS.forEach((b, idx) => {
 fs.writeFileSync(path.join(DOCS, 'check-tool.html'), page({
   title: 'BMI／腰圍 30 秒自評｜健康體重管理',
   desc: '輸入身高、體重、腰圍，依國健署標準（BMI 24/27、腰圍男90／女80）算出你的體位分級與綠黃紅燈建議。純前端計算，不收集任何資料。',
-  crumb: '<span class="crumb"><a href="./">總覽</a><span style="color:#C9C9BA"> / </span>自評工具</span>',
+  crumb: '<span class="crumb">自評工具</span><a class="ovbtn" href="./">總覽</a>',
   body: TOOL_BODY,
 }), 'utf8');
 

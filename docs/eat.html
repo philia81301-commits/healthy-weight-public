@@ -37,6 +37,13 @@ a{color:var(--rx)}
 .top .home{font-family:"LXGW WenKai TC","DFKai-SB",serif;
   font-weight:700;color:var(--ink);font-size:26px;letter-spacing:.02em}
 .top .sp{flex:1}
+/* 總覽：黃色立體按鈕（回首頁主要動線，手機也保留） */
+.top .ovbtn{display:inline-block;background:linear-gradient(180deg,#FFD75E,#F2B63B);
+  color:#5A4520;font-weight:700;font-size:16px;letter-spacing:.08em;
+  padding:8px 22px;border-radius:11px;border:1px solid #DDA62C;text-decoration:none;
+  box-shadow:0 3px 0 #C08A1F,0 5px 10px rgba(0,0,0,.15);transition:.12s}
+.top .ovbtn:hover{filter:brightness(1.06);color:#5A4520}
+.top .ovbtn:active{transform:translateY(2px);box-shadow:0 1px 0 #C08A1F,0 2px 5px rgba(0,0,0,.15)}
 
 .hero{padding:44px 0 26px}
 .hero h1{font-family:"LXGW WenKai TC",serif;font-size:32px;margin:0 0 10px;letter-spacing:.02em}
@@ -152,6 +159,7 @@ footer b{color:var(--ink)}
 @media(max-width:640px){
   .top .wrap{height:58px;gap:10px}
   .top .home{font-size:21px}
+  .top .ovbtn{font-size:14.5px;padding:6px 16px}
   .top .crumb{display:none}
   .hero h1{font-size:26px}
   article{padding:24px 20px 32px;border-radius:10px}
@@ -166,7 +174,7 @@ footer b{color:var(--ink)}
 <nav class="top"><div class="wrap">
   <a class="home" href="./">健康體重管理</a>
   <span class="sp"></span>
-  <span class="crumb"><a href="./">總覽</a><span style="color:#C9C9BA"> / </span>吃：不是吃少，是吃對</span>
+  <span class="crumb">吃：不是吃少，是吃對</span><a class="ovbtn" href="./">總覽</a>
   <a href="https://philia81301-commits.github.io/">← 工具集首頁</a>
 </div></nav>
 <div class="wrap"><article><h1 id="第章吃不是吃少是吃對">第④章　吃：不是吃少，是吃對</h1>
