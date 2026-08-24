@@ -382,7 +382,6 @@ function page({ title, body, crumb = '', desc = '' }) {
   <a class="home" href="./">健康體重管理</a>
   <span class="sp"></span>
   ${crumb}
-  <a href="https://philia81301-commits.github.io/">← 工具集首頁</a>
 </div></nav>
 ${body}
 <footer><div class="wrap">
