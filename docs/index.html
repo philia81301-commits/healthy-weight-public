@@ -66,8 +66,10 @@ a{color:var(--rx)}
 .card.tool{background:var(--move-soft)}
 .card.tool::after{background:var(--move)}
 
-/* 首頁簡報四格 */
-.slides{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+/* 首頁簡報四格（寬版容器，視覺主角） */
+.wrapwide{max-width:1240px;margin:0 auto;padding:0 20px}
+.slides{display:grid;grid-template-columns:repeat(auto-fit,minmax(420px,1fr));gap:20px}
+@media(max-width:900px){.slides{grid-template-columns:1fr}}
 .slides a{display:block;border-radius:12px;overflow:hidden;border:1px solid var(--line);
   transition:.16s;background:#fff}
 .slides a:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(0,0,0,.12);border-color:#C9C9BA}
@@ -187,7 +189,9 @@ footer b{color:var(--ink)}
   <div class="cards">
     <a class="card tool" href="check-tool.html"><span class="lv">30 秒</span><h3>BMI／腰圍自評工具</h3><p>輸入三個數字，馬上知道你是綠燈、黃燈還是紅燈。純本機計算，不上傳任何資料。</p></a>
   </div>
+</div>
 
+<div class="wrapwide">
   <div class="sec">一分鐘看懂（點任一頁進對應章節）</div>
   <div class="slides">
     <a href="risk.html"><img src="assets/slide1.png" alt="為什麼要管理體重：肥胖是慢性病，減 5–10% 就有感" loading="lazy"></a>
@@ -196,6 +200,9 @@ footer b{color:var(--ink)}
     <a href="clinic.html"><img src="assets/slide4.png" alt="現在就開始：三步行動與就醫指引" loading="lazy"></a>
   </div>
   <p class="dl">這四頁可自由下載使用：<a href="https://github.com/philia81301-commits/healthy-weight-public/raw/master/slides/%E5%81%A5%E5%BA%B7%E9%AB%94%E9%87%8D%E7%AE%A1%E7%90%86-4%E9%A0%81%E7%B0%A1%E5%A0%B1.pptx">簡報檔（PPTX）</a></p>
+</div>
+
+<div class="wrap">
 
   <div class="sec">七章指南</div>
   <div class="cards">
