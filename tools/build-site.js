@@ -210,8 +210,14 @@ const CSS = `
 *{box-sizing:border-box}
 body{margin:0;background:var(--paper);color:var(--ink);
   font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif;
-  font-size:17px;line-height:1.78;
+  font-size:17px;line-height:1.78;position:relative;
   background-image:linear-gradient(180deg,#fff 0,var(--paper) 420px)}
+/* F 能量斜紋底圖（沿用病人版審定視覺）：集中右上、往左下淡出，濃度壓在可讀範圍 */
+body::before{content:"";position:absolute;top:0;left:0;right:0;height:480px;
+  pointer-events:none;opacity:.12;
+  background:repeating-linear-gradient(-58deg,transparent 0 26px,var(--diet) 26px 34px,transparent 34px 44px,var(--rx) 44px 47px);
+  -webkit-mask-image:radial-gradient(130% 115% at 100% 0%,#000 0%,transparent 62%);
+          mask-image:radial-gradient(130% 115% at 100% 0%,#000 0%,transparent 62%)}
 a{color:var(--rx)}
 .wrap{max-width:940px;margin:0 auto;padding:0 20px}
 
