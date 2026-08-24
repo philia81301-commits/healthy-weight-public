@@ -70,6 +70,27 @@ a{color:var(--rx)}
 .wrapwide{max-width:1240px;margin:0 auto;padding:0 20px}
 .slides{display:grid;grid-template-columns:repeat(auto-fit,minmax(420px,1fr));gap:20px}
 @media(max-width:900px){.slides{grid-template-columns:1fr}}
+
+/* 自評工具橫幅（與簡報區同寬，上半版面的行動入口） */
+.toolban{display:flex;align-items:center;gap:28px;background:var(--move-soft);
+  border:1px solid var(--line);border-left:6px solid var(--move);border-radius:14px;
+  padding:28px 34px;text-decoration:none;color:inherit;transition:.16s;margin-bottom:8px}
+.toolban:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(0,0,0,.10);border-color:#C9C9BA;border-left-color:var(--move)}
+.toolban .tb-txt{flex:1}
+.toolban .lv{font-size:13px;font-weight:700;letter-spacing:.1em;color:var(--move)}
+.toolban h3{margin:6px 0 8px;font-size:26px;font-family:"LXGW WenKai TC",serif}
+.toolban p{margin:0;font-size:16px;color:var(--muted);line-height:1.7;max-width:56ch}
+.toolban .tb-go{flex:0 0 auto;display:inline-block;background:linear-gradient(180deg,#FFD75E,#F2B63B);
+  color:#5A4520;font-weight:700;font-size:19px;letter-spacing:.08em;
+  padding:14px 34px;border-radius:13px;border:1px solid #DDA62C;
+  box-shadow:0 4px 0 #C08A1F,0 6px 12px rgba(0,0,0,.15);transition:.12s;white-space:nowrap}
+.toolban:hover .tb-go{filter:brightness(1.06)}
+.toolban:active .tb-go{transform:translateY(3px);box-shadow:0 1px 0 #C08A1F,0 2px 5px rgba(0,0,0,.15)}
+@media(max-width:700px){
+  .toolban{flex-direction:column;align-items:flex-start;gap:16px;padding:22px 22px}
+  .toolban h3{font-size:22px}
+  .toolban .tb-go{align-self:stretch;text-align:center}
+}
 .slides a{display:block;border-radius:12px;overflow:hidden;border:1px solid var(--line);
   transition:.16s;background:#fff}
 .slides a:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(0,0,0,.12);border-color:#C9C9BA}
@@ -185,13 +206,19 @@ footer b{color:var(--ink)}
     <p>寫給一般民眾的健康體重管理指南。不是「少吃多動」四個字，而是講清楚為什麼、怎麼自我評估、飲食運動具體怎麼做、藥物什麼時候找誰談。七章按順序讀，或挑你需要的看。</p>
   </div>
 
-  <div class="sec">先做這個</div>
-  <div class="cards">
-    <a class="card tool" href="check-tool.html"><span class="lv">30 秒</span><h3>BMI／腰圍自評工具</h3><p>輸入三個數字，馬上知道你是綠燈、黃燈還是紅燈。純本機計算，不上傳任何資料。</p></a>
-  </div>
 </div>
 
 <div class="wrapwide">
+  <div class="sec">先做這個</div>
+  <a class="toolban" href="check-tool.html">
+    <div class="tb-txt">
+      <span class="lv">30 秒・不上傳任何資料</span>
+      <h3>BMI／腰圍自評工具</h3>
+      <p>輸入身高、體重、腰圍三個數字，馬上知道你是綠燈、黃燈還是紅燈，以及下一步該做什麼。</p>
+    </div>
+    <span class="tb-go">開始測 →</span>
+  </a>
+
   <div class="sec">一分鐘看懂（點任一頁進對應章節）</div>
   <div class="slides">
     <a href="risk.html"><img src="assets/slide1.png" alt="為什麼要管理體重：肥胖是慢性病，減 5–10% 就有感" loading="lazy"></a>
