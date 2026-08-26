@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1560 1128" role="img"
+     aria-label="腰圍量測位置示範：①肋骨下緣 ②骨盆上緣 ③兩線的中間點，皮尺保持水平"
+     style="width:100%;height:auto;display:block;border-radius:10px;border:1px solid #DFDFD4;background:#F3EDE3">
+  <defs>
+    <clipPath id="wmClip"><rect x="0" y="0" width="1024" height="1024" rx="10"/></clipPath>
+  </defs>
+
+  <rect width="1560" height="1128" fill="#F3EDE3"/>
+  <image href="assets/waist-measure.png" x="0" y="0" width="1024" height="1024"
+         clip-path="url(#wmClip)" preserveAspectRatio="xMidYMid slice"/>
+
+  <g font-family="'Noto Sans TC','Microsoft JhengHei',sans-serif">
+
+    <!-- ① 肋骨下緣（y 對準肋骨下緣，位於運動內衣下襬之下） -->
+    <line x1="285" y1="452" x2="1085" y2="452" stroke="#3563C9" stroke-width="5"
+          stroke-dasharray="16 12" stroke-linecap="round" opacity=".95"/>
+    <circle cx="1118" cy="452" r="27" fill="#3563C9"/>
+    <text x="1118" y="463" text-anchor="middle" font-size="30" font-weight="700" fill="#fff">1</text>
+    <text x="1160" y="464" font-size="38" font-weight="700" fill="#21281F">肋骨下緣</text>
+
+    <!-- ③ 兩線的中間點＝皮尺位置（452 與 620 的中點） -->
+    <line x1="280" y1="536" x2="1085" y2="536" stroke="#0A8A4D" stroke-width="8"
+          stroke-linecap="round" opacity=".6"/>
+    <circle cx="1118" cy="536" r="27" fill="#0A8A4D"/>
+    <text x="1118" y="547" text-anchor="middle" font-size="30" font-weight="700" fill="#fff">3</text>
+    <text x="1160" y="531" font-size="38" font-weight="700" fill="#0A8A4D">兩線的中間點</text>
+    <text x="1160" y="572" font-size="27" fill="#5A6152">皮尺就繞在這裡，保持水平</text>
+
+    <!-- ② 骨盆上緣（對準褲頭側邊高度＝髂嵴） -->
+    <line x1="295" y1="620" x2="1085" y2="620" stroke="#C2620A" stroke-width="5"
+          stroke-dasharray="16 12" stroke-linecap="round" opacity=".95"/>
+    <circle cx="1118" cy="620" r="27" fill="#C2620A"/>
+    <text x="1118" y="631" text-anchor="middle" font-size="30" font-weight="700" fill="#fff">2</text>
+    <text x="1160" y="632" font-size="38" font-weight="700" fill="#21281F">骨盆上緣</text>
+
+    <!-- 上下兩段等長，示意「取中間點」 -->
+    <line x1="812" y1="452" x2="812" y2="620" stroke="#0A8A4D" stroke-width="3.5" opacity=".95"/>
+    <line x1="798" y1="452" x2="826" y2="452" stroke="#0A8A4D" stroke-width="3.5"/>
+    <line x1="798" y1="536" x2="826" y2="536" stroke="#0A8A4D" stroke-width="3.5"/>
+    <line x1="798" y1="620" x2="826" y2="620" stroke="#0A8A4D" stroke-width="3.5"/>
+    <text x="845" y="503" font-size="25" font-weight="700" fill="#0A8A4D">一半</text>
+    <text x="845" y="590" font-size="25" font-weight="700" fill="#0A8A4D">一半</text>
+
+    <!-- 底部提醒 -->
+    <text x="780" y="1078" text-anchor="middle" font-size="34" font-weight="700" fill="#21281F">
+      正常吐氣結束時讀值　｜　皮尺貼皮膚、不勒緊
+    </text>
+  </g>
+</svg>

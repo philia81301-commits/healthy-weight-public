@@ -29,8 +29,8 @@ const CHAPTERS = [
 
 /** 第②章插圖與首頁簡報圖：來源 → docs/assets 檔名 */
 const ASSETS = [
+  // 腰圍照片：由 design/腰圍量測-標示.inline.svg 疊上標示後內嵌顯示（見 mdToHtml 的 .inline.svg 分支）
   { src: path.join(ROOT, 'design', 'generated', 'waist-measure_20260824_070643.png'), out: 'waist-measure.png' },
-  { src: path.join(ROOT, 'design', '腰圍量測-插圖.svg'), out: 'waist-diagram.svg' },
   { src: path.join(ROOT, 'slides', 'export', 'slide1.png'), out: 'slide1.png' },
   { src: path.join(ROOT, 'slides', 'export', 'slide2.png'), out: 'slide2.png' },
   { src: path.join(ROOT, 'slides', 'export', 'slide3.png'), out: 'slide3.png' },
@@ -60,8 +60,8 @@ const QUIZ = {
     mascot: '🐰', name: '量測五連闖', badge: '量測小達人',
     next: { href: 'check-tool.html', label: '用 30 秒自評工具算你的燈號 →' },
     qs: [
-      { q: 'BMI 正常但腰圍超標，俗稱？', o: ['泡芙人', '紙片人', '鋼鐵人', '大隻佬'], a: 0,
-        w: '肌肉少、內臟脂肪多，風險不輸過重的人——BMI 和腰圍要一起看。' },
+      { q: 'BMI 正常但腰圍超標的健康風險？', o: ['內臟脂肪增加', '完全沒有風險', '只是外觀問題', '骨質疏鬆'], a: 0,
+        w: '俗稱「泡芙人」：肌肉少、內臟脂肪多，血糖血脂的風險不輸過重的人——BMI 和腰圍要一起看。' },
       { q: '量腰圍的位置大約在哪？', o: ['胸口下方', '與肚臍同高', '骨盆下方', '大腿最粗處'], a: 1,
         w: '肋骨下緣與骨盆上緣的中間點，皮尺水平、正常吐氣結束時讀數。' },
       { q: '女性腰圍標準是幾公分以下？', o: ['70', '90', '80', '100'], a: 2,
@@ -160,9 +160,8 @@ function transform(md) {
   md = md.replace(/\n## 審稿追蹤[\s\S]*$/, '\n');
   // 開頭 meta 引言（適用／狀態）移除
   md = md.replace(/^(# [^\n]*\n)\n?(?:>[^\n]*\n)+/, '$1\n');
-  // 插圖路徑改寫
+  // 插圖路徑改寫（.inline.svg 不改寫：保留原路徑供 mdToHtml 讀檔內嵌）
   md = md.replace(/\.\.\/design\/generated\/waist-measure_[0-9_]+\.png/g, 'assets/waist-measure.png');
-  md = md.replace(/\.\.\/design\/腰圍量測-插圖\.svg/g, 'assets/waist-diagram.svg');
 
   const lines = md.split(/\r?\n/);
   const out = [];
@@ -276,6 +275,17 @@ function mdToHtml(md) {
     const img = line.match(/^!\[([^\]]*)\]\(([^)]+)\)\s*$/);
     if (img) {
       closeList();
+      // .inline.svg：把 SVG 內容直接寫進頁面。用 <img> 載入的 SVG 無法讀取外部圖檔，
+      // 內嵌後 SVG 裡的 <image href="assets/..."> 才會以頁面網址為基準解析
+      if (/\.inline\.svg$/.test(img[2])) {
+        const svgPath = path.resolve(CONTENT, img[2]);
+        if (fs.existsSync(svgPath)) {
+          const svg = fs.readFileSync(svgPath, 'utf8').replace(/<\?xml[^>]*\?>\s*/, '');
+          out.push(`<figure>${svg}<figcaption>${esc(img[1])}</figcaption></figure>`);
+          i++; continue;
+        }
+        console.warn(`  ⚠ 找不到內嵌 SVG ${img[2]}，改用 <img>`);
+      }
       out.push(`<figure><img src="${esc(img[2])}" alt="${esc(img[1])}" loading="lazy"><figcaption>${esc(img[1])}</figcaption></figure>`);
       i++; continue;
     }

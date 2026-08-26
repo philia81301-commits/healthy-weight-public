@@ -307,8 +307,56 @@ footer b{color:var(--ink)}
 <li><strong>正常吐氣結束時</strong>讀數字，皮尺貼皮膚但不勒緊</li>
 </ol>
 <p>標準：男性未滿 <strong>90 公分</strong>、女性未滿 <strong>80 公分</strong>。超過就代表內臟脂肪過多。</p>
-<figure><img src="assets/waist-measure.png" alt="腰圍量測示範（寫實圖）" loading="lazy"><figcaption>腰圍量測示範（寫實圖）</figcaption></figure>
-<figure><img src="assets/waist-diagram.svg" alt="腰圍量測位置：①肋骨下緣 ②骨盆上緣 ③兩線中間點皮尺水平" loading="lazy"><figcaption>腰圍量測位置：①肋骨下緣 ②骨盆上緣 ③兩線中間點皮尺水平</figcaption></figure>
+<figure><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1560 1128" role="img"
+     aria-label="腰圍量測位置示範：①肋骨下緣 ②骨盆上緣 ③兩線的中間點，皮尺保持水平"
+     style="width:100%;height:auto;display:block;border-radius:10px;border:1px solid #DFDFD4;background:#F3EDE3">
+  <defs>
+    <clipPath id="wmClip"><rect x="0" y="0" width="1024" height="1024" rx="10"/></clipPath>
+  </defs>
+
+  <rect width="1560" height="1128" fill="#F3EDE3"/>
+  <image href="assets/waist-measure.png" x="0" y="0" width="1024" height="1024"
+         clip-path="url(#wmClip)" preserveAspectRatio="xMidYMid slice"/>
+
+  <g font-family="'Noto Sans TC','Microsoft JhengHei',sans-serif">
+
+    <!-- ① 肋骨下緣（y 對準肋骨下緣，位於運動內衣下襬之下） -->
+    <line x1="285" y1="452" x2="1085" y2="452" stroke="#3563C9" stroke-width="5"
+          stroke-dasharray="16 12" stroke-linecap="round" opacity=".95"/>
+    <circle cx="1118" cy="452" r="27" fill="#3563C9"/>
+    <text x="1118" y="463" text-anchor="middle" font-size="30" font-weight="700" fill="#fff">1</text>
+    <text x="1160" y="464" font-size="38" font-weight="700" fill="#21281F">肋骨下緣</text>
+
+    <!-- ③ 兩線的中間點＝皮尺位置（452 與 620 的中點） -->
+    <line x1="280" y1="536" x2="1085" y2="536" stroke="#0A8A4D" stroke-width="8"
+          stroke-linecap="round" opacity=".6"/>
+    <circle cx="1118" cy="536" r="27" fill="#0A8A4D"/>
+    <text x="1118" y="547" text-anchor="middle" font-size="30" font-weight="700" fill="#fff">3</text>
+    <text x="1160" y="531" font-size="38" font-weight="700" fill="#0A8A4D">兩線的中間點</text>
+    <text x="1160" y="572" font-size="27" fill="#5A6152">皮尺就繞在這裡，保持水平</text>
+
+    <!-- ② 骨盆上緣（對準褲頭側邊高度＝髂嵴） -->
+    <line x1="295" y1="620" x2="1085" y2="620" stroke="#C2620A" stroke-width="5"
+          stroke-dasharray="16 12" stroke-linecap="round" opacity=".95"/>
+    <circle cx="1118" cy="620" r="27" fill="#C2620A"/>
+    <text x="1118" y="631" text-anchor="middle" font-size="30" font-weight="700" fill="#fff">2</text>
+    <text x="1160" y="632" font-size="38" font-weight="700" fill="#21281F">骨盆上緣</text>
+
+    <!-- 上下兩段等長，示意「取中間點」 -->
+    <line x1="812" y1="452" x2="812" y2="620" stroke="#0A8A4D" stroke-width="3.5" opacity=".95"/>
+    <line x1="798" y1="452" x2="826" y2="452" stroke="#0A8A4D" stroke-width="3.5"/>
+    <line x1="798" y1="536" x2="826" y2="536" stroke="#0A8A4D" stroke-width="3.5"/>
+    <line x1="798" y1="620" x2="826" y2="620" stroke="#0A8A4D" stroke-width="3.5"/>
+    <text x="845" y="503" font-size="25" font-weight="700" fill="#0A8A4D">一半</text>
+    <text x="845" y="590" font-size="25" font-weight="700" fill="#0A8A4D">一半</text>
+
+    <!-- 底部提醒 -->
+    <text x="780" y="1078" text-anchor="middle" font-size="34" font-weight="700" fill="#21281F">
+      正常吐氣結束時讀值　｜　皮尺貼皮膚、不勒緊
+    </text>
+  </g>
+</svg>
+<figcaption>腰圍量測示範：①肋骨下緣 ②骨盆上緣 ③兩線的中間點，皮尺保持水平</figcaption></figure>
 <p class="src">出處：國健署腰圍量測標準（男 90／女 80 cm）</p>
 <h2 id="2-3BMI正常就沒事小心泡芙人">2-3 BMI 正常就沒事？小心「泡芙人」</h2>
 <p>有一種人 BMI 標準、四肢不粗，但肚子軟軟凸凸、體脂肪偏高——俗稱<strong>泡芙人</strong>。因為肌肉少、內臟脂肪多，血糖血脂的風險不輸過重的人。所以<strong>BMI 和腰圍要一起看</strong>：BMI 正常但腰圍超標，一樣要往下讀第④⑤章，把飲食和肌力練回來。</p>
@@ -344,7 +392,7 @@ footer b{color:var(--ink)}
       </div>
     </div>
   </div>
-  <script>(function(){var Q=[{"q":"BMI 正常但腰圍超標，俗稱？","o":["泡芙人","紙片人","鋼鐵人","大隻佬"],"a":0,"w":"肌肉少、內臟脂肪多，風險不輸過重的人——BMI 和腰圍要一起看。"},{"q":"量腰圍的位置大約在哪？","o":["胸口下方","與肚臍同高","骨盆下方","大腿最粗處"],"a":1,"w":"肋骨下緣與骨盆上緣的中間點，皮尺水平、正常吐氣結束時讀數。"},{"q":"女性腰圍標準是幾公分以下？","o":["70","90","80","100"],"a":2,"w":"女 80、男 90 公分；腰圍量的是影響血糖血壓的內臟脂肪。"},{"q":"哪種情況是紅燈（建議就醫）？","o":["BMI 27 以上","體重破百才算","別人說你胖","衣服變緊"],"a":0,"w":"BMI 27 以上，或 24 以上加上高血壓、血糖異常等任一項。"},{"q":"黃燈的下一步是什麼？","o":["馬上吃藥","先調整吃和動","直接放棄","斷食三天"],"a":1,"w":"從第④章（吃）、第⑤章（動）開始調整，3 個月後再量一次。"}];var box=document.getElementById("quiz");if(!box)return;var qs=box.querySelector(".quiz-qs"),stars=box.querySelectorAll(".quiz-stars i"),done=box.querySelector(".quiz-done"),slug=box.getAttribute("data-slug");function reset(){qs.innerHTML="";done.hidden=true;for(var i=0;i<stars.length;i++){stars[i].textContent="\u2606";stars[i].className="";}show(0);}function finish(){done.hidden=false;try{localStorage.setItem("hw-quiz-"+slug,"1");}catch(e){}done.scrollIntoView({behavior:"smooth",block:"nearest"});}function show(i){var q=Q[i];var card=document.createElement("div");card.className="qcard";var h='<span class="qnum">\u7b2c '+(i+1)+' \u984c</span><div class="qtext"></div><div class="qopts">';for(var j=0;j<q.o.length;j++)h+='<button type="button" data-j="'+j+'"><i>'+"ABCD"[j]+'</i><span></span></button>';h+='</div><div class="qmiss" hidden>\u5dee\u4e00\u9ede\uff0c\u63db\u4e00\u500b\u8a66\u8a66\uff01</div><div class="qwhy" hidden></div>';card.innerHTML=h;card.querySelector(".qtext").textContent=q.q;var btns=card.querySelectorAll(".qopts button");for(var k=0;k<btns.length;k++)btns[k].querySelector("span").textContent=q.o[k];qs.appendChild(card);if(i>0)card.scrollIntoView({behavior:"smooth",block:"nearest"});for(var k2=0;k2<btns.length;k2++)(function(b){b.addEventListener("click",function(){if(+b.getAttribute("data-j")===q.a){b.className="yes";for(var x=0;x<btns.length;x++)btns[x].disabled=true;card.querySelector(".qmiss").hidden=true;var w=card.querySelector(".qwhy");w.textContent="\ud83d\udca1 "+q.w;w.hidden=false;stars[i].textContent="\u2b50";stars[i].className="on";setTimeout(function(){if(i+1<Q.length)show(i+1);else finish();},700);}else{b.className="no";b.disabled=true;card.querySelector(".qmiss").hidden=false;}});})(btns[k2]);}var again=done.querySelector(".again");if(again)again.addEventListener("click",reset);show(0);})();</script>
+  <script>(function(){var Q=[{"q":"BMI 正常但腰圍超標的健康風險？","o":["內臟脂肪增加","完全沒有風險","只是外觀問題","骨質疏鬆"],"a":0,"w":"俗稱「泡芙人」：肌肉少、內臟脂肪多，血糖血脂的風險不輸過重的人——BMI 和腰圍要一起看。"},{"q":"量腰圍的位置大約在哪？","o":["胸口下方","與肚臍同高","骨盆下方","大腿最粗處"],"a":1,"w":"肋骨下緣與骨盆上緣的中間點，皮尺水平、正常吐氣結束時讀數。"},{"q":"女性腰圍標準是幾公分以下？","o":["70","90","80","100"],"a":2,"w":"女 80、男 90 公分；腰圍量的是影響血糖血壓的內臟脂肪。"},{"q":"哪種情況是紅燈（建議就醫）？","o":["BMI 27 以上","體重破百才算","別人說你胖","衣服變緊"],"a":0,"w":"BMI 27 以上，或 24 以上加上高血壓、血糖異常等任一項。"},{"q":"黃燈的下一步是什麼？","o":["馬上吃藥","先調整吃和動","直接放棄","斷食三天"],"a":1,"w":"從第④章（吃）、第⑤章（動）開始調整，3 個月後再量一次。"}];var box=document.getElementById("quiz");if(!box)return;var qs=box.querySelector(".quiz-qs"),stars=box.querySelectorAll(".quiz-stars i"),done=box.querySelector(".quiz-done"),slug=box.getAttribute("data-slug");function reset(){qs.innerHTML="";done.hidden=true;for(var i=0;i<stars.length;i++){stars[i].textContent="\u2606";stars[i].className="";}show(0);}function finish(){done.hidden=false;try{localStorage.setItem("hw-quiz-"+slug,"1");}catch(e){}done.scrollIntoView({behavior:"smooth",block:"nearest"});}function show(i){var q=Q[i];var card=document.createElement("div");card.className="qcard";var h='<span class="qnum">\u7b2c '+(i+1)+' \u984c</span><div class="qtext"></div><div class="qopts">';for(var j=0;j<q.o.length;j++)h+='<button type="button" data-j="'+j+'"><i>'+"ABCD"[j]+'</i><span></span></button>';h+='</div><div class="qmiss" hidden>\u5dee\u4e00\u9ede\uff0c\u63db\u4e00\u500b\u8a66\u8a66\uff01</div><div class="qwhy" hidden></div>';card.innerHTML=h;card.querySelector(".qtext").textContent=q.q;var btns=card.querySelectorAll(".qopts button");for(var k=0;k<btns.length;k++)btns[k].querySelector("span").textContent=q.o[k];qs.appendChild(card);if(i>0)card.scrollIntoView({behavior:"smooth",block:"nearest"});for(var k2=0;k2<btns.length;k2++)(function(b){b.addEventListener("click",function(){if(+b.getAttribute("data-j")===q.a){b.className="yes";for(var x=0;x<btns.length;x++)btns[x].disabled=true;card.querySelector(".qmiss").hidden=true;var w=card.querySelector(".qwhy");w.textContent="\ud83d\udca1 "+q.w;w.hidden=false;stars[i].textContent="\u2b50";stars[i].className="on";setTimeout(function(){if(i+1<Q.length)show(i+1);else finish();},700);}else{b.className="no";b.disabled=true;card.querySelector(".qmiss").hidden=false;}});})(btns[k2]);}var again=done.querySelector(".again");if(again)again.addEventListener("click",reset);show(0);})();</script>
 </section><div class="chnav"><a href="risk.html">← 第①章：為什麼要管理體重</a><a class="next" href="model.html">第③章：正確的減重模式 →</a></div></div>
 <footer><div class="wrap">
   <b>潘湘如醫師｜家醫科</b>　·　一般民眾健康體重管理衛教<br>
