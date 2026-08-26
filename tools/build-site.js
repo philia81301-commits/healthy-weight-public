@@ -37,6 +37,123 @@ const ASSETS = [
   { src: path.join(ROOT, 'slides', 'export', 'slide4.png'), out: 'slide4.png' },
 ];
 
+/** 章末闖關小遊戲：每章 5 題四選一，題目與解說全部出自該章網站內容
+ *  （⑤⑥⑦章仍在審訂中，題目跟著現行內容走；審稿若改口徑，這裡要同步） */
+const QUIZ = {
+  risk: {
+    mascot: '🦉', name: '明白人五連闖', badge: '健康明白人',
+    next: { href: 'check.html', label: '前往第②章：我需要管理體重嗎 →' },
+    qs: [
+      { q: '醫學上，肥胖是什麼？', o: ['意志力問題', '一種慢性疾病', '外表問題', '懶惰'], a: 1,
+        w: '體重由大腦與荷爾蒙共同調控——肥胖可以被診斷、被治療，也值得看醫生。' },
+      { q: '減掉原體重的多少就有感？', o: ['5–10%', '30%', '一半', '要瘦回 20 歲'], a: 0,
+        w: '80 公斤的人減 4–8 公斤，血糖、血壓、脂肪肝、膝蓋都有看得見的改善。' },
+      { q: 'BMI 24 到 27 之間算什麼？', o: ['健康體位', '過重', '輕度肥胖', '體重過輕'], a: 1,
+        w: '台灣標準：24 以上過重、27 以上肥胖。' },
+      { q: '男性腰圍標準是未滿幾公分？', o: ['80', '85', '90', '100'], a: 2,
+        w: '男 90、女 80 公分；超標代表內臟脂肪過多——BMI 正常也一樣有風險。' },
+      { q: '減重加運動，防糖尿病贏過？', o: ['吃降血糖藥', '開刀', '多喝水', '早睡'], a: 0,
+        w: '大型研究顯示發生率下降超過一半，比吃降血糖藥效果更好。' },
+    ],
+  },
+  check: {
+    mascot: '🐰', name: '量測五連闖', badge: '量測小達人',
+    next: { href: 'check-tool.html', label: '用 30 秒自評工具算你的燈號 →' },
+    qs: [
+      { q: 'BMI 正常但腰圍超標，俗稱？', o: ['泡芙人', '紙片人', '鋼鐵人', '大隻佬'], a: 0,
+        w: '肌肉少、內臟脂肪多，風險不輸過重的人——BMI 和腰圍要一起看。' },
+      { q: '量腰圍的位置大約在哪？', o: ['胸口下方', '與肚臍同高', '骨盆下方', '大腿最粗處'], a: 1,
+        w: '肋骨下緣與骨盆上緣的中間點，皮尺水平、正常吐氣結束時讀數。' },
+      { q: '女性腰圍標準是未滿幾公分？', o: ['70', '90', '80', '100'], a: 2,
+        w: '女 80、男 90 公分；腰圍量的是影響血糖血壓的內臟脂肪。' },
+      { q: '哪種情況是紅燈（建議就醫）？', o: ['BMI 27 以上', '體重破百才算', '別人說你胖', '衣服變緊'], a: 0,
+        w: 'BMI 27 以上，或 24 以上加上高血壓、血糖異常等任一項。' },
+      { q: '黃燈的下一步是什麼？', o: ['馬上吃藥', '先調整吃和動', '直接放棄', '斷食三天'], a: 1,
+        w: '從第④章（吃）、第⑤章（動）開始調整，3 個月後再量一次。' },
+    ],
+  },
+  model: {
+    mascot: '🐻', name: '三腳凳五連闖', badge: '三腳凳大師',
+    next: { href: 'eat.html', label: '前往第④章：吃 →' },
+    qs: [
+      { q: '減重三腳凳的主引擎是？', o: ['藥物', '運動', '飲食', '睡眠'], a: 2,
+        w: '飲食決定體重會不會降；運動守肌肉、藥物是醫師評估下的助推器。' },
+      { q: '運動在減重裡最重要的工作？', o: ['燒熱量', '保住肌肉', '流汗排毒', '練出腹肌'], a: 1,
+        w: '肌肉是身體的引擎——引擎變小、代謝變慢，之後更容易復胖。' },
+      { q: '狠狠節食之後常發生什麼？', o: ['一直瘦下去', '胖回去甚至更重', '變成肌肉', '不會怎樣'], a: 1,
+        w: '身體把節食當飢荒：飢餓荷爾蒙上升、代謝下降，把體重拉回原點。' },
+      { q: '藥物在三腳凳的角色是？', o: ['捷徑', '主角', '助推器', '裝飾品'], a: 2,
+        w: '幫忙控制食慾、突破卡關——但一定要經過醫師評估。' },
+      { q: '一杯含糖飲料抵銷多久快走？', o: ['5 分鐘', '半小時', '不會抵銷', '3 秒'], a: 1,
+        w: '運動消耗的熱量比想像少——所以吃對，比狂動更關鍵。' },
+    ],
+  },
+  eat: {
+    mascot: '🐹', name: '吃對五連闖', badge: '點餐高手',
+    next: { href: 'move.html', label: '前往第⑤章：動 →' },
+    qs: [
+      { q: '減重第一步是先戒掉什麼？', o: ['白飯', '含糖飲料', '水果', '雞蛋'], a: 1,
+        w: '飲料的糖不佔胃、不會飽，是純多出來的熱量；換成水、無糖茶或黑咖啡。' },
+      { q: '餐盤口訣：蔬菜要佔多少？', o: ['半盤', '一小格', '一口', '不用吃'], a: 0,
+        w: '菜半盤、蛋白質一掌、飯一拳——自助餐、便當、家裡煮都套得上。' },
+      { q: '吃的順序哪個對？', o: ['菜→蛋白質→飯', '飯→菜→肉', '甜點先吃', '順序不重要'], a: 0,
+        w: '先菜再蛋白質最後飯，血糖比較平穩、也比較快有飽足感。' },
+      { q: '大腦收到吃飽訊號要多久？', o: ['1 分鐘', '馬上', '15–20 分鐘', '2 小時'], a: 2,
+        w: '所以要細嚼慢嚥——吃太快的人常在飽足感來之前就吃過量了。' },
+      { q: '「一週瘦 5 公斤」掉的多是？', o: ['脂肪', '水分和肌肉', '骨頭', '內臟脂肪'], a: 1,
+        w: '極端節食恢復吃飯就反彈，而且更難瘦——看到廣告先想起這一段。' },
+    ],
+  },
+  move: {
+    mascot: '🐶', name: '動起來五連闖', badge: '走路冠軍',
+    next: { href: 'meds.html', label: '前往第⑥章：認識減重藥物 →' },
+    qs: [
+      { q: '零基礎運動的起點是？', o: ['每天走路 30 分鐘', '跑馬拉松', '重訓 2 小時', '買健身房會籍'], a: 0,
+        w: '可拆成 3 次、每次 10 分鐘——走得到、走得久，比走得快重要。' },
+      { q: '每週有氧目標累積幾分鐘？', o: ['30 分鐘', '60 分鐘', '150 分鐘', '600 分鐘'], a: 2,
+        w: '大約每天快走 30 分鐘、一週 5 天；挑你不討厭的才做得久。' },
+      { q: '「中等強度」的感覺是？', o: ['會喘但還能講話', '喘到說不出話', '完全不喘', '能邊跑邊唱歌'], a: 0,
+        w: '能講話但唱不了歌，就是剛剛好的強度。' },
+      { q: '肌力運動的建議是每週幾次？', o: ['0 次', '2 次', '7 次', '一個月 1 次'], a: 1,
+        w: '每次 15–20 分鐘，在家徒手就夠：椅子起立、扶椅深蹲、橋式。' },
+      { q: '運動隔天，哪種情況才要停？', o: ['肌肉痠', '關節痛', '流汗', '肚子餓'], a: 1,
+        w: '肌肉痠是正常、代表有練到；痛在關節才要停下來。' },
+    ],
+  },
+  meds: {
+    mascot: '🐧', name: '安全用藥五連闖', badge: '不上當專家',
+    next: { href: 'clinic.html', label: '前往第⑦章：何時該就醫 →' },
+    qs: [
+      { q: '「瘦瘦針」的正式類別是？', o: ['燃脂針', '維他命', '腸泌素類針劑', '美容針'], a: 2,
+        w: '模擬飽足荷爾蒙讓食慾下降、容易飽——它不是燃脂針。' },
+      { q: '什麼人才考慮用減重藥物？', o: ['想瘦就可以', '紅燈且努力過仍困難', '每個人', '未成年也行'], a: 1,
+        w: '紅燈族群、且認真調整飲食運動後仍下不來，由醫師評估。' },
+      { q: '網購來路不明瘦瘦筆的風險？', o: ['只是比較貴', '假藥與劑量錯誤', '效果更好', '沒有風險'], a: 1,
+        w: '仿冒品有的不含有效成分；劑量沒人把關，處方藥轉讓也違法。' },
+      { q: '用藥期間特別要顧什麼？', o: ['蛋白質和肌力', '多喝手搖飲', '少喝水', '不用回診'], a: 0,
+        w: '食量變小時蛋白質要吃夠、肌力照練，否則瘦掉的有一部分是肌肉。' },
+      { q: '停藥後會復胖嗎？', o: ['絕對不會', '有風險，尤其習慣沒建立', '一定會', '跟習慣無關'], a: 1,
+        w: '治療期間的重點：讓藥幫你把「吃對、動起來」練成不需要藥的日常。' },
+    ],
+  },
+  clinic: {
+    mascot: '🐼', name: '就醫五連闖', badge: '起點勇者',
+    next: { href: './', label: '回到總覽，看看你的徽章 →' },
+    qs: [
+      { q: '就醫在減重裡的定位是？', o: ['最後手段', '丟臉的事', '最有效率的起點', '沒有用'], a: 2,
+        w: '自己摸索三年，不如專業陪你走三個月。' },
+      { q: '減重門診第一次會做什麼？', o: ['只有開藥', '完整評估＋訂計畫', '量體重就結束', '推銷產品'], a: 1,
+        w: '評估、找原因、一起訂計畫、定期回診——拿到的是做得到的計畫。' },
+      { q: '去減重門診一定要吃藥嗎？', o: ['一定要', '要先買療程', '不是，需要時才討論', '要簽約'], a: 2,
+        w: '多數計畫從飲食運動開始；用不用藥由你和醫師一起決定。' },
+      { q: '減重就醫要掛哪一科？', o: ['皮膚科', '家醫科', '耳鼻喉科', '眼科'], a: 1,
+        w: '掛家醫科；院所若有「減重門診」「體重管理門診」也可直接掛。' },
+      { q: '就診前帶什麼最有幫助？', o: ['用藥清單和想問的問題', '空腹三天', '先自己買好藥', '漂亮衣服'], a: 0,
+        w: '加上過去的減重經驗——失敗經驗是最有價值的線索。' },
+    ],
+  },
+};
+
 /* ---------- 民眾版前處理：剝除編輯層 ---------- */
 function transform(md) {
   // 審稿追蹤段整段移除
@@ -375,7 +492,91 @@ footer b{color:var(--ink)}
 .totop:hover{border-color:var(--move);color:var(--move)}
 .totop svg{width:20px;height:20px}
 
+/* 章末闖關小遊戲（可愛風，移植自姊妹站病人版） */
+.quiz{margin:0 0 46px}
+.quiz-box{background:linear-gradient(160deg,#FFFDF4,#FDF1DE);border:2px solid #F0D9A8;
+  border-radius:24px;padding:24px 26px 28px;box-shadow:0 10px 30px rgba(154,107,42,.08);
+  position:relative;overflow:hidden}
+.quiz-box::before{content:"✦";position:absolute;top:14px;right:20px;font-size:20px;
+  color:#E8B83C;opacity:.55;animation:qtwinkle 2.2s ease-in-out infinite}
+.quiz-box::after{content:"✦";position:absolute;bottom:18px;left:16px;font-size:13px;
+  color:#E8B83C;opacity:.4;animation:qtwinkle 2.2s ease-in-out infinite 1.1s}
+@keyframes qtwinkle{0%,100%{opacity:.2;transform:scale(.85)}50%{opacity:.7;transform:scale(1.1)}}
+.quiz-head{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.quiz-mascot{font-size:46px;line-height:1;filter:drop-shadow(0 3px 4px rgba(0,0,0,.12));
+  animation:qbob 2.6s ease-in-out infinite}
+.quiz-mascot img{width:86px;height:86px;border-radius:26px;display:block;
+  border:2.5px solid #fff;box-shadow:0 5px 14px rgba(154,107,42,.22)}
+/* 通關獎牌：吉祥物照片嵌進 CSS 畫的金牌（金環＋緞帶），不需另外生徽章圖 */
+.qmedalwrap{position:relative;width:150px;margin:10px auto 4px;animation:qpop .6s}
+.qmedalwrap::before,.qmedalwrap::after{content:"";position:absolute;bottom:-16px;width:26px;height:44px;
+  background:linear-gradient(180deg,#3FA76B,#0A8A4D);z-index:0}
+.qmedalwrap::before{left:38px;transform:rotate(9deg);clip-path:polygon(0 0,100% 0,100% 100%,50% 74%,0 100%)}
+.qmedalwrap::after{right:38px;transform:rotate(-9deg);clip-path:polygon(0 0,100% 0,100% 100%,50% 74%,0 100%)}
+.qmedal{position:relative;z-index:1;width:150px;height:150px;object-fit:cover;border-radius:50%;
+  display:block;background:#fff;border:7px solid #E8B83C;
+  box-shadow:0 0 0 3px #C79320,0 7px 20px rgba(154,107,42,.3),inset 0 0 0 2px #FFF3CE}
+@keyframes qbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.quiz-kicker{font-size:12px;font-weight:700;letter-spacing:.12em;color:var(--gold)}
+.quiz-title{font-family:"LXGW WenKai TC",serif;margin:2px 0 4px;font-size:22px}
+.quiz-sub{margin:0;color:var(--muted);font-size:14.5px}
+.quiz-stars{display:flex;gap:6px;margin-left:auto}
+.quiz-stars i{width:34px;height:34px;border-radius:50%;background:#fff;border:2px dashed #E3CFA2;
+  display:flex;align-items:center;justify-content:center;font-style:normal;font-size:16px;
+  color:#D8C49B;transition:.2s}
+.quiz-stars i.on{border-style:solid;border-color:#E8B83C;background:#FFF3CE;animation:qpop .45s}
+@keyframes qpop{0%{transform:scale(.4)}60%{transform:scale(1.3)}100%{transform:scale(1)}}
+.qcard{background:#fff;border:1.5px solid #EFE3C8;border-radius:18px;padding:16px 18px 18px;
+  margin-top:16px;animation:qin .4s}
+@keyframes qin{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.qnum{display:inline-block;background:var(--move-soft);color:var(--move);font-weight:700;
+  font-size:12.5px;border-radius:99px;padding:2px 11px}
+.qtext{font-size:17.5px;font-weight:700;margin:9px 0 12px}
+.qopts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.qopts button{font:inherit;font-size:15.5px;text-align:left;background:#FDFBF3;
+  border:1.5px solid #E7DDC2;border-radius:99px;padding:8px 16px 8px 8px;cursor:pointer;
+  transition:.15s;display:flex;align-items:center;gap:10px}
+.qopts button i{width:27px;height:27px;border-radius:50%;background:#F4E7C8;color:#8A6215;
+  font-style:normal;font-weight:700;font-size:13px;display:flex;align-items:center;
+  justify-content:center;flex-shrink:0;transition:.15s}
+.qopts button:hover:not(:disabled){transform:translateY(-2px) rotate(-.4deg);
+  border-color:var(--move);background:#fff;box-shadow:0 4px 12px rgba(10,138,77,.12)}
+.qopts button:hover:not(:disabled) i{background:var(--move-soft);color:var(--move)}
+.qopts button:disabled{cursor:default}
+.qopts button.no{opacity:.5;background:#F4F1E7;animation:qshake .4s}
+.qopts button.no i{background:#DDD8C8;color:#8B8674}
+.qopts button.no::after{content:"💦";margin-left:auto}
+.qopts button.yes{background:var(--move-soft);border-color:var(--move);color:#0A6B3D;font-weight:700}
+.qopts button.yes i{background:var(--move);color:#fff}
+.qopts button.yes::after{content:"⭕";margin-left:auto}
+@keyframes qshake{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.qmiss{margin-top:9px;font-size:13.5px;color:#A8834B}
+.qwhy{margin-top:10px;background:var(--gold-soft);color:#5A4520;border-radius:10px;
+  padding:8px 12px;font-size:14px;line-height:1.7}
+.quiz-done{margin-top:18px;background:linear-gradient(180deg,#FFFDF4,#FFF4D8);
+  border:2px solid #E8B83C;border-radius:18px;
+  padding:22px 20px;text-align:center;animation:qin .5s}
+.quiz-done .party span{display:inline-block;font-size:26px;margin:0 3px;animation:qbob 1.2s ease-in-out infinite}
+.quiz-done .party span:nth-child(2){animation-delay:.15s}
+.quiz-done .party span:nth-child(3){animation-delay:.3s}
+.quiz-done .party span:nth-child(4){animation-delay:.45s}
+.quiz-done .party span:nth-child(5){animation-delay:.6s}
+.quiz-done h3{font-family:"LXGW WenKai TC",serif;font-size:21px;margin:8px 0 4px}
+.quiz-done p{margin:0 0 14px;color:var(--muted);font-size:14.5px}
+.qbtn{display:inline-block;font:inherit;font-size:15px;font-weight:700;border-radius:99px;
+  padding:8px 20px;cursor:pointer;text-decoration:none;margin:0 5px 6px;transition:.15s}
+.qbtn:hover{transform:translateY(-2px)}
+.qbtn.go{background:var(--move);border:2px solid var(--move);color:#fff;
+  animation:qpulse 1.8s ease-in-out infinite}
+@keyframes qpulse{0%,100%{box-shadow:0 0 0 0 rgba(10,138,77,.35)}50%{box-shadow:0 0 0 7px rgba(10,138,77,0)}}
+.qbtn.again{background:#fff;border:2px solid var(--line);color:var(--muted)}
+.qbadge{position:absolute;top:10px;right:12px;background:#FFF3CE;border:1.5px solid #E8B83C;
+  color:#8A6215;font-size:11.5px;font-weight:700;border-radius:99px;padding:1px 9px}
+
 @media(max-width:640px){
+  .qopts{grid-template-columns:1fr}
+  .quiz-box{padding:18px 16px 22px;border-radius:18px}
+  .quiz-stars{margin-left:0}
   .top .wrap{height:58px;gap:10px}
   .top .home{font-size:21px}
   .top .ovbtn{font-size:14.5px;padding:6px 16px}
@@ -428,6 +629,75 @@ ${body}
 </script>
 </body>
 </html>`;
+}
+
+/** 遊戲圖檔（吉祥物貼圖與徽章）：來源在 design/assets-quiz/，build 時複製進 docs/assets/quiz/ */
+const QUIZ_ASSETS = path.join(ROOT, 'design', 'assets-quiz');
+const hasAsset = name => fs.existsSync(path.join(QUIZ_ASSETS, name));
+
+/** 產生章末闖關小遊戲區塊（含互動腳本；一頁一個，資料內嵌） */
+function quizHtml(slug) {
+  const z = QUIZ[slug];
+  if (!z) return '';
+  const stars = z.qs.map(() => '<i>☆</i>').join('');
+  const mascotImg = hasAsset(`${slug}-mascot.png`)
+    ? `<img src="assets/quiz/${slug}-mascot.png" alt="" loading="lazy">`
+    : z.mascot;
+  // 有專屬徽章圖就用；否則把吉祥物嵌進 CSS 金牌框
+  const medalSrc = hasAsset(`${slug}-badge.png`) ? `${slug}-badge.png`
+    : hasAsset(`${slug}-mascot.png`) ? `${slug}-mascot.png` : '';
+  const medalImg = medalSrc
+    ? `<div class="qmedalwrap"><img class="qmedal" src="assets/quiz/${medalSrc}" alt="通關獎牌"></div>`
+    : '';
+  // 內嵌腳本不用樣板字串，避免與外層樣板衝突
+  const js = '(function(){' +
+    'var Q=' + JSON.stringify(z.qs) + ';' +
+    'var box=document.getElementById("quiz");if(!box)return;' +
+    'var qs=box.querySelector(".quiz-qs"),stars=box.querySelectorAll(".quiz-stars i"),done=box.querySelector(".quiz-done"),slug=box.getAttribute("data-slug");' +
+    'function reset(){qs.innerHTML="";done.hidden=true;for(var i=0;i<stars.length;i++){stars[i].textContent="\\u2606";stars[i].className="";}show(0);}' +
+    'function finish(){done.hidden=false;try{localStorage.setItem("hw-quiz-"+slug,"1");}catch(e){}done.scrollIntoView({behavior:"smooth",block:"nearest"});}' +
+    'function show(i){var q=Q[i];var card=document.createElement("div");card.className="qcard";' +
+    'var h=\'<span class="qnum">\\u7b2c \'+(i+1)+\' \\u984c</span><div class="qtext"></div><div class="qopts">\';' +
+    'for(var j=0;j<q.o.length;j++)h+=\'<button type="button" data-j="\'+j+\'"><i>\'+"ABCD"[j]+\'</i><span></span></button>\';' +
+    'h+=\'</div><div class="qmiss" hidden>\\u5dee\\u4e00\\u9ede\\uff0c\\u63db\\u4e00\\u500b\\u8a66\\u8a66\\uff01</div><div class="qwhy" hidden></div>\';' +
+    'card.innerHTML=h;card.querySelector(".qtext").textContent=q.q;' +
+    'var btns=card.querySelectorAll(".qopts button");' +
+    'for(var k=0;k<btns.length;k++)btns[k].querySelector("span").textContent=q.o[k];' +
+    'qs.appendChild(card);if(i>0)card.scrollIntoView({behavior:"smooth",block:"nearest"});' +
+    'for(var k2=0;k2<btns.length;k2++)(function(b){b.addEventListener("click",function(){' +
+    'if(+b.getAttribute("data-j")===q.a){b.className="yes";for(var x=0;x<btns.length;x++)btns[x].disabled=true;' +
+    'card.querySelector(".qmiss").hidden=true;var w=card.querySelector(".qwhy");w.textContent="\\ud83d\\udca1 "+q.w;w.hidden=false;' +
+    'stars[i].textContent="\\u2b50";stars[i].className="on";' +
+    'setTimeout(function(){if(i+1<Q.length)show(i+1);else finish();},700);' +
+    '}else{b.className="no";b.disabled=true;card.querySelector(".qmiss").hidden=false;}' +
+    '});})(btns[k2]);}' +
+    'var again=done.querySelector(".again");if(again)again.addEventListener("click",reset);' +
+    'show(0);})();';
+  return `<section class="quiz" id="quiz" data-slug="${slug}">
+  <div class="quiz-box">
+    <div class="quiz-head">
+      <div class="quiz-mascot">${mascotImg}</div>
+      <div>
+        <div class="quiz-kicker">讀完來玩</div>
+        <h2 class="quiz-title">${z.name}</h2>
+        <p class="quiz-sub">一次一題、四選一，答對才會出現下一題。答錯不扣分，放心作答！</p>
+      </div>
+      <span class="quiz-stars">${stars}</span>
+    </div>
+    <div class="quiz-qs"></div>
+    <div class="quiz-done" hidden>
+      <div class="party"><span>🎉</span><span>${z.mascot}</span><span>⭐</span><span>${z.mascot}</span><span>🎉</span></div>
+      ${medalImg}
+      <h3>五題全通關！獲得稱號「${z.badge}」</h3>
+      <p>把答案講給家人聽一遍，記得更牢喔。</p>
+      <div>
+        <a class="qbtn go" href="${z.next.href}">${z.next.label}</a>
+        <button class="qbtn again" type="button">再玩一次</button>
+      </div>
+    </div>
+  </div>
+  <script>${js}</script>
+</section>`;
 }
 
 /* ---------- 自評工具頁 ---------- */
@@ -530,6 +800,15 @@ for (const a of ASSETS) {
   fs.copyFileSync(a.src, path.join(DOCS, 'assets', a.out));
 }
 
+// 遊戲圖檔：design/assets-quiz/*.png → docs/assets/quiz/
+if (fs.existsSync(QUIZ_ASSETS)) {
+  const quizOut = path.join(DOCS, 'assets', 'quiz');
+  fs.mkdirSync(quizOut, { recursive: true });
+  for (const f of fs.readdirSync(QUIZ_ASSETS).filter(f => f.endsWith('.png'))) {
+    fs.copyFileSync(path.join(QUIZ_ASSETS, f), path.join(quizOut, f));
+  }
+}
+
 let built = 0;
 CHAPTERS.forEach((b, idx) => {
   const src = path.join(CONTENT, b.md);
@@ -551,7 +830,7 @@ CHAPTERS.forEach((b, idx) => {
     title: `${b.title}｜健康體重管理`,
     desc: b.desc,
     crumb,
-    body: `<div class="wrap"><article>${withToc}</article>${chnav}</div>`,
+    body: `<div class="wrap"><article>${withToc}</article>${quizHtml(b.slug)}${chnav}</div>`,
   });
   fs.writeFileSync(path.join(DOCS, `${b.slug}.html`), html, 'utf8');
   built++;
@@ -577,7 +856,7 @@ const home = page({
   <div class="hero">
     <span class="pill">民眾衛教</span>
     <h1>體重管理，用對方法就不辛苦</h1>
-    <p>寫給一般民眾的健康體重管理指南。不是「少吃多動」四個字，而是講清楚為什麼、怎麼自我評估、飲食運動具體怎麼做、藥物什麼時候找誰談。七章按順序讀，或挑你需要的看。</p>
+    <p>寫給一般民眾的健康體重管理指南。不是「少吃多動」四個字，而是講清楚為什麼、怎麼自我評估、飲食運動具體怎麼做、藥物什麼時候找誰談。七章按順序讀，或挑你需要的看。每章讀完有五題小遊戲，全對就能收集通關徽章 🏅。</p>
   </div>
 
 </div>
@@ -616,7 +895,21 @@ const home = page({
   <div class="warn">
     <b>提醒</b>：本站內容以一般成年人的情況撰寫，是衛教參考、不是醫療處方。若你已有慢性病、正在用藥、懷孕或未成年，請以你的醫師建議為準。
   </div>
-</div>`,
+</div>
+<script>
+/* 通關徽章：讀 localStorage 幫已通關的章節卡片掛上徽章 */
+(function(){
+  try{
+    var cs=document.querySelectorAll('a.card');
+    for(var i=0;i<cs.length;i++){
+      var m=(cs[i].getAttribute('href')||'').match(/^(risk|check|model|eat|move|meds|clinic)\\.html$/);
+      if(m&&localStorage.getItem('hw-quiz-'+m[1])==='1'){
+        var b=document.createElement('span');b.className='qbadge';b.textContent='🏅 已通關';cs[i].appendChild(b);
+      }
+    }
+  }catch(e){}
+})();
+</script>`,
 });
 fs.writeFileSync(path.join(DOCS, 'index.html'), home, 'utf8');
 fs.writeFileSync(path.join(DOCS, '.nojekyll'), '', 'utf8');
