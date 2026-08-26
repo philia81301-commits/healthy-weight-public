@@ -54,5 +54,5 @@
 
 - 時間：2026-08-26（⑤⑥⑦審定＋七章闖關小遊戲上線＋腰圍圖合併）
 - 更新者：Claude Code（Fable 5）@ DESKTOP-LVSV9Q5
-- Git push：待推
+- Git push：✅ 已推（21c26ec）
 - L3 Obsidian：本次已更新 `2ndBrain/healthy-weight-public/專案工作流程.md`
