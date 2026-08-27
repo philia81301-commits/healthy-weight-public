@@ -4,9 +4,16 @@
 
 ## ⏯️ 目前做到哪
 
-**網站已上線，七章內容全數審定，並加上章末闖關小遊戲**：<https://philia81301-commits.github.io/healthy-weight-public/>
+**網站已上線，七章內容全數審定，並加上章首闖關小遊戲**：<https://philia81301-commits.github.io/healthy-weight-public/>
 
-2026-08-26 本日完成：
+2026-08-28 完成：**闖關遊戲尺寸改用全站統一規格**（標準出自 osteoporosis-clinic：
+標題 27／題目 21／選項 18／星星 38；規格全文在 auto-memory `quiz-uniform-layout`），
+`tools/build-site.js` 的遊戲 CSS 更新後七章重建、已推上線（`2ee0eea`）。
+同日 HP-clinic 與 pneumonia-clinic 的衛教單張也改成 hero＋分頁膠囊版型並套同一套尺寸——
+三站的遊戲版面自此一致。另在 `.claude/launch.json` 加了 `hp-leaflet`、`pneumo-leaflet`
+兩個跨專案預覽設定（驗證姊妹站單張用）。
+
+2026-08-26 完成：
 
 1. **⑤⑥⑦章審定通過**——三章 `> 狀態` 改已審定、審稿追蹤表結案、`content/index.md` 狀態表全綠；網站「本章內容仍在最終審訂中」橫幅隨之消失（`isDraft` 靠 `> 狀態：**草稿**` 判定）。
 2. **七章各加五題闖關小遊戲**——答對才出下一題、答錯抖動不扣分、答對附一行解說，集滿五星得稱號（健康明白人／量測小達人／三腳凳大師／點餐高手／走路冠軍／不上當專家／起點勇者）。
@@ -52,7 +59,8 @@
 
 ## 🕐 最後更新
 
-- 時間：2026-08-26（⑤⑥⑦審定＋七章闖關小遊戲上線＋腰圍圖合併）
-- 更新者：Claude Code（Fable 5）@ DESKTOP-LVSV9Q5
-- Git push：✅ 已推（21c26ec）
-- L3 Obsidian：本次已更新 `2ndBrain/healthy-weight-public/專案工作流程.md`
+- 時間：2026-08-28（遊戲尺寸全站統一）
+- 更新者：Claude Code（Fable 5）@ X108521（醫院）
+- Git push：✅ 已推（`2ee0eea` 尺寸統一 → `d9ace9d` launch.json → 本收工 commit）
+- L3 Obsidian：⚠️ 本次在醫院電腦收工，此電腦無 Obsidian vault，L3 未更新——下次在家用電腦開工時補
+- 前一筆：2026-08-27 @ X108521 · ✅ 已推（84f8768，章節頁遊戲移到內容前）
