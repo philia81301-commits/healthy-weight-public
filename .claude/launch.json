@@ -6,6 +6,12 @@
       "runtimeExecutable": "npx",
       "runtimeArgs": ["http-server", "docs", "-p", "8088", "-c-1"],
       "port": 8088
+    },
+    {
+      "name": "hp-leaflet",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["http-server", "C:\\projects\\HP-clinic\\output", "-p", "8769", "-c-1"],
+      "port": 8769
     }
   ]
 }

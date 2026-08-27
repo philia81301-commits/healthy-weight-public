@@ -190,7 +190,7 @@ footer b{color:var(--ink)}
   color:#E8B83C;opacity:.4;animation:qtwinkle 2.2s ease-in-out infinite 1.1s}
 @keyframes qtwinkle{0%,100%{opacity:.2;transform:scale(.85)}50%{opacity:.7;transform:scale(1.1)}}
 .quiz-head{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
-.quiz-mascot{font-size:46px;line-height:1;filter:drop-shadow(0 3px 4px rgba(0,0,0,.12));
+.quiz-mascot{font-size:52px;line-height:1;filter:drop-shadow(0 3px 4px rgba(0,0,0,.12));
   animation:qbob 2.6s ease-in-out infinite}
 .quiz-mascot img{width:86px;height:86px;border-radius:26px;display:block;
   border:2.5px solid #fff;box-shadow:0 5px 14px rgba(154,107,42,.22)}
@@ -204,27 +204,27 @@ footer b{color:var(--ink)}
   display:block;background:#fff;border:7px solid #E8B83C;
   box-shadow:0 0 0 3px #C79320,0 7px 20px rgba(154,107,42,.3),inset 0 0 0 2px #FFF3CE}
 @keyframes qbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
-.quiz-kicker{font-size:12px;font-weight:700;letter-spacing:.12em;color:var(--gold)}
-.quiz-title{font-family:"LXGW WenKai TC",serif;margin:2px 0 4px;font-size:22px}
-.quiz-sub{margin:0;color:var(--muted);font-size:14.5px}
+.quiz-kicker{font-size:14px;font-weight:700;letter-spacing:.12em;color:var(--gold)}
+.quiz-title{font-family:"LXGW WenKai TC",serif;margin:2px 0 4px;font-size:27px}
+.quiz-sub{margin:0;color:var(--muted);font-size:17px}
 .quiz-stars{display:flex;gap:6px;margin-left:auto}
-.quiz-stars i{width:34px;height:34px;border-radius:50%;background:#fff;border:2px dashed #E3CFA2;
-  display:flex;align-items:center;justify-content:center;font-style:normal;font-size:16px;
+.quiz-stars i{width:38px;height:38px;border-radius:50%;background:#fff;border:2px dashed #E3CFA2;
+  display:flex;align-items:center;justify-content:center;font-style:normal;font-size:18px;
   color:#D8C49B;transition:.2s}
 .quiz-stars i.on{border-style:solid;border-color:#E8B83C;background:#FFF3CE;animation:qpop .45s}
 @keyframes qpop{0%{transform:scale(.4)}60%{transform:scale(1.3)}100%{transform:scale(1)}}
-.qcard{background:#fff;border:1.5px solid #EFE3C8;border-radius:18px;padding:16px 18px 18px;
+.qcard{background:#fff;border:1.5px solid #EFE3C8;border-radius:18px;padding:18px 20px 20px;
   margin-top:16px;animation:qin .4s}
 @keyframes qin{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 .qnum{display:inline-block;background:var(--move-soft);color:var(--move);font-weight:700;
-  font-size:12.5px;border-radius:99px;padding:2px 11px}
-.qtext{font-size:17.5px;font-weight:700;margin:9px 0 12px}
+  font-size:15px;border-radius:99px;padding:3px 13px}
+.qtext{font-size:21px;font-weight:700;margin:10px 0 14px}
 .qopts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.qopts button{font:inherit;font-size:15.5px;text-align:left;background:#FDFBF3;
-  border:1.5px solid #E7DDC2;border-radius:99px;padding:8px 16px 8px 8px;cursor:pointer;
+.qopts button{font:inherit;font-size:18px;text-align:left;background:#FDFBF3;
+  border:1.5px solid #E7DDC2;border-radius:99px;padding:10px 18px 10px 10px;cursor:pointer;
   transition:.15s;display:flex;align-items:center;gap:10px}
-.qopts button i{width:27px;height:27px;border-radius:50%;background:#F4E7C8;color:#8A6215;
-  font-style:normal;font-weight:700;font-size:13px;display:flex;align-items:center;
+.qopts button i{width:30px;height:30px;border-radius:50%;background:#F4E7C8;color:#8A6215;
+  font-style:normal;font-weight:700;font-size:15px;display:flex;align-items:center;
   justify-content:center;flex-shrink:0;transition:.15s}
 .qopts button:hover:not(:disabled){transform:translateY(-2px) rotate(-.4deg);
   border-color:var(--move);background:#fff;box-shadow:0 4px 12px rgba(10,138,77,.12)}
@@ -237,21 +237,21 @@ footer b{color:var(--ink)}
 .qopts button.yes i{background:var(--move);color:#fff}
 .qopts button.yes::after{content:"⭕";margin-left:auto}
 @keyframes qshake{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
-.qmiss{margin-top:9px;font-size:13.5px;color:#A8834B}
-.qwhy{margin-top:10px;background:var(--gold-soft);color:#5A4520;border-radius:10px;
-  padding:8px 12px;font-size:14px;line-height:1.7}
+.qmiss{margin-top:9px;font-size:16px;color:#A8834B}
+.qwhy{margin-top:12px;background:var(--gold-soft);color:#5A4520;border-radius:10px;
+  padding:10px 14px;font-size:17px;line-height:1.7}
 .quiz-done{margin-top:18px;background:linear-gradient(180deg,#FFFDF4,#FFF4D8);
   border:2px solid #E8B83C;border-radius:18px;
-  padding:22px 20px;text-align:center;animation:qin .5s}
-.quiz-done .party span{display:inline-block;font-size:26px;margin:0 3px;animation:qbob 1.2s ease-in-out infinite}
+  padding:24px 20px;text-align:center;animation:qin .5s}
+.quiz-done .party span{display:inline-block;font-size:30px;margin:0 3px;animation:qbob 1.2s ease-in-out infinite}
 .quiz-done .party span:nth-child(2){animation-delay:.15s}
 .quiz-done .party span:nth-child(3){animation-delay:.3s}
 .quiz-done .party span:nth-child(4){animation-delay:.45s}
 .quiz-done .party span:nth-child(5){animation-delay:.6s}
-.quiz-done h3{font-family:"LXGW WenKai TC",serif;font-size:21px;margin:8px 0 4px}
-.quiz-done p{margin:0 0 14px;color:var(--muted);font-size:14.5px}
-.qbtn{display:inline-block;font:inherit;font-size:15px;font-weight:700;border-radius:99px;
-  padding:8px 20px;cursor:pointer;text-decoration:none;margin:0 5px 6px;transition:.15s}
+.quiz-done h3{font-family:"LXGW WenKai TC",serif;font-size:24px;margin:10px 0 6px}
+.quiz-done p{margin:0 0 16px;color:var(--muted);font-size:17px}
+.qbtn{display:inline-block;font:inherit;font-size:17px;font-weight:700;border-radius:99px;
+  padding:10px 22px;cursor:pointer;text-decoration:none;margin:0 5px 6px;transition:.15s}
 .qbtn:hover{transform:translateY(-2px)}
 .qbtn.go{background:var(--move);border:2px solid var(--move);color:#fff;
   animation:qpulse 1.8s ease-in-out infinite}
