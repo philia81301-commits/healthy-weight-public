@@ -12,6 +12,12 @@
       "runtimeExecutable": "npx",
       "runtimeArgs": ["http-server", "C:\\projects\\HP-clinic\\output", "-p", "8769", "-c-1"],
       "port": 8769
+    },
+    {
+      "name": "pneumo-leaflet",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["http-server", "C:\\projects\\pneumonia-clinic\\output", "-p", "8770", "-c-1"],
+      "port": 8770
     }
   ]
 }
