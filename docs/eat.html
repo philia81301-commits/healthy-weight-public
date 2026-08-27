@@ -132,7 +132,7 @@ th{background:#F4F4EC;font-weight:700;white-space:nowrap}
 .toc-k{display:flex;flex-wrap:wrap;gap:3px 14px;margin:1px 0 0 2px}
 .toc-k a{font-size:13.6px;color:var(--muted);text-decoration:none;line-height:1.65}
 .toc-k a:hover{color:var(--move);text-decoration:underline}
-article h2,article h3{scroll-margin-top:76px}
+article,article h2,article h3{scroll-margin-top:76px}
 
 /* 章間導航 */
 .chnav{display:flex;justify-content:space-between;gap:12px;margin:0 0 40px}
@@ -179,8 +179,8 @@ footer b{color:var(--ink)}
 .totop:hover{border-color:var(--move);color:var(--move)}
 .totop svg{width:20px;height:20px}
 
-/* 章末闖關小遊戲（可愛風，移植自姊妹站病人版） */
-.quiz{margin:0 0 46px}
+/* 章首闖關小遊戲（可愛風，移植自姊妹站病人版；放文章前當吸引入口） */
+.quiz{margin:26px 0 0}
 .quiz-box{background:linear-gradient(160deg,#FFFDF4,#FDF1DE);border:2px solid #F0D9A8;
   border-radius:24px;padding:24px 26px 28px;box-shadow:0 10px 30px rgba(154,107,42,.08);
   position:relative;overflow:hidden}
@@ -283,8 +283,34 @@ footer b{color:var(--ink)}
   <span class="sp"></span>
   <span class="crumb">吃：不是吃少，是吃對</span><a class="ovbtn" href="./">總覽</a>
 </div></nav>
-<div class="wrap"><article><h1 id="第章吃不是吃少是吃對">第④章　吃：不是吃少，是吃對</h1>
+<div class="wrap"><section class="quiz" id="quiz" data-slug="eat">
+  <div class="quiz-box">
+    <div class="quiz-head">
+      <div class="quiz-mascot"><img src="assets/quiz/eat-mascot.png" alt="" loading="lazy"></div>
+      <div>
+        <div class="quiz-kicker">先來闖關</div>
+        <h2 class="quiz-title">吃對五連闖</h2>
+        <p class="quiz-sub">一次一題、四選一，答對才會出現下一題。答錯不扣分——答案都在下面的本章內容裡！</p>
+      </div>
+      <span class="quiz-stars"><i>☆</i><i>☆</i><i>☆</i><i>☆</i><i>☆</i></span>
+    </div>
+    <div class="quiz-qs"></div>
+    <div class="quiz-done" hidden>
+      <div class="party"><span>🎉</span><span>🐹</span><span>⭐</span><span>🐹</span><span>🎉</span></div>
+      <div class="qmedalwrap"><img class="qmedal" src="assets/quiz/eat-mascot.png" alt="通關獎牌"></div>
+      <h3>五題全通關！獲得稱號「點餐高手」</h3>
+      <p>把答案講給家人聽一遍，記得更牢喔。</p>
+      <div>
+        <a class="qbtn go" href="#read">往下讀本章完整內容 ↓</a>
+        <a class="qbtn again" href="move.html">前往第⑤章：動 →</a>
+        <button class="qbtn again" type="button">再玩一次</button>
+      </div>
+    </div>
+  </div>
+  <script>(function(){var Q=[{"q":"減重第一步是先戒掉什麼？","o":["白飯","含糖飲料","水果","雞蛋"],"a":1,"w":"飲料的糖不佔胃、不會飽，是純多出來的熱量；換成水、無糖茶或黑咖啡。"},{"q":"餐盤口訣：蔬菜要佔多少？","o":["半盤","一小格","一口","不用吃"],"a":0,"w":"菜半盤、蛋白質一掌、飯一拳——自助餐、便當、家裡煮都套得上。"},{"q":"吃的順序哪個對？","o":["菜→蛋白質→飯","飯→菜→肉","甜點先吃","順序不重要"],"a":0,"w":"先菜再蛋白質最後飯，血糖比較平穩、也比較快有飽足感。"},{"q":"大腦收到吃飽訊號要多久？","o":["1 分鐘","馬上","15–20 分鐘","2 小時"],"a":2,"w":"所以要細嚼慢嚥——吃太快的人常在飽足感來之前就吃過量了。"},{"q":"「一週瘦 5 公斤」掉的多是？","o":["脂肪","水分和肌肉","骨頭","內臟脂肪"],"a":1,"w":"極端節食恢復吃飯就反彈，而且更難瘦——看到廣告先想起這一段。"}];var box=document.getElementById("quiz");if(!box)return;var qs=box.querySelector(".quiz-qs"),stars=box.querySelectorAll(".quiz-stars i"),done=box.querySelector(".quiz-done"),slug=box.getAttribute("data-slug");function reset(){qs.innerHTML="";done.hidden=true;for(var i=0;i<stars.length;i++){stars[i].textContent="\u2606";stars[i].className="";}show(0);}function finish(){done.hidden=false;try{localStorage.setItem("hw-quiz-"+slug,"1");}catch(e){}done.scrollIntoView({behavior:"smooth",block:"nearest"});}function show(i){var q=Q[i];var card=document.createElement("div");card.className="qcard";var h='<span class="qnum">\u7b2c '+(i+1)+' \u984c</span><div class="qtext"></div><div class="qopts">';for(var j=0;j<q.o.length;j++)h+='<button type="button" data-j="'+j+'"><i>'+"ABCD"[j]+'</i><span></span></button>';h+='</div><div class="qmiss" hidden>\u5dee\u4e00\u9ede\uff0c\u63db\u4e00\u500b\u8a66\u8a66\uff01</div><div class="qwhy" hidden></div>';card.innerHTML=h;card.querySelector(".qtext").textContent=q.q;var btns=card.querySelectorAll(".qopts button");for(var k=0;k<btns.length;k++)btns[k].querySelector("span").textContent=q.o[k];qs.appendChild(card);if(i>0)card.scrollIntoView({behavior:"smooth",block:"nearest"});for(var k2=0;k2<btns.length;k2++)(function(b){b.addEventListener("click",function(){if(+b.getAttribute("data-j")===q.a){b.className="yes";for(var x=0;x<btns.length;x++)btns[x].disabled=true;card.querySelector(".qmiss").hidden=true;var w=card.querySelector(".qwhy");w.textContent="\ud83d\udca1 "+q.w;w.hidden=false;stars[i].textContent="\u2b50";stars[i].className="on";setTimeout(function(){if(i+1<Q.length)show(i+1);else finish();},700);}else{b.className="no";b.disabled=true;card.querySelector(".qmiss").hidden=false;}});})(btns[k2]);}var again=done.querySelector(".again");if(again)again.addEventListener("click",reset);show(0);})();</script>
+</section><article id="read"><h1 id="第章吃不是吃少是吃對">第④章　吃：不是吃少，是吃對</h1>
 <nav class="toc"><div class="toc-t">本頁內容</div><div class="toc-s"><a class="toc-h" href="#本章想讓讀者帶走的三句話">本章想讓讀者帶走的三句話</a></div><div class="toc-s"><a class="toc-h" href="#4-1第一步永遠是戒掉喝的熱量">4-1 第一步永遠是：戒掉喝的熱量</a></div><div class="toc-s"><a class="toc-h" href="#4-2餐盤這樣擺菜半盤蛋白質一掌飯一拳">4-2 餐盤這樣擺：菜半盤、蛋白質一掌、飯一拳</a></div><div class="toc-s"><a class="toc-h" href="#4-3吃的順序菜蛋白質飯">4-3 吃的順序：菜 → 蛋白質 → 飯</a></div><div class="toc-s"><a class="toc-h" href="#4-4外食族這樣選每10個人有7個天天外食">4-4 外食族這樣選（每 10 個人有 7 個天天外食）</a></div><div class="toc-s"><a class="toc-h" href="#4-5這些捷徑別走極端節食與單一食物法">4-5 這些「捷徑」別走：極端節食與單一食物法</a></div></nav>
+<blockquote>適用：一般成年民眾。第③章說飲食是主引擎——這一章給具體做法，今天的下一餐就能開始。<br>狀態：<strong>已審定</strong>（2026-08-24 醫師審稿通過）。</blockquote>
 <hr>
 <h2 id="本章想讓讀者帶走的三句話">本章想讓讀者帶走的三句話</h2>
 <ol>
@@ -320,31 +346,7 @@ footer b{color:var(--ink)}
 <h2 id="4-5這些捷徑別走極端節食與單一食物法">4-5 這些「捷徑」別走：極端節食與單一食物法</h2>
 <p>只吃水果、完全不碰澱粉、一天只吃一餐、來路不明的「代謝茶」……這些方法的共同點：<strong>短期掉秤快，掉的是水分和肌肉；恢復吃飯就反彈，而且更難瘦</strong>。第③章說過，身體會把激烈節食當飢荒處理。看到「一週瘦 5 公斤」的廣告，先想起這一段。</p>
 <p class="src">出處：極端節食與體組成影響通則</p>
-<hr></article><section class="quiz" id="quiz" data-slug="eat">
-  <div class="quiz-box">
-    <div class="quiz-head">
-      <div class="quiz-mascot"><img src="assets/quiz/eat-mascot.png" alt="" loading="lazy"></div>
-      <div>
-        <div class="quiz-kicker">讀完來玩</div>
-        <h2 class="quiz-title">吃對五連闖</h2>
-        <p class="quiz-sub">一次一題、四選一，答對才會出現下一題。答錯不扣分，放心作答！</p>
-      </div>
-      <span class="quiz-stars"><i>☆</i><i>☆</i><i>☆</i><i>☆</i><i>☆</i></span>
-    </div>
-    <div class="quiz-qs"></div>
-    <div class="quiz-done" hidden>
-      <div class="party"><span>🎉</span><span>🐹</span><span>⭐</span><span>🐹</span><span>🎉</span></div>
-      <div class="qmedalwrap"><img class="qmedal" src="assets/quiz/eat-mascot.png" alt="通關獎牌"></div>
-      <h3>五題全通關！獲得稱號「點餐高手」</h3>
-      <p>把答案講給家人聽一遍，記得更牢喔。</p>
-      <div>
-        <a class="qbtn go" href="move.html">前往第⑤章：動 →</a>
-        <button class="qbtn again" type="button">再玩一次</button>
-      </div>
-    </div>
-  </div>
-  <script>(function(){var Q=[{"q":"減重第一步是先戒掉什麼？","o":["白飯","含糖飲料","水果","雞蛋"],"a":1,"w":"飲料的糖不佔胃、不會飽，是純多出來的熱量；換成水、無糖茶或黑咖啡。"},{"q":"餐盤口訣：蔬菜要佔多少？","o":["半盤","一小格","一口","不用吃"],"a":0,"w":"菜半盤、蛋白質一掌、飯一拳——自助餐、便當、家裡煮都套得上。"},{"q":"吃的順序哪個對？","o":["菜→蛋白質→飯","飯→菜→肉","甜點先吃","順序不重要"],"a":0,"w":"先菜再蛋白質最後飯，血糖比較平穩、也比較快有飽足感。"},{"q":"大腦收到吃飽訊號要多久？","o":["1 分鐘","馬上","15–20 分鐘","2 小時"],"a":2,"w":"所以要細嚼慢嚥——吃太快的人常在飽足感來之前就吃過量了。"},{"q":"「一週瘦 5 公斤」掉的多是？","o":["脂肪","水分和肌肉","骨頭","內臟脂肪"],"a":1,"w":"極端節食恢復吃飯就反彈，而且更難瘦——看到廣告先想起這一段。"}];var box=document.getElementById("quiz");if(!box)return;var qs=box.querySelector(".quiz-qs"),stars=box.querySelectorAll(".quiz-stars i"),done=box.querySelector(".quiz-done"),slug=box.getAttribute("data-slug");function reset(){qs.innerHTML="";done.hidden=true;for(var i=0;i<stars.length;i++){stars[i].textContent="\u2606";stars[i].className="";}show(0);}function finish(){done.hidden=false;try{localStorage.setItem("hw-quiz-"+slug,"1");}catch(e){}done.scrollIntoView({behavior:"smooth",block:"nearest"});}function show(i){var q=Q[i];var card=document.createElement("div");card.className="qcard";var h='<span class="qnum">\u7b2c '+(i+1)+' \u984c</span><div class="qtext"></div><div class="qopts">';for(var j=0;j<q.o.length;j++)h+='<button type="button" data-j="'+j+'"><i>'+"ABCD"[j]+'</i><span></span></button>';h+='</div><div class="qmiss" hidden>\u5dee\u4e00\u9ede\uff0c\u63db\u4e00\u500b\u8a66\u8a66\uff01</div><div class="qwhy" hidden></div>';card.innerHTML=h;card.querySelector(".qtext").textContent=q.q;var btns=card.querySelectorAll(".qopts button");for(var k=0;k<btns.length;k++)btns[k].querySelector("span").textContent=q.o[k];qs.appendChild(card);if(i>0)card.scrollIntoView({behavior:"smooth",block:"nearest"});for(var k2=0;k2<btns.length;k2++)(function(b){b.addEventListener("click",function(){if(+b.getAttribute("data-j")===q.a){b.className="yes";for(var x=0;x<btns.length;x++)btns[x].disabled=true;card.querySelector(".qmiss").hidden=true;var w=card.querySelector(".qwhy");w.textContent="\ud83d\udca1 "+q.w;w.hidden=false;stars[i].textContent="\u2b50";stars[i].className="on";setTimeout(function(){if(i+1<Q.length)show(i+1);else finish();},700);}else{b.className="no";b.disabled=true;card.querySelector(".qmiss").hidden=false;}});})(btns[k2]);}var again=done.querySelector(".again");if(again)again.addEventListener("click",reset);show(0);})();</script>
-</section><div class="chnav"><a href="model.html">← 第③章：正確的減重模式</a><a class="next" href="move.html">第⑤章：動：不是苦練，是動得對 →</a></div></div>
+<hr></article><div class="chnav"><a href="model.html">← 第③章：正確的減重模式</a><a class="next" href="move.html">第⑤章：動：不是苦練，是動得對 →</a></div></div>
 <footer><div class="wrap">
   <b>潘湘如醫師｜家醫科</b>　·　一般民眾健康體重管理衛教<br>
   本站內容為衛教參考，不能取代個別醫療評估；用藥請務必與醫師討論。本站不收集任何個人資料。<br>

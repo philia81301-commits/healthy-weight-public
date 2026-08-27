@@ -132,7 +132,7 @@ th{background:#F4F4EC;font-weight:700;white-space:nowrap}
 .toc-k{display:flex;flex-wrap:wrap;gap:3px 14px;margin:1px 0 0 2px}
 .toc-k a{font-size:13.6px;color:var(--muted);text-decoration:none;line-height:1.65}
 .toc-k a:hover{color:var(--move);text-decoration:underline}
-article h2,article h3{scroll-margin-top:76px}
+article,article h2,article h3{scroll-margin-top:76px}
 
 /* 章間導航 */
 .chnav{display:flex;justify-content:space-between;gap:12px;margin:0 0 40px}
@@ -179,8 +179,8 @@ footer b{color:var(--ink)}
 .totop:hover{border-color:var(--move);color:var(--move)}
 .totop svg{width:20px;height:20px}
 
-/* 章末闖關小遊戲（可愛風，移植自姊妹站病人版） */
-.quiz{margin:0 0 46px}
+/* 章首闖關小遊戲（可愛風，移植自姊妹站病人版；放文章前當吸引入口） */
+.quiz{margin:26px 0 0}
 .quiz-box{background:linear-gradient(160deg,#FFFDF4,#FDF1DE);border:2px solid #F0D9A8;
   border-radius:24px;padding:24px 26px 28px;box-shadow:0 10px 30px rgba(154,107,42,.08);
   position:relative;overflow:hidden}
@@ -283,8 +283,34 @@ footer b{color:var(--ink)}
   <span class="sp"></span>
   <span class="crumb">我需要管理體重嗎</span><a class="ovbtn" href="./">總覽</a>
 </div></nav>
-<div class="wrap"><article><h1 id="第章我需要管理體重嗎BMI腰圍自我評估">第②章　我需要管理體重嗎？（BMI／腰圍自我評估）</h1>
+<div class="wrap"><section class="quiz" id="quiz" data-slug="check">
+  <div class="quiz-box">
+    <div class="quiz-head">
+      <div class="quiz-mascot"><img src="assets/quiz/check-mascot.png" alt="" loading="lazy"></div>
+      <div>
+        <div class="quiz-kicker">先來闖關</div>
+        <h2 class="quiz-title">量測五連闖</h2>
+        <p class="quiz-sub">一次一題、四選一，答對才會出現下一題。答錯不扣分——答案都在下面的本章內容裡！</p>
+      </div>
+      <span class="quiz-stars"><i>☆</i><i>☆</i><i>☆</i><i>☆</i><i>☆</i></span>
+    </div>
+    <div class="quiz-qs"></div>
+    <div class="quiz-done" hidden>
+      <div class="party"><span>🎉</span><span>🐰</span><span>⭐</span><span>🐰</span><span>🎉</span></div>
+      <div class="qmedalwrap"><img class="qmedal" src="assets/quiz/check-mascot.png" alt="通關獎牌"></div>
+      <h3>五題全通關！獲得稱號「量測小達人」</h3>
+      <p>把答案講給家人聽一遍，記得更牢喔。</p>
+      <div>
+        <a class="qbtn go" href="#read">往下讀本章完整內容 ↓</a>
+        <a class="qbtn again" href="check-tool.html">用 30 秒自評工具算你的燈號 →</a>
+        <button class="qbtn again" type="button">再玩一次</button>
+      </div>
+    </div>
+  </div>
+  <script>(function(){var Q=[{"q":"BMI 正常但腰圍超標的健康風險？","o":["內臟脂肪增加","完全沒有風險","只是外觀問題","骨質疏鬆"],"a":0,"w":"俗稱「泡芙人」：肌肉少、內臟脂肪多，血糖血脂的風險不輸過重的人——BMI 和腰圍要一起看。"},{"q":"量腰圍的位置大約在哪？","o":["胸口下方","與肚臍同高","骨盆下方","大腿最粗處"],"a":1,"w":"肋骨下緣與骨盆上緣的中間點，皮尺水平、正常吐氣結束時讀數。"},{"q":"女性腰圍標準是幾公分以下？","o":["70","90","80","100"],"a":2,"w":"女 80、男 90 公分；腰圍量的是影響血糖血壓的內臟脂肪。"},{"q":"哪一種情況建議就醫評估？","o":["BMI 24 加上高血壓","BMI 22、腰圍沒超標","BMI 20 想再瘦一點","體重比去年少 1 公斤"],"a":0,"w":"紅燈＝BMI 27 以上，或 BMI 24 以上加上高血壓、血糖異常、脂肪肝等任一項。"},{"q":"黃燈的下一步是什麼？","o":["馬上吃藥","先調整吃和動","直接放棄","斷食三天"],"a":1,"w":"從第④章（吃）、第⑤章（動）開始調整，3 個月後再量一次。"}];var box=document.getElementById("quiz");if(!box)return;var qs=box.querySelector(".quiz-qs"),stars=box.querySelectorAll(".quiz-stars i"),done=box.querySelector(".quiz-done"),slug=box.getAttribute("data-slug");function reset(){qs.innerHTML="";done.hidden=true;for(var i=0;i<stars.length;i++){stars[i].textContent="\u2606";stars[i].className="";}show(0);}function finish(){done.hidden=false;try{localStorage.setItem("hw-quiz-"+slug,"1");}catch(e){}done.scrollIntoView({behavior:"smooth",block:"nearest"});}function show(i){var q=Q[i];var card=document.createElement("div");card.className="qcard";var h='<span class="qnum">\u7b2c '+(i+1)+' \u984c</span><div class="qtext"></div><div class="qopts">';for(var j=0;j<q.o.length;j++)h+='<button type="button" data-j="'+j+'"><i>'+"ABCD"[j]+'</i><span></span></button>';h+='</div><div class="qmiss" hidden>\u5dee\u4e00\u9ede\uff0c\u63db\u4e00\u500b\u8a66\u8a66\uff01</div><div class="qwhy" hidden></div>';card.innerHTML=h;card.querySelector(".qtext").textContent=q.q;var btns=card.querySelectorAll(".qopts button");for(var k=0;k<btns.length;k++)btns[k].querySelector("span").textContent=q.o[k];qs.appendChild(card);if(i>0)card.scrollIntoView({behavior:"smooth",block:"nearest"});for(var k2=0;k2<btns.length;k2++)(function(b){b.addEventListener("click",function(){if(+b.getAttribute("data-j")===q.a){b.className="yes";for(var x=0;x<btns.length;x++)btns[x].disabled=true;card.querySelector(".qmiss").hidden=true;var w=card.querySelector(".qwhy");w.textContent="\ud83d\udca1 "+q.w;w.hidden=false;stars[i].textContent="\u2b50";stars[i].className="on";setTimeout(function(){if(i+1<Q.length)show(i+1);else finish();},700);}else{b.className="no";b.disabled=true;card.querySelector(".qmiss").hidden=false;}});})(btns[k2]);}var again=done.querySelector(".again");if(again)again.addEventListener("click",reset);show(0);})();</script>
+</section><article id="read"><h1 id="第章我需要管理體重嗎BMI腰圍自我評估">第②章　我需要管理體重嗎？（BMI／腰圍自我評估）</h1>
 <nav class="toc"><div class="toc-t">本頁內容</div><div class="toc-s"><a class="toc-h" href="#本章想讓讀者帶走的三句話">本章想讓讀者帶走的三句話</a></div><div class="toc-s"><a class="toc-h" href="#2-1動手算BMI">2-1 動手算 BMI</a></div><div class="toc-s"><a class="toc-h" href="#2-2量腰圍比體重計更誠實的一條線">2-2 量腰圍：比體重計更誠實的一條線</a></div><div class="toc-s"><a class="toc-h" href="#2-3BMI正常就沒事小心泡芙人">2-3 BMI 正常就沒事？小心「泡芙人」</a></div><div class="toc-s"><a class="toc-h" href="#2-4對照你的結果綠燈黃燈紅燈">2-4 對照你的結果：綠燈、黃燈、紅燈</a></div><div class="toc-s"><a class="toc-h" href="#2-5自我紀錄的起點">2-5 自我紀錄的起點</a></div></nav>
+<blockquote>適用：一般成年民眾。30 秒量出兩個數字，對照表格就知道自己站在哪裡。<br>狀態：<strong>已審定</strong>（2026-08-24 醫師審稿通過）。<br>網站版此章將內嵌<strong>互動計算器</strong>（輸入身高體重腰圍→自動分級；純前端計算，不回傳任何資料）。</blockquote>
 <hr>
 <h2 id="本章想讓讀者帶走的三句話">本章想讓讀者帶走的三句話</h2>
 <ol>
@@ -369,31 +395,7 @@ footer b{color:var(--ink)}
 <p>今天的數字就是你的起點。找一張紙或手機備忘錄，記下：<strong>日期、體重、腰圍</strong>。目標不是數字漂亮，是<strong>下個月的你比這個月健康</strong>。</p>
 <p class="src">出處：行為改變自我監測通則</p>
 <hr>
-<div class="warn" style="background:var(--move-soft);border-left-color:var(--move);color:#0B4A2C"><b>懶得自己算？</b>用 <a href="check-tool.html">30 秒自評工具</a>，輸入三個數字直接看你的燈號（純本機計算，不上傳資料）。</div></article><section class="quiz" id="quiz" data-slug="check">
-  <div class="quiz-box">
-    <div class="quiz-head">
-      <div class="quiz-mascot"><img src="assets/quiz/check-mascot.png" alt="" loading="lazy"></div>
-      <div>
-        <div class="quiz-kicker">讀完來玩</div>
-        <h2 class="quiz-title">量測五連闖</h2>
-        <p class="quiz-sub">一次一題、四選一，答對才會出現下一題。答錯不扣分，放心作答！</p>
-      </div>
-      <span class="quiz-stars"><i>☆</i><i>☆</i><i>☆</i><i>☆</i><i>☆</i></span>
-    </div>
-    <div class="quiz-qs"></div>
-    <div class="quiz-done" hidden>
-      <div class="party"><span>🎉</span><span>🐰</span><span>⭐</span><span>🐰</span><span>🎉</span></div>
-      <div class="qmedalwrap"><img class="qmedal" src="assets/quiz/check-mascot.png" alt="通關獎牌"></div>
-      <h3>五題全通關！獲得稱號「量測小達人」</h3>
-      <p>把答案講給家人聽一遍，記得更牢喔。</p>
-      <div>
-        <a class="qbtn go" href="check-tool.html">用 30 秒自評工具算你的燈號 →</a>
-        <button class="qbtn again" type="button">再玩一次</button>
-      </div>
-    </div>
-  </div>
-  <script>(function(){var Q=[{"q":"BMI 正常但腰圍超標的健康風險？","o":["內臟脂肪增加","完全沒有風險","只是外觀問題","骨質疏鬆"],"a":0,"w":"俗稱「泡芙人」：肌肉少、內臟脂肪多，血糖血脂的風險不輸過重的人——BMI 和腰圍要一起看。"},{"q":"量腰圍的位置大約在哪？","o":["胸口下方","與肚臍同高","骨盆下方","大腿最粗處"],"a":1,"w":"肋骨下緣與骨盆上緣的中間點，皮尺水平、正常吐氣結束時讀數。"},{"q":"女性腰圍標準是幾公分以下？","o":["70","90","80","100"],"a":2,"w":"女 80、男 90 公分；腰圍量的是影響血糖血壓的內臟脂肪。"},{"q":"哪一種情況建議就醫評估？","o":["BMI 24 加上高血壓","BMI 22、腰圍沒超標","BMI 20 想再瘦一點","體重比去年少 1 公斤"],"a":0,"w":"紅燈＝BMI 27 以上，或 BMI 24 以上加上高血壓、血糖異常、脂肪肝等任一項。"},{"q":"黃燈的下一步是什麼？","o":["馬上吃藥","先調整吃和動","直接放棄","斷食三天"],"a":1,"w":"從第④章（吃）、第⑤章（動）開始調整，3 個月後再量一次。"}];var box=document.getElementById("quiz");if(!box)return;var qs=box.querySelector(".quiz-qs"),stars=box.querySelectorAll(".quiz-stars i"),done=box.querySelector(".quiz-done"),slug=box.getAttribute("data-slug");function reset(){qs.innerHTML="";done.hidden=true;for(var i=0;i<stars.length;i++){stars[i].textContent="\u2606";stars[i].className="";}show(0);}function finish(){done.hidden=false;try{localStorage.setItem("hw-quiz-"+slug,"1");}catch(e){}done.scrollIntoView({behavior:"smooth",block:"nearest"});}function show(i){var q=Q[i];var card=document.createElement("div");card.className="qcard";var h='<span class="qnum">\u7b2c '+(i+1)+' \u984c</span><div class="qtext"></div><div class="qopts">';for(var j=0;j<q.o.length;j++)h+='<button type="button" data-j="'+j+'"><i>'+"ABCD"[j]+'</i><span></span></button>';h+='</div><div class="qmiss" hidden>\u5dee\u4e00\u9ede\uff0c\u63db\u4e00\u500b\u8a66\u8a66\uff01</div><div class="qwhy" hidden></div>';card.innerHTML=h;card.querySelector(".qtext").textContent=q.q;var btns=card.querySelectorAll(".qopts button");for(var k=0;k<btns.length;k++)btns[k].querySelector("span").textContent=q.o[k];qs.appendChild(card);if(i>0)card.scrollIntoView({behavior:"smooth",block:"nearest"});for(var k2=0;k2<btns.length;k2++)(function(b){b.addEventListener("click",function(){if(+b.getAttribute("data-j")===q.a){b.className="yes";for(var x=0;x<btns.length;x++)btns[x].disabled=true;card.querySelector(".qmiss").hidden=true;var w=card.querySelector(".qwhy");w.textContent="\ud83d\udca1 "+q.w;w.hidden=false;stars[i].textContent="\u2b50";stars[i].className="on";setTimeout(function(){if(i+1<Q.length)show(i+1);else finish();},700);}else{b.className="no";b.disabled=true;card.querySelector(".qmiss").hidden=false;}});})(btns[k2]);}var again=done.querySelector(".again");if(again)again.addEventListener("click",reset);show(0);})();</script>
-</section><div class="chnav"><a href="risk.html">← 第①章：為什麼要管理體重</a><a class="next" href="model.html">第③章：正確的減重模式 →</a></div></div>
+<div class="warn" style="background:var(--move-soft);border-left-color:var(--move);color:#0B4A2C"><b>懶得自己算？</b>用 <a href="check-tool.html">30 秒自評工具</a>，輸入三個數字直接看你的燈號（純本機計算，不上傳資料）。</div></article><div class="chnav"><a href="risk.html">← 第①章：為什麼要管理體重</a><a class="next" href="model.html">第③章：正確的減重模式 →</a></div></div>
 <footer><div class="wrap">
   <b>潘湘如醫師｜家醫科</b>　·　一般民眾健康體重管理衛教<br>
   本站內容為衛教參考，不能取代個別醫療評估；用藥請務必與醫師討論。本站不收集任何個人資料。<br>

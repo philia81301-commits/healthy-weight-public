@@ -455,7 +455,7 @@ th{background:#F4F4EC;font-weight:700;white-space:nowrap}
 .toc-k{display:flex;flex-wrap:wrap;gap:3px 14px;margin:1px 0 0 2px}
 .toc-k a{font-size:13.6px;color:var(--muted);text-decoration:none;line-height:1.65}
 .toc-k a:hover{color:var(--move);text-decoration:underline}
-article h2,article h3{scroll-margin-top:76px}
+article,article h2,article h3{scroll-margin-top:76px}
 
 /* 章間導航 */
 .chnav{display:flex;justify-content:space-between;gap:12px;margin:0 0 40px}
@@ -502,8 +502,8 @@ footer b{color:var(--ink)}
 .totop:hover{border-color:var(--move);color:var(--move)}
 .totop svg{width:20px;height:20px}
 
-/* 章末闖關小遊戲（可愛風，移植自姊妹站病人版） */
-.quiz{margin:0 0 46px}
+/* 章首闖關小遊戲（可愛風，移植自姊妹站病人版；放文章前當吸引入口） */
+.quiz{margin:26px 0 0}
 .quiz-box{background:linear-gradient(160deg,#FFFDF4,#FDF1DE);border:2px solid #F0D9A8;
   border-radius:24px;padding:24px 26px 28px;box-shadow:0 10px 30px rgba(154,107,42,.08);
   position:relative;overflow:hidden}
@@ -688,9 +688,9 @@ function quizHtml(slug) {
     <div class="quiz-head">
       <div class="quiz-mascot">${mascotImg}</div>
       <div>
-        <div class="quiz-kicker">讀完來玩</div>
+        <div class="quiz-kicker">先來闖關</div>
         <h2 class="quiz-title">${z.name}</h2>
-        <p class="quiz-sub">一次一題、四選一，答對才會出現下一題。答錯不扣分，放心作答！</p>
+        <p class="quiz-sub">一次一題、四選一，答對才會出現下一題。答錯不扣分——答案都在下面的本章內容裡！</p>
       </div>
       <span class="quiz-stars">${stars}</span>
     </div>
@@ -701,7 +701,8 @@ function quizHtml(slug) {
       <h3>五題全通關！獲得稱號「${z.badge}」</h3>
       <p>把答案講給家人聽一遍，記得更牢喔。</p>
       <div>
-        <a class="qbtn go" href="${z.next.href}">${z.next.label}</a>
+        <a class="qbtn go" href="#read">往下讀本章完整內容 ↓</a>
+        <a class="qbtn again" href="${z.next.href}">${z.next.label}</a>
         <button class="qbtn again" type="button">再玩一次</button>
       </div>
     </div>
@@ -840,7 +841,7 @@ CHAPTERS.forEach((b, idx) => {
     title: `${b.title}｜健康體重管理`,
     desc: b.desc,
     crumb,
-    body: `<div class="wrap"><article>${withToc}</article>${quizHtml(b.slug)}${chnav}</div>`,
+    body: `<div class="wrap">${quizHtml(b.slug)}<article id="read">${withToc}</article>${chnav}</div>`,
   });
   fs.writeFileSync(path.join(DOCS, `${b.slug}.html`), html, 'utf8');
   built++;
@@ -866,7 +867,7 @@ const home = page({
   <div class="hero">
     <span class="pill">民眾衛教</span>
     <h1>體重管理，用對方法就不辛苦</h1>
-    <p>寫給一般民眾的健康體重管理指南。不是「少吃多動」四個字，而是講清楚為什麼、怎麼自我評估、飲食運動具體怎麼做、藥物什麼時候找誰談。七章按順序讀，或挑你需要的看。每章讀完有五題小遊戲，全對就能收集通關徽章 🏅。</p>
+    <p>寫給一般民眾的健康體重管理指南。不是「少吃多動」四個字，而是講清楚為什麼、怎麼自我評估、飲食運動具體怎麼做、藥物什麼時候找誰談。七章按順序讀，或挑你需要的看。每章開頭有五題闖關小遊戲，先玩再讀、全對就能收集通關徽章 🏅。</p>
   </div>
 
 </div>

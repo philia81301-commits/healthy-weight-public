@@ -132,7 +132,7 @@ th{background:#F4F4EC;font-weight:700;white-space:nowrap}
 .toc-k{display:flex;flex-wrap:wrap;gap:3px 14px;margin:1px 0 0 2px}
 .toc-k a{font-size:13.6px;color:var(--muted);text-decoration:none;line-height:1.65}
 .toc-k a:hover{color:var(--move);text-decoration:underline}
-article h2,article h3{scroll-margin-top:76px}
+article,article h2,article h3{scroll-margin-top:76px}
 
 /* 章間導航 */
 .chnav{display:flex;justify-content:space-between;gap:12px;margin:0 0 40px}
@@ -179,8 +179,8 @@ footer b{color:var(--ink)}
 .totop:hover{border-color:var(--move);color:var(--move)}
 .totop svg{width:20px;height:20px}
 
-/* 章末闖關小遊戲（可愛風，移植自姊妹站病人版） */
-.quiz{margin:0 0 46px}
+/* 章首闖關小遊戲（可愛風，移植自姊妹站病人版；放文章前當吸引入口） */
+.quiz{margin:26px 0 0}
 .quiz-box{background:linear-gradient(160deg,#FFFDF4,#FDF1DE);border:2px solid #F0D9A8;
   border-radius:24px;padding:24px 26px 28px;box-shadow:0 10px 30px rgba(154,107,42,.08);
   position:relative;overflow:hidden}
@@ -283,8 +283,34 @@ footer b{color:var(--ink)}
   <span class="sp"></span>
   <span class="crumb">認識減重藥物</span><a class="ovbtn" href="./">總覽</a>
 </div></nav>
-<div class="wrap"><article><h1 id="第章認識減重藥物合適的人在醫師評估下使用">第⑥章　認識減重藥物：合適的人，在醫師評估下使用</h1>
+<div class="wrap"><section class="quiz" id="quiz" data-slug="meds">
+  <div class="quiz-box">
+    <div class="quiz-head">
+      <div class="quiz-mascot"><img src="assets/quiz/meds-mascot.png" alt="" loading="lazy"></div>
+      <div>
+        <div class="quiz-kicker">先來闖關</div>
+        <h2 class="quiz-title">安全用藥五連闖</h2>
+        <p class="quiz-sub">一次一題、四選一，答對才會出現下一題。答錯不扣分——答案都在下面的本章內容裡！</p>
+      </div>
+      <span class="quiz-stars"><i>☆</i><i>☆</i><i>☆</i><i>☆</i><i>☆</i></span>
+    </div>
+    <div class="quiz-qs"></div>
+    <div class="quiz-done" hidden>
+      <div class="party"><span>🎉</span><span>🐧</span><span>⭐</span><span>🐧</span><span>🎉</span></div>
+      <div class="qmedalwrap"><img class="qmedal" src="assets/quiz/meds-mascot.png" alt="通關獎牌"></div>
+      <h3>五題全通關！獲得稱號「不上當專家」</h3>
+      <p>把答案講給家人聽一遍，記得更牢喔。</p>
+      <div>
+        <a class="qbtn go" href="#read">往下讀本章完整內容 ↓</a>
+        <a class="qbtn again" href="clinic.html">前往第⑦章：何時該就醫 →</a>
+        <button class="qbtn again" type="button">再玩一次</button>
+      </div>
+    </div>
+  </div>
+  <script>(function(){var Q=[{"q":"「瘦瘦針」的正式類別是？","o":["燃脂針","維他命","腸泌素類針劑","美容針"],"a":2,"w":"模擬飽足荷爾蒙讓食慾下降、容易飽——它不是燃脂針。"},{"q":"什麼人才考慮用減重藥物？","o":["想瘦就可以","紅燈且努力過仍困難","每個人","未成年也行"],"a":1,"w":"紅燈族群、且認真調整飲食運動後仍下不來，由醫師評估。"},{"q":"網購來路不明瘦瘦筆的風險？","o":["只是比較貴","假藥與劑量錯誤","效果更好","沒有風險"],"a":1,"w":"仿冒品有的不含有效成分；劑量沒人把關，處方藥轉讓也違法。"},{"q":"用藥期間特別要顧什麼？","o":["蛋白質和肌力","多喝手搖飲","少喝水","不用回診"],"a":0,"w":"食量變小時蛋白質要吃夠、肌力照練，否則瘦掉的有一部分是肌肉。"},{"q":"停藥後會復胖嗎？","o":["絕對不會","有風險，尤其習慣沒建立","一定會","跟習慣無關"],"a":1,"w":"治療期間的重點：讓藥幫你把「吃對、動起來」練成不需要藥的日常。"}];var box=document.getElementById("quiz");if(!box)return;var qs=box.querySelector(".quiz-qs"),stars=box.querySelectorAll(".quiz-stars i"),done=box.querySelector(".quiz-done"),slug=box.getAttribute("data-slug");function reset(){qs.innerHTML="";done.hidden=true;for(var i=0;i<stars.length;i++){stars[i].textContent="\u2606";stars[i].className="";}show(0);}function finish(){done.hidden=false;try{localStorage.setItem("hw-quiz-"+slug,"1");}catch(e){}done.scrollIntoView({behavior:"smooth",block:"nearest"});}function show(i){var q=Q[i];var card=document.createElement("div");card.className="qcard";var h='<span class="qnum">\u7b2c '+(i+1)+' \u984c</span><div class="qtext"></div><div class="qopts">';for(var j=0;j<q.o.length;j++)h+='<button type="button" data-j="'+j+'"><i>'+"ABCD"[j]+'</i><span></span></button>';h+='</div><div class="qmiss" hidden>\u5dee\u4e00\u9ede\uff0c\u63db\u4e00\u500b\u8a66\u8a66\uff01</div><div class="qwhy" hidden></div>';card.innerHTML=h;card.querySelector(".qtext").textContent=q.q;var btns=card.querySelectorAll(".qopts button");for(var k=0;k<btns.length;k++)btns[k].querySelector("span").textContent=q.o[k];qs.appendChild(card);if(i>0)card.scrollIntoView({behavior:"smooth",block:"nearest"});for(var k2=0;k2<btns.length;k2++)(function(b){b.addEventListener("click",function(){if(+b.getAttribute("data-j")===q.a){b.className="yes";for(var x=0;x<btns.length;x++)btns[x].disabled=true;card.querySelector(".qmiss").hidden=true;var w=card.querySelector(".qwhy");w.textContent="\ud83d\udca1 "+q.w;w.hidden=false;stars[i].textContent="\u2b50";stars[i].className="on";setTimeout(function(){if(i+1<Q.length)show(i+1);else finish();},700);}else{b.className="no";b.disabled=true;card.querySelector(".qmiss").hidden=false;}});})(btns[k2]);}var again=done.querySelector(".again");if(again)again.addEventListener("click",reset);show(0);})();</script>
+</section><article id="read"><h1 id="第章認識減重藥物合適的人在醫師評估下使用">第⑥章　認識減重藥物：合適的人，在醫師評估下使用</h1>
 <nav class="toc"><div class="toc-t">本頁內容</div><div class="toc-s"><a class="toc-h" href="#本章想讓讀者帶走的三句話">本章想讓讀者帶走的三句話</a></div><div class="toc-s"><a class="toc-h" href="#6-1什麼時候該考慮藥物">6-1 什麼時候該考慮藥物？</a></div><div class="toc-s"><a class="toc-h" href="#6-2目前有哪些類型民眾版地圖">6-2 目前有哪些類型？（民眾版地圖）</a></div><div class="toc-s"><a class="toc-h" href="#6-3聚焦瘦瘦針腸泌素類針劑">6-3 聚焦「瘦瘦針」：腸泌素類針劑</a></div><div class="toc-s"><a class="toc-h" href="#6-4三個誠實的提醒">6-4 三個誠實的提醒</a></div><div class="toc-s"><a class="toc-h" href="#6-5絕對不要網購代購朋友分讓">6-5 絕對不要：網購、代購、朋友分讓</a></div><div class="toc-s"><a class="toc-h" href="#6-6民眾最常問的三題">6-6 民眾最常問的三題</a></div></nav>
+<blockquote>適用：一般成年民眾。本章只做<strong>概覽</strong>——認識有哪些類型、誰適合、怎麼安全取得；<br>不談劑量與治療細節（那是診間的事）。<br>狀態：<strong>已審定</strong>（2026-08-26 醫師審稿通過）。</blockquote>
 <hr>
 <h2 id="本章想讓讀者帶走的三句話">本章想讓讀者帶走的三句話</h2>
 <ol>
@@ -344,31 +370,7 @@ footer b{color:var(--ink)}
 <li><strong>Q：停藥會復胖嗎？</strong>&lt;br&gt;A：有這個風險，尤其習慣沒建立的話。所以治療期間的重點永遠是：讓藥幫你把「吃對、動起來」練成不需要藥也維持得住的日常。</li>
 </ul>
 <p class="src">出處：醫師臨床衛教經驗</p>
-<hr></article><section class="quiz" id="quiz" data-slug="meds">
-  <div class="quiz-box">
-    <div class="quiz-head">
-      <div class="quiz-mascot"><img src="assets/quiz/meds-mascot.png" alt="" loading="lazy"></div>
-      <div>
-        <div class="quiz-kicker">讀完來玩</div>
-        <h2 class="quiz-title">安全用藥五連闖</h2>
-        <p class="quiz-sub">一次一題、四選一，答對才會出現下一題。答錯不扣分，放心作答！</p>
-      </div>
-      <span class="quiz-stars"><i>☆</i><i>☆</i><i>☆</i><i>☆</i><i>☆</i></span>
-    </div>
-    <div class="quiz-qs"></div>
-    <div class="quiz-done" hidden>
-      <div class="party"><span>🎉</span><span>🐧</span><span>⭐</span><span>🐧</span><span>🎉</span></div>
-      <div class="qmedalwrap"><img class="qmedal" src="assets/quiz/meds-mascot.png" alt="通關獎牌"></div>
-      <h3>五題全通關！獲得稱號「不上當專家」</h3>
-      <p>把答案講給家人聽一遍，記得更牢喔。</p>
-      <div>
-        <a class="qbtn go" href="clinic.html">前往第⑦章：何時該就醫 →</a>
-        <button class="qbtn again" type="button">再玩一次</button>
-      </div>
-    </div>
-  </div>
-  <script>(function(){var Q=[{"q":"「瘦瘦針」的正式類別是？","o":["燃脂針","維他命","腸泌素類針劑","美容針"],"a":2,"w":"模擬飽足荷爾蒙讓食慾下降、容易飽——它不是燃脂針。"},{"q":"什麼人才考慮用減重藥物？","o":["想瘦就可以","紅燈且努力過仍困難","每個人","未成年也行"],"a":1,"w":"紅燈族群、且認真調整飲食運動後仍下不來，由醫師評估。"},{"q":"網購來路不明瘦瘦筆的風險？","o":["只是比較貴","假藥與劑量錯誤","效果更好","沒有風險"],"a":1,"w":"仿冒品有的不含有效成分；劑量沒人把關，處方藥轉讓也違法。"},{"q":"用藥期間特別要顧什麼？","o":["蛋白質和肌力","多喝手搖飲","少喝水","不用回診"],"a":0,"w":"食量變小時蛋白質要吃夠、肌力照練，否則瘦掉的有一部分是肌肉。"},{"q":"停藥後會復胖嗎？","o":["絕對不會","有風險，尤其習慣沒建立","一定會","跟習慣無關"],"a":1,"w":"治療期間的重點：讓藥幫你把「吃對、動起來」練成不需要藥的日常。"}];var box=document.getElementById("quiz");if(!box)return;var qs=box.querySelector(".quiz-qs"),stars=box.querySelectorAll(".quiz-stars i"),done=box.querySelector(".quiz-done"),slug=box.getAttribute("data-slug");function reset(){qs.innerHTML="";done.hidden=true;for(var i=0;i<stars.length;i++){stars[i].textContent="\u2606";stars[i].className="";}show(0);}function finish(){done.hidden=false;try{localStorage.setItem("hw-quiz-"+slug,"1");}catch(e){}done.scrollIntoView({behavior:"smooth",block:"nearest"});}function show(i){var q=Q[i];var card=document.createElement("div");card.className="qcard";var h='<span class="qnum">\u7b2c '+(i+1)+' \u984c</span><div class="qtext"></div><div class="qopts">';for(var j=0;j<q.o.length;j++)h+='<button type="button" data-j="'+j+'"><i>'+"ABCD"[j]+'</i><span></span></button>';h+='</div><div class="qmiss" hidden>\u5dee\u4e00\u9ede\uff0c\u63db\u4e00\u500b\u8a66\u8a66\uff01</div><div class="qwhy" hidden></div>';card.innerHTML=h;card.querySelector(".qtext").textContent=q.q;var btns=card.querySelectorAll(".qopts button");for(var k=0;k<btns.length;k++)btns[k].querySelector("span").textContent=q.o[k];qs.appendChild(card);if(i>0)card.scrollIntoView({behavior:"smooth",block:"nearest"});for(var k2=0;k2<btns.length;k2++)(function(b){b.addEventListener("click",function(){if(+b.getAttribute("data-j")===q.a){b.className="yes";for(var x=0;x<btns.length;x++)btns[x].disabled=true;card.querySelector(".qmiss").hidden=true;var w=card.querySelector(".qwhy");w.textContent="\ud83d\udca1 "+q.w;w.hidden=false;stars[i].textContent="\u2b50";stars[i].className="on";setTimeout(function(){if(i+1<Q.length)show(i+1);else finish();},700);}else{b.className="no";b.disabled=true;card.querySelector(".qmiss").hidden=false;}});})(btns[k2]);}var again=done.querySelector(".again");if(again)again.addEventListener("click",reset);show(0);})();</script>
-</section><div class="chnav"><a href="move.html">← 第⑤章：動：不是苦練，是動得對</a><a class="next" href="clinic.html">第⑦章：何時該就醫 →</a></div></div>
+<hr></article><div class="chnav"><a href="move.html">← 第⑤章：動：不是苦練，是動得對</a><a class="next" href="clinic.html">第⑦章：何時該就醫 →</a></div></div>
 <footer><div class="wrap">
   <b>潘湘如醫師｜家醫科</b>　·　一般民眾健康體重管理衛教<br>
   本站內容為衛教參考，不能取代個別醫療評估；用藥請務必與醫師討論。本站不收集任何個人資料。<br>
