@@ -34,7 +34,12 @@
 
 ## ➡️ 下一步
 
-1. **4 頁簡報 PDF**（階段四）——內容已全數審定，可以做了；轉法 python win32com SaveAs 32（PowerShell COM 會 TYPE_E_CANTLOADLIBRARY）
+1. **章節頁改成分頁式版型**（潘醫師 2026-08-28 指示 next time 做）——比照 HP-clinic／pneumonia-clinic
+   衛教單張的 hero＋分頁膠囊版型：預設停在「先來闖關」，本章內容點分頁才出現（小節 1-1、1-2⋯
+   可考慮做成膠囊分頁）。改 `tools/build-site.js` 的頁面模板可一次套七章；
+   參考實作：`C:\projects\HP-clinic\src\leaflet.template.html`（雙模式 CSS：base 網頁版＋
+   `@media print` 還原）。注意本站章節頁有目錄（toc）、錨點、回頂端等既有機制要整合
+2. **4 頁簡報 PDF**（階段四）——內容已全數審定，可以做了；轉法 python win32com SaveAs 32（PowerShell COM 會 TYPE_E_CANTLOADLIBRARY）
 2. **⑦7-4 本院掛號資訊**——待醫師提供連結／時段，補成網站區塊；不影響七章審定狀態
 3. 可選：小遊戲吉祥物目前是 Pollinations 絨毛風，與姊妹站的 Canva 扁平貼圖風不同。若要兩站統一，等 Canva 額度／帳號可用後重生一套
 
