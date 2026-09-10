@@ -6,6 +6,12 @@
 
 **網站已上線，七章內容全數審定，並加上章首闖關小遊戲**：<https://philia81301-commits.github.io/healthy-weight-public/>
 
+2026-09-10 完成：**第⑤章新增 5-6 動作圖解**（`f48a9b7`）——六張居家運動圖卡上站
+（核心四合一／深蹲／分腿蹲＋靠牆深蹲／原地抬膝三格／開合跳三格／甩壺鈴三格；
+gpt-image-2 plus-size 人物、醫師逐張審定、中文 PIL 疊字）。圖卡母檔在
+`Obesity-lecture/slides/generated/`，本 repo 存 1600px 壓縮版於 `design/exercise-cards/`，
+build 複製到 `docs/assets/exercise/`。生圖 SOP 見 Obesity-lecture 專案 memory `exercise-card-workflow`。
+
 2026-08-28 完成：**闖關遊戲尺寸改用全站統一規格**（標準出自 osteoporosis-clinic：
 標題 27／題目 21／選項 18／星星 38；規格全文在 auto-memory `quiz-uniform-layout`），
 `tools/build-site.js` 的遊戲 CSS 更新後七章重建、已推上線（`2ee0eea`）。
