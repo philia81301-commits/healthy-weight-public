@@ -162,6 +162,8 @@ function transform(md) {
   md = md.replace(/^(# [^\n]*\n)\n?(?:>[^\n]*\n)+/, '$1\n');
   // 插圖路徑改寫（.inline.svg 不改寫：保留原路徑供 mdToHtml 讀檔內嵌）
   md = md.replace(/\.\.\/design\/generated\/waist-measure_[0-9_]+\.png/g, 'assets/waist-measure.png');
+  // ⑤5-6 運動圖卡：design/exercise-cards/ → docs/assets/exercise/
+  md = md.replace(/\.\.\/design\/exercise-cards\//g, 'assets/exercise/');
 
   const lines = md.split(/\r?\n/);
   const out = [];
@@ -817,6 +819,16 @@ if (fs.existsSync(QUIZ_ASSETS)) {
   fs.mkdirSync(quizOut, { recursive: true });
   for (const f of fs.readdirSync(QUIZ_ASSETS).filter(f => f.endsWith('.png'))) {
     fs.copyFileSync(path.join(QUIZ_ASSETS, f), path.join(quizOut, f));
+  }
+}
+
+// ⑤5-6 運動圖卡：design/exercise-cards/*.png → docs/assets/exercise/
+const EXERCISE_ASSETS = path.join(ROOT, 'design', 'exercise-cards');
+if (fs.existsSync(EXERCISE_ASSETS)) {
+  const exOut = path.join(DOCS, 'assets', 'exercise');
+  fs.mkdirSync(exOut, { recursive: true });
+  for (const f of fs.readdirSync(EXERCISE_ASSETS).filter(f => f.endsWith('.png'))) {
+    fs.copyFileSync(path.join(EXERCISE_ASSETS, f), path.join(exOut, f));
   }
 }
 
