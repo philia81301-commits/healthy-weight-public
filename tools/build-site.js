@@ -164,6 +164,8 @@ function transform(md) {
   md = md.replace(/\.\.\/design\/generated\/waist-measure_[0-9_]+\.png/g, 'assets/waist-measure.png');
   // ⑤5-6 運動圖卡：design/exercise-cards/ → docs/assets/exercise/
   md = md.replace(/\.\.\/design\/exercise-cards\//g, 'assets/exercise/');
+  // ⑤5-6 運動影片：design/exercise-video/ → docs/assets/exercise/
+  md = md.replace(/\.\.\/design\/exercise-video\//g, 'assets/exercise/');
 
   const lines = md.split(/\r?\n/);
   const out = [];
@@ -287,6 +289,12 @@ function mdToHtml(md) {
           i++; continue;
         }
         console.warn(`  ⚠ 找不到內嵌 SVG ${img[2]}，改用 <img>`);
+      }
+      // .mp4：以 <video> 呈現（同名 -poster.jpg 為封面圖；行動裝置 playsinline 避免強制全螢幕）
+      if (/\.mp4$/.test(img[2])) {
+        const poster = img[2].replace(/\.mp4$/, '-poster.jpg');
+        out.push(`<figure><video src="${esc(img[2])}" poster="${esc(poster)}" controls playsinline preload="metadata"></video><figcaption>${esc(img[1])}</figcaption></figure>`);
+        i++; continue;
       }
       out.push(`<figure><img src="${esc(img[2])}" alt="${esc(img[1])}" loading="lazy"><figcaption>${esc(img[1])}</figcaption></figure>`);
       i++; continue;
@@ -438,6 +446,7 @@ article code{background:#F0F0E7;border-radius:4px;padding:1px 5px;font-size:.9em
 article strong{font-weight:700}
 article figure{margin:18px 0;text-align:center}
 article img{max-width:100%;height:auto;border-radius:10px;border:1px solid var(--line)}
+article video{width:100%;max-width:960px;height:auto;border-radius:10px;border:1px solid var(--line);background:#000}
 article figcaption{font-size:13.5px;color:var(--muted);margin-top:6px}
 .src{font-size:13px;color:var(--muted);margin:.2em 0 1.2em;border-left:3px solid var(--line);padding-left:10px}
 .draft{background:var(--gold-soft);border-left:4px solid var(--gold);border-radius:8px;
@@ -829,6 +838,13 @@ if (fs.existsSync(EXERCISE_ASSETS)) {
   fs.mkdirSync(exOut, { recursive: true });
   for (const f of fs.readdirSync(EXERCISE_ASSETS).filter(f => f.endsWith('.png'))) {
     fs.copyFileSync(path.join(EXERCISE_ASSETS, f), path.join(exOut, f));
+  }
+  // ⑤5-6 運動影片（build_exercise_video.py 產出）：design/exercise-video/*.mp4|*.jpg → docs/assets/exercise/
+  const VIDEO_ASSETS = path.join(ROOT, 'design', 'exercise-video');
+  if (fs.existsSync(VIDEO_ASSETS)) {
+    for (const f of fs.readdirSync(VIDEO_ASSETS).filter(f => /\.(mp4|jpg)$/.test(f))) {
+      fs.copyFileSync(path.join(VIDEO_ASSETS, f), path.join(exOut, f));
+    }
   }
 }
 

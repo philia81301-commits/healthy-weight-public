@@ -8,3 +8,7 @@ _local/
 *.xlsx
 *.xls
 *.csv
+
+# 運動影片產生中繼檔（語音快取、預覽幀）
+design/exercise-video/_cache/
+design/exercise-video/_preview/
