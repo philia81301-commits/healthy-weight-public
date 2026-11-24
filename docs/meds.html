@@ -142,6 +142,47 @@ article,article h2,article h3{scroll-margin-top:76px}
 .chnav a:hover{border-color:var(--move);color:var(--move)}
 .chnav .next{text-align:right}
 
+/* ①1-4 效益階梯 */
+.stairs{margin:26px 0 8px;text-align:left}
+.stairs .st-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;align-items:end}
+.stairs .st{display:flex;flex-direction:column}
+.stairs .st-head{display:flex;align-items:flex-end;gap:8px;padding:0 4px 8px}
+.stairs .st-fig{width:40px;height:80px;flex:none;fill:#B9C7B0}
+.stairs .st3 .st-fig{fill:var(--move)}
+.stairs .st-num{line-height:1.2}
+.stairs .st-lab{display:block;font-size:13px;font-weight:700;color:var(--muted)}
+.stairs .st-num b{font-size:44px;color:var(--move);font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.stairs .st-num small{font-size:22px;margin-left:2px}
+.stairs .st-kg{display:block;font-size:12.5px;color:var(--muted)}
+.stairs .st-box{background:var(--move-soft);border-radius:12px 12px 4px 4px;padding:14px 16px;border-top:4px solid var(--move)}
+.stairs .st1 .st-box{min-height:120px;background:#EEF7F1}
+.stairs .st2 .st-box{min-height:200px;background:#E2F2E8}
+.stairs .st3 .st-box{min-height:280px;background:#D2EBDC}
+.stairs ul{margin:0;padding-left:1.1em;font-size:15.5px;line-height:1.65}
+.stairs li+li{margin-top:6px}
+.stairs figcaption{text-align:left;margin-top:10px}
+/* 進場動畫：只有支援 IntersectionObserver 且沒開「減少動態效果」才加 .st-anim；沒 JS 時全部直接顯示 */
+.stairs.st-anim .st{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s cubic-bezier(.3,.7,.3,1)}
+.stairs.st-anim.st-in .st{opacity:1;transform:none}
+.stairs.st-anim.st-in .st2{transition-delay:.35s}
+.stairs.st-anim.st-in .st3{transition-delay:.7s}
+@media (max-width:640px){
+  .stairs .st-row{grid-template-columns:1fr;gap:10px}
+  .stairs .st{display:grid;grid-template-columns:88px 1fr;align-items:stretch;gap:0}
+  .stairs .st-head{flex-direction:column;align-items:flex-start;gap:2px;padding:10px 8px 10px 0}
+  .stairs .st-fig{width:26px;height:52px}
+  .stairs .st-num b{font-size:32px}
+  .stairs .st-lab{font-size:12px}
+  .stairs .st-kg{font-size:11.5px}
+  .stairs ul{font-size:15px}
+  .stairs .st-num small{font-size:18px}
+  .stairs .st1 .st-box,.stairs .st2 .st-box,.stairs .st3 .st-box{min-height:0;border-radius:4px 12px 12px 4px;border-top:0;border-left:4px solid var(--move)}
+  .stairs .st1 .st-box{margin-right:10%}
+  .stairs .st2 .st-box{margin-right:5%}
+  .stairs.st-anim .st{transform:translateX(-20px)}
+}
+@media print{.stairs.st-anim .st{opacity:1;transform:none}}
+
 /* 自評工具 */
 .calc{background:#fff;border:1px solid var(--line);border-radius:14px;padding:28px 32px;margin:26px 0}
 .calc .row{display:flex;flex-wrap:wrap;gap:14px;margin:14px 0}

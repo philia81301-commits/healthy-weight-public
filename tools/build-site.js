@@ -228,6 +228,9 @@ function mdToHtml(md) {
 
     if (/^\s*$/.test(line)) { closeList(); i++; continue; }
 
+    // ①1-4 效益階梯元件
+    if (line.trim() === '[[效益階梯]]') { closeList(); out.push(STAIRS_HTML); i++; continue; }
+
     // 出處小字
     if (/^※出處：/.test(line)) {
       closeList();
@@ -474,6 +477,47 @@ article,article h2,article h3{scroll-margin-top:76px}
   padding:12px 16px;text-decoration:none;color:var(--ink);font-size:14.5px;transition:.16s}
 .chnav a:hover{border-color:var(--move);color:var(--move)}
 .chnav .next{text-align:right}
+
+/* ①1-4 效益階梯 */
+.stairs{margin:26px 0 8px;text-align:left}
+.stairs .st-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;align-items:end}
+.stairs .st{display:flex;flex-direction:column}
+.stairs .st-head{display:flex;align-items:flex-end;gap:8px;padding:0 4px 8px}
+.stairs .st-fig{width:40px;height:80px;flex:none;fill:#B9C7B0}
+.stairs .st3 .st-fig{fill:var(--move)}
+.stairs .st-num{line-height:1.2}
+.stairs .st-lab{display:block;font-size:13px;font-weight:700;color:var(--muted)}
+.stairs .st-num b{font-size:44px;color:var(--move);font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.stairs .st-num small{font-size:22px;margin-left:2px}
+.stairs .st-kg{display:block;font-size:12.5px;color:var(--muted)}
+.stairs .st-box{background:var(--move-soft);border-radius:12px 12px 4px 4px;padding:14px 16px;border-top:4px solid var(--move)}
+.stairs .st1 .st-box{min-height:120px;background:#EEF7F1}
+.stairs .st2 .st-box{min-height:200px;background:#E2F2E8}
+.stairs .st3 .st-box{min-height:280px;background:#D2EBDC}
+.stairs ul{margin:0;padding-left:1.1em;font-size:15.5px;line-height:1.65}
+.stairs li+li{margin-top:6px}
+.stairs figcaption{text-align:left;margin-top:10px}
+/* 進場動畫：只有支援 IntersectionObserver 且沒開「減少動態效果」才加 .st-anim；沒 JS 時全部直接顯示 */
+.stairs.st-anim .st{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s cubic-bezier(.3,.7,.3,1)}
+.stairs.st-anim.st-in .st{opacity:1;transform:none}
+.stairs.st-anim.st-in .st2{transition-delay:.35s}
+.stairs.st-anim.st-in .st3{transition-delay:.7s}
+@media (max-width:640px){
+  .stairs .st-row{grid-template-columns:1fr;gap:10px}
+  .stairs .st{display:grid;grid-template-columns:88px 1fr;align-items:stretch;gap:0}
+  .stairs .st-head{flex-direction:column;align-items:flex-start;gap:2px;padding:10px 8px 10px 0}
+  .stairs .st-fig{width:26px;height:52px}
+  .stairs .st-num b{font-size:32px}
+  .stairs .st-lab{font-size:12px}
+  .stairs .st-kg{font-size:11.5px}
+  .stairs ul{font-size:15px}
+  .stairs .st-num small{font-size:18px}
+  .stairs .st1 .st-box,.stairs .st2 .st-box,.stairs .st3 .st-box{min-height:0;border-radius:4px 12px 12px 4px;border-top:0;border-left:4px solid var(--move)}
+  .stairs .st1 .st-box{margin-right:10%}
+  .stairs .st2 .st-box{margin-right:5%}
+  .stairs.st-anim .st{transform:translateX(-20px)}
+}
+@media print{.stairs.st-anim .st{opacity:1;transform:none}}
 
 /* 自評工具 */
 .calc{background:#fff;border:1px solid var(--line);border-radius:14px;padding:28px 32px;margin:26px 0}
@@ -796,6 +840,34 @@ function quizHtml(slug) {
   <script>${js}</script>
 </section>`;
 }
+
+/* ---------- ①1-4 效益階梯（md 裡寫 [[效益階梯]] 的位置會換成這段） ---------- */
+// 人形剪影：身形寬度隨階梯變窄（rx 越小越瘦）
+const stairPerson = rx => `<svg class="st-fig" viewBox="0 0 60 120" aria-hidden="true"><circle cx="30" cy="14" r="10"/><ellipse cx="30" cy="56" rx="${rx}" ry="29"/><rect x="${30 - rx * 0.5}" y="78" width="${rx * 0.42}" height="40" rx="5"/><rect x="${30 + rx * 0.08}" y="78" width="${rx * 0.42}" height="40" rx="5"/></svg>`;
+const STAIRS = [
+  { p: 5, kg: 4, rx: 22, items: ['血糖、血壓、三酸甘油酯開始改善'] },
+  { p: 10, kg: 8, rx: 19, items: ['脂肪肝的發炎有機會消退', '打鼾、睡眠呼吸中止改善', '心肌梗塞、中風等心血管疾病風險較低'] },
+  { p: 15, kg: 12, rx: 16, items: ['第二型糖尿病有機會緩解：不吃降血糖藥，血糖也能維持在正常範圍（罹病年數較短者機會較大；是否減藥由醫師評估，不要自己停藥）'] },
+];
+const STAIRS_HTML = `<figure class="stairs" id="stairs">
+  <div class="st-row">
+${STAIRS.map((s, i) => `    <div class="st st${i + 1}">
+      <div class="st-head">${stairPerson(s.rx)}<div class="st-num"><span class="st-lab">體重減少</span><b>${s.p}<small>%</small></b><span class="st-kg">80 公斤的人<br>約減 ${s.kg} 公斤</span></div></div>
+      <div class="st-box"><ul>${s.items.map(t => `<li>${t}</li>`).join('')}</ul></div>
+    </div>`).join('\n')}
+  </div>
+  <figcaption>每一階的好處會累加：減到 10% 的人，5% 那一階的改善也都有。</figcaption>
+</figure>
+<script>
+(function(){
+  var f=document.getElementById('stairs'); if(!f)return;
+  if(!('IntersectionObserver' in window)||window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  f.classList.add('st-anim');
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){f.classList.add('st-in');io.disconnect();}});},{threshold:.12});
+  io.observe(f);
+  setTimeout(function(){f.classList.add('st-in');},8000); // 保險：觀察器沒觸發也會顯示
+})();
+</script>`;
 
 /* ---------- 自評工具頁 ---------- */
 const TOOL_BODY = `<div class="wrap">
