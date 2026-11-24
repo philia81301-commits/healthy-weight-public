@@ -165,6 +165,76 @@ article,article h2,article h3{scroll-margin-top:76px}
 #res .big{font-size:21px;font-weight:700;margin-bottom:6px}
 #res .nums{font-size:15px;color:var(--muted);margin-bottom:10px}
 .priv{font-size:13.5px;color:var(--muted);margin-top:14px}
+/* 自評工具：兩步驟＋結果卡 */
+.stepbar{display:flex;gap:10px;list-style:none;margin:0 0 6px;padding:0;counter-reset:none}
+.stepbar li{flex:1;border-top:4px solid var(--line);padding-top:8px;font-size:14.5px;font-weight:700;color:var(--muted);display:flex;align-items:center;gap:8px}
+.stepbar li span{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--line);color:#fff;font-size:13px}
+.stepbar li.on{border-color:var(--move);color:var(--ink)}
+.stepbar li.on span{background:var(--move)}
+.stepbar li.ok{border-color:var(--move-soft)}
+.stepbar li.ok span{background:var(--move-soft);color:var(--move)}
+.calc .err{color:var(--flag);font-size:15px;margin:6px 0 0}
+.calc .got{background:var(--paper);border-radius:8px;padding:9px 14px;font-size:15px;margin:16px 0 4px}
+.calc .edit{border:0;background:none;color:var(--rx);font-size:14.5px;font-family:inherit;cursor:pointer;text-decoration:underline;padding:0 0 0 8px}
+.calc .grp{border:0;margin:18px 0 0;padding:0}
+.calc .grp legend{font-size:15px;font-weight:700;margin-bottom:8px;padding:0}
+.calc .grp .cbs{display:grid;grid-template-columns:1fr 1fr;gap:8px 12px}
+.calc .grp .cbs label{background:var(--paper);border:1px solid var(--line);border-radius:9px;padding:9px 12px;cursor:pointer;line-height:1.5;align-items:flex-start}
+.calc .grp .cbs label:has(input:checked){border-color:var(--move);background:var(--move-soft)}
+.calc .cbs input,.calc .none input{width:18px;height:18px;margin:2px 0 0;flex:none;accent-color:var(--move)}
+.calc .none{display:flex;align-items:center;gap:8px;font-weight:400;font-size:15px;margin:14px 0 0;cursor:pointer}
+.calc .btns2{display:flex;gap:12px;margin-top:18px}
+.calc .btns2 .go{margin-top:0;flex:1}
+.calc .back{padding:12px 20px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);font-size:16px;font-family:inherit;cursor:pointer}
+.slip{margin:26px auto 0;max-width:520px}
+.slip .slot{height:14px;border-radius:7px;background:linear-gradient(180deg,#3a3a36,#1d1d1b);box-shadow:0 3px 8px rgba(0,0,0,.25);position:relative;z-index:2}
+.ticket{background:#fff;margin:-7px 14px 0;padding:22px 24px 18px;border:1px solid var(--line);border-top:0;
+  box-shadow:0 10px 24px rgba(0,0,0,.08);font-size:15px;line-height:1.65;position:relative;z-index:1}
+.slip.run .ticket{animation:hw-print 1.1s cubic-bezier(.3,.7,.3,1) both}
+@keyframes hw-print{from{clip-path:inset(0 0 100% 0);transform:translateY(-24px)}to{clip-path:inset(0 0 0 0);transform:none}}
+@media (prefers-reduced-motion:reduce){.slip.run .ticket{animation:none}}
+.ticket .th{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px dashed var(--line);padding-bottom:10px;margin-bottom:12px}
+.ticket .th{gap:10px}
+.ticket .th b{font-size:17px;white-space:nowrap}
+.ticket .th span{white-space:nowrap}
+.ticket .th span{color:var(--muted);font-size:14px}
+.ticket .tlight{display:inline-block;border-radius:99px;padding:3px 14px;font-weight:700;font-size:14.5px;color:#fff}
+.ticket .tlight.g{background:var(--move)}
+.ticket .tlight.y{background:#B88A00}
+.ticket .tlight.r{background:var(--flag)}
+.ticket .tlight.u{background:var(--rx)}
+.ticket .tbmi{display:flex;align-items:baseline;gap:10px;margin:8px 0 6px}
+.ticket .tbmi .lab{font-weight:700;color:var(--muted)}
+.ticket .tbmi .val{font-size:46px;font-weight:700;line-height:1.1;font-variant-numeric:tabular-nums}
+.ticket .tbmi .gr{font-weight:700}
+.ticket .tbar{position:relative;height:10px;border-radius:5px;
+  background:linear-gradient(90deg,#9DB6EA 0 17.5%,#7CC99F 17.5% 45%,#EBC856 45% 60%,#E68A7E 60% 100%)}
+.ticket .tbar i{position:absolute;top:50%;width:16px;height:16px;margin:-8px 0 0 -8px;border-radius:50%;background:#fff;border:3px solid var(--ink)}
+.ticket .tscale{position:relative;height:20px;font-size:12px;color:var(--muted)}
+.ticket .tscale span{position:absolute;transform:translateX(-50%);top:2px}
+.ticket .tt{width:100%;min-width:0;border-collapse:collapse;margin:10px 0 4px;font-size:15px}
+.ticket .tt th,.ticket .tt td{border:0;background:none;padding:4px 0}
+.ticket .tt th{text-align:left;font-weight:400;color:var(--muted);width:6em;padding:4px 0;border-bottom:1px dashed var(--line)}
+.ticket .tt td{padding:4px 0;border-bottom:1px dashed var(--line)}
+.ticket .tt em{font-style:normal;font-size:13px;color:var(--flag);border:1px solid currentColor;border-radius:5px;padding:0 6px;margin-left:8px}
+.ticket .tsec{margin-top:12px}
+.ticket .tsec ol{margin:4px 0 0;padding-left:1.4em}
+.ticket .tsec .nil{margin:2px 0 0;color:var(--muted)}
+.ticket .tfoot{margin:14px 0 0;padding-top:10px;border-top:1px dashed var(--line);font-size:12.5px;color:var(--muted)}
+.cardbtns{display:flex;gap:12px;margin:18px 14px 0}
+.cardbtns .pbtn{flex:1;padding:12px 0;border:0;border-radius:10px;background:var(--rx);color:#fff;font-size:16px;font-weight:700;font-family:inherit;cursor:pointer}
+.slip .tip{font-size:14px;color:var(--muted);margin:10px 14px 0}
+@media (max-width:640px){.ticket .th b{font-size:15.5px}.calc .grp .cbs{grid-template-columns:1fr}.ticket{padding:18px 16px 14px;margin:-7px 6px 0}.cardbtns,.slip .tip{margin-left:6px;margin-right:6px}}
+/* 列印只在結果卡已產生時接管（其他頁照常列印） */
+@media print{
+  body:has(#slip:not([hidden])){background:#fff}
+  body:has(#slip:not([hidden]))::before{display:none}
+  body:has(#slip:not([hidden])) *{visibility:hidden}
+  #card,#card *{visibility:visible}
+  #card{position:absolute;left:0;top:0;width:100%;margin:0;box-shadow:none;border:1px solid #999;animation:none;
+    -webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body:has(#slip:not([hidden])) .top,body:has(#slip:not([hidden])) .totop{display:none}
+}
 
 footer{border-top:1px solid var(--line);margin-top:20px;padding:26px 0 46px;
   font-size:14px;color:var(--muted)}
@@ -311,6 +381,7 @@ footer b{color:var(--ink)}
   <script>(function(){var Q=[{"q":"減重第一步是先戒掉什麼？","o":["白飯","含糖飲料","水果","雞蛋"],"a":1,"w":"飲料的糖不佔胃、不會飽，是純多出來的熱量；換成水、無糖茶或黑咖啡。"},{"q":"餐盤口訣：蔬菜要佔多少？","o":["半盤","一小格","一口","不用吃"],"a":0,"w":"菜半盤、蛋白質一掌、飯一拳——自助餐、便當、家裡煮都套得上。"},{"q":"吃的順序哪個對？","o":["菜→蛋白質→飯","飯→菜→肉","甜點先吃","順序不重要"],"a":0,"w":"先菜再蛋白質最後飯，血糖比較平穩、也比較快有飽足感。"},{"q":"大腦收到吃飽訊號要多久？","o":["1 分鐘","馬上","15–20 分鐘","2 小時"],"a":2,"w":"所以要細嚼慢嚥——吃太快的人常在飽足感來之前就吃過量了。"},{"q":"「一週瘦 5 公斤」掉的多是？","o":["脂肪","水分和肌肉","骨頭","內臟脂肪"],"a":1,"w":"極端節食恢復吃飯就反彈，而且更難瘦——看到廣告先想起這一段。"}];var box=document.getElementById("quiz");if(!box)return;var qs=box.querySelector(".quiz-qs"),stars=box.querySelectorAll(".quiz-stars i"),done=box.querySelector(".quiz-done"),slug=box.getAttribute("data-slug");function reset(){qs.innerHTML="";done.hidden=true;for(var i=0;i<stars.length;i++){stars[i].textContent="\u2606";stars[i].className="";}show(0);}function finish(){done.hidden=false;try{localStorage.setItem("hw-quiz-"+slug,"1");}catch(e){}done.scrollIntoView({behavior:"smooth",block:"nearest"});}function show(i){var q=Q[i];var card=document.createElement("div");card.className="qcard";var h='<span class="qnum">\u7b2c '+(i+1)+' \u984c</span><div class="qtext"></div><div class="qopts">';for(var j=0;j<q.o.length;j++)h+='<button type="button" data-j="'+j+'"><i>'+"ABCD"[j]+'</i><span></span></button>';h+='</div><div class="qmiss" hidden>\u5dee\u4e00\u9ede\uff0c\u63db\u4e00\u500b\u8a66\u8a66\uff01</div><div class="qwhy" hidden></div>';card.innerHTML=h;card.querySelector(".qtext").textContent=q.q;var btns=card.querySelectorAll(".qopts button");for(var k=0;k<btns.length;k++)btns[k].querySelector("span").textContent=q.o[k];qs.appendChild(card);if(i>0)card.scrollIntoView({behavior:"smooth",block:"nearest"});for(var k2=0;k2<btns.length;k2++)(function(b){b.addEventListener("click",function(){if(+b.getAttribute("data-j")===q.a){b.className="yes";for(var x=0;x<btns.length;x++)btns[x].disabled=true;card.querySelector(".qmiss").hidden=true;var w=card.querySelector(".qwhy");w.textContent="\ud83d\udca1 "+q.w;w.hidden=false;stars[i].textContent="\u2b50";stars[i].className="on";setTimeout(function(){if(i+1<Q.length)show(i+1);else finish();},700);}else{b.className="no";b.disabled=true;card.querySelector(".qmiss").hidden=false;}});})(btns[k2]);}var again=done.querySelector(".again");if(again)again.addEventListener("click",reset);show(0);})();</script>
 </section><article id="read"><h1 id="第章吃不是吃少是吃對">第④章　吃：不是吃少，是吃對</h1>
 <nav class="toc"><div class="toc-t">本頁內容</div><div class="toc-s"><a class="toc-h" href="#本章想讓讀者帶走的三句話">本章想讓讀者帶走的三句話</a></div><div class="toc-s"><a class="toc-h" href="#4-1第一步永遠是戒掉喝的熱量">4-1 第一步永遠是：戒掉喝的熱量</a></div><div class="toc-s"><a class="toc-h" href="#4-2餐盤這樣擺菜半盤蛋白質一掌飯一拳">4-2 餐盤這樣擺：菜半盤、蛋白質一掌、飯一拳</a></div><div class="toc-s"><a class="toc-h" href="#4-3吃的順序菜蛋白質飯">4-3 吃的順序：菜 → 蛋白質 → 飯</a></div><div class="toc-s"><a class="toc-h" href="#4-4外食族這樣選每10個人有7個天天外食">4-4 外食族這樣選（每 10 個人有 7 個天天外食）</a></div><div class="toc-s"><a class="toc-h" href="#4-5這些捷徑別走極端節食與單一食物法">4-5 這些「捷徑」別走：極端節食與單一食物法</a></div></nav>
+<blockquote>適用：一般成年民眾。第③章說飲食是主引擎——這一章給具體做法，今天的下一餐就能開始。<br>狀態：<strong>已審定</strong>（2026-08-24 醫師審稿通過）。</blockquote>
 <hr>
 <h2 id="本章想讓讀者帶走的三句話">本章想讓讀者帶走的三句話</h2>
 <ol>

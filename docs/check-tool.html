@@ -165,6 +165,76 @@ article,article h2,article h3{scroll-margin-top:76px}
 #res .big{font-size:21px;font-weight:700;margin-bottom:6px}
 #res .nums{font-size:15px;color:var(--muted);margin-bottom:10px}
 .priv{font-size:13.5px;color:var(--muted);margin-top:14px}
+/* 自評工具：兩步驟＋結果卡 */
+.stepbar{display:flex;gap:10px;list-style:none;margin:0 0 6px;padding:0;counter-reset:none}
+.stepbar li{flex:1;border-top:4px solid var(--line);padding-top:8px;font-size:14.5px;font-weight:700;color:var(--muted);display:flex;align-items:center;gap:8px}
+.stepbar li span{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--line);color:#fff;font-size:13px}
+.stepbar li.on{border-color:var(--move);color:var(--ink)}
+.stepbar li.on span{background:var(--move)}
+.stepbar li.ok{border-color:var(--move-soft)}
+.stepbar li.ok span{background:var(--move-soft);color:var(--move)}
+.calc .err{color:var(--flag);font-size:15px;margin:6px 0 0}
+.calc .got{background:var(--paper);border-radius:8px;padding:9px 14px;font-size:15px;margin:16px 0 4px}
+.calc .edit{border:0;background:none;color:var(--rx);font-size:14.5px;font-family:inherit;cursor:pointer;text-decoration:underline;padding:0 0 0 8px}
+.calc .grp{border:0;margin:18px 0 0;padding:0}
+.calc .grp legend{font-size:15px;font-weight:700;margin-bottom:8px;padding:0}
+.calc .grp .cbs{display:grid;grid-template-columns:1fr 1fr;gap:8px 12px}
+.calc .grp .cbs label{background:var(--paper);border:1px solid var(--line);border-radius:9px;padding:9px 12px;cursor:pointer;line-height:1.5;align-items:flex-start}
+.calc .grp .cbs label:has(input:checked){border-color:var(--move);background:var(--move-soft)}
+.calc .cbs input,.calc .none input{width:18px;height:18px;margin:2px 0 0;flex:none;accent-color:var(--move)}
+.calc .none{display:flex;align-items:center;gap:8px;font-weight:400;font-size:15px;margin:14px 0 0;cursor:pointer}
+.calc .btns2{display:flex;gap:12px;margin-top:18px}
+.calc .btns2 .go{margin-top:0;flex:1}
+.calc .back{padding:12px 20px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);font-size:16px;font-family:inherit;cursor:pointer}
+.slip{margin:26px auto 0;max-width:520px}
+.slip .slot{height:14px;border-radius:7px;background:linear-gradient(180deg,#3a3a36,#1d1d1b);box-shadow:0 3px 8px rgba(0,0,0,.25);position:relative;z-index:2}
+.ticket{background:#fff;margin:-7px 14px 0;padding:22px 24px 18px;border:1px solid var(--line);border-top:0;
+  box-shadow:0 10px 24px rgba(0,0,0,.08);font-size:15px;line-height:1.65;position:relative;z-index:1}
+.slip.run .ticket{animation:hw-print 1.1s cubic-bezier(.3,.7,.3,1) both}
+@keyframes hw-print{from{clip-path:inset(0 0 100% 0);transform:translateY(-24px)}to{clip-path:inset(0 0 0 0);transform:none}}
+@media (prefers-reduced-motion:reduce){.slip.run .ticket{animation:none}}
+.ticket .th{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px dashed var(--line);padding-bottom:10px;margin-bottom:12px}
+.ticket .th{gap:10px}
+.ticket .th b{font-size:17px;white-space:nowrap}
+.ticket .th span{white-space:nowrap}
+.ticket .th span{color:var(--muted);font-size:14px}
+.ticket .tlight{display:inline-block;border-radius:99px;padding:3px 14px;font-weight:700;font-size:14.5px;color:#fff}
+.ticket .tlight.g{background:var(--move)}
+.ticket .tlight.y{background:#B88A00}
+.ticket .tlight.r{background:var(--flag)}
+.ticket .tlight.u{background:var(--rx)}
+.ticket .tbmi{display:flex;align-items:baseline;gap:10px;margin:8px 0 6px}
+.ticket .tbmi .lab{font-weight:700;color:var(--muted)}
+.ticket .tbmi .val{font-size:46px;font-weight:700;line-height:1.1;font-variant-numeric:tabular-nums}
+.ticket .tbmi .gr{font-weight:700}
+.ticket .tbar{position:relative;height:10px;border-radius:5px;
+  background:linear-gradient(90deg,#9DB6EA 0 17.5%,#7CC99F 17.5% 45%,#EBC856 45% 60%,#E68A7E 60% 100%)}
+.ticket .tbar i{position:absolute;top:50%;width:16px;height:16px;margin:-8px 0 0 -8px;border-radius:50%;background:#fff;border:3px solid var(--ink)}
+.ticket .tscale{position:relative;height:20px;font-size:12px;color:var(--muted)}
+.ticket .tscale span{position:absolute;transform:translateX(-50%);top:2px}
+.ticket .tt{width:100%;min-width:0;border-collapse:collapse;margin:10px 0 4px;font-size:15px}
+.ticket .tt th,.ticket .tt td{border:0;background:none;padding:4px 0}
+.ticket .tt th{text-align:left;font-weight:400;color:var(--muted);width:6em;padding:4px 0;border-bottom:1px dashed var(--line)}
+.ticket .tt td{padding:4px 0;border-bottom:1px dashed var(--line)}
+.ticket .tt em{font-style:normal;font-size:13px;color:var(--flag);border:1px solid currentColor;border-radius:5px;padding:0 6px;margin-left:8px}
+.ticket .tsec{margin-top:12px}
+.ticket .tsec ol{margin:4px 0 0;padding-left:1.4em}
+.ticket .tsec .nil{margin:2px 0 0;color:var(--muted)}
+.ticket .tfoot{margin:14px 0 0;padding-top:10px;border-top:1px dashed var(--line);font-size:12.5px;color:var(--muted)}
+.cardbtns{display:flex;gap:12px;margin:18px 14px 0}
+.cardbtns .pbtn{flex:1;padding:12px 0;border:0;border-radius:10px;background:var(--rx);color:#fff;font-size:16px;font-weight:700;font-family:inherit;cursor:pointer}
+.slip .tip{font-size:14px;color:var(--muted);margin:10px 14px 0}
+@media (max-width:640px){.ticket .th b{font-size:15.5px}.calc .grp .cbs{grid-template-columns:1fr}.ticket{padding:18px 16px 14px;margin:-7px 6px 0}.cardbtns,.slip .tip{margin-left:6px;margin-right:6px}}
+/* 列印只在結果卡已產生時接管（其他頁照常列印） */
+@media print{
+  body:has(#slip:not([hidden])){background:#fff}
+  body:has(#slip:not([hidden]))::before{display:none}
+  body:has(#slip:not([hidden])) *{visibility:hidden}
+  #card,#card *{visibility:visible}
+  #card{position:absolute;left:0;top:0;width:100%;margin:0;box-shadow:none;border:1px solid #999;animation:none;
+    -webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body:has(#slip:not([hidden])) .top,body:has(#slip:not([hidden])) .totop{display:none}
+}
 
 footer{border-top:1px solid var(--line);margin-top:20px;padding:26px 0 46px;
   font-size:14px;color:var(--muted)}
@@ -287,34 +357,75 @@ footer b{color:var(--ink)}
 <div class="wrap">
 <article>
 <h1>BMI／腰圍 30 秒自我評估</h1>
-<p>輸入三個數字，馬上知道你在<a href="check.html">第②章</a>的哪一燈。
+<p>兩個步驟：先填身高體重，再勾健康狀況，馬上知道你在<a href="check.html">第②章</a>的哪一燈，並得到一張可以帶去看診的結果卡。
 所有計算都在你的手機／電腦上完成，<strong>不會上傳任何資料</strong>。</p>
 <div class="calc">
-  <div class="row">
-    <div class="f"><label for="h">身高（公分）</label><input id="h" type="number" inputmode="decimal" min="100" max="230" placeholder="165"></div>
-    <div class="f"><label for="w">體重（公斤）</label><input id="w" type="number" inputmode="decimal" min="25" max="300" placeholder="70"></div>
-    <div class="f"><label for="wc">腰圍（公分，可留空）</label><input id="wc" type="number" inputmode="decimal" min="40" max="220" placeholder="85"></div>
-  </div>
-  <div class="row">
-    <div class="f"><label>生理性別（腰圍標準用）</label>
-      <div class="seg" id="sex">
-        <button type="button" data-v="m" class="on">男（標準 90 cm）</button>
-        <button type="button" data-v="f">女（標準 80 cm）</button>
+  <ol class="stepbar" aria-label="填寫進度">
+    <li class="on" data-s="1"><span>1</span>身高體重</li>
+    <li data-s="2"><span>2</span>健康狀況</li>
+  </ol>
+
+  <section class="step" id="step1">
+    <div class="row">
+      <div class="f"><label for="h">身高（公分）</label><input id="h" type="number" inputmode="decimal" min="100" max="230" placeholder="165"></div>
+      <div class="f"><label for="w">體重（公斤）</label><input id="w" type="number" inputmode="decimal" min="25" max="300" placeholder="70"></div>
+      <div class="f"><label for="wc">腰圍（公分，可留空）</label><input id="wc" type="number" inputmode="decimal" min="40" max="220" placeholder="85"></div>
+    </div>
+    <div class="row">
+      <div class="f"><label>生理性別（腰圍標準用）</label>
+        <div class="seg" id="sex">
+          <button type="button" data-v="m" class="on">男（標準 90 cm）</button>
+          <button type="button" data-v="f">女（標準 80 cm）</button>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="row"><div class="f">
-    <label>是否有以下任一情況？（醫師告知過的）</label>
-    <div class="cbs">
-      <label><input type="checkbox" class="co" value="高血壓">高血壓</label>
-      <label><input type="checkbox" class="co" value="血糖異常">血糖偏高／糖尿病</label>
-      <label><input type="checkbox" class="co" value="血脂異常">血脂異常</label>
-      <label><input type="checkbox" class="co" value="脂肪肝">脂肪肝</label>
+    <p class="err" id="err1" role="alert" hidden>請先填身高與體重：身高 100–230 公分、體重 25–300 公斤之間的數字才算得出來。</p>
+    <button class="go" type="button" id="next">下一步：健康狀況 →</button>
+  </section>
+
+  <section class="step" id="step2" hidden>
+    <div class="got" id="got"></div>
+    <fieldset class="grp">
+      <legend>醫師告知過你有以下疾病嗎？（可複選）</legend>
+      <div class="cbs">
+        <label><input type="checkbox" class="co dx" value="高血壓">高血壓</label>
+        <label><input type="checkbox" class="co dx" value="血糖偏高／糖尿病">血糖偏高、糖尿病前期或糖尿病</label>
+        <label><input type="checkbox" class="co dx" value="血脂異常">血脂異常（膽固醇或三酸甘油酯高）</label>
+        <label><input type="checkbox" class="co dx" value="脂肪肝">脂肪肝</label>
+        <label><input type="checkbox" class="co dx" value="睡眠呼吸中止症">睡眠呼吸中止症</label>
+        <label><input type="checkbox" class="co dx" value="曾心肌梗塞或中風">曾經心肌梗塞或中風</label>
+      </div>
+    </fieldset>
+    <fieldset class="grp">
+      <legend>最近有這些情況嗎？（可複選，會寫在結果卡上給醫師參考）</legend>
+      <div class="cbs">
+        <label><input type="checkbox" class="co sx" value="打鼾大聲或白天常想睡">打鼾很大聲，或白天常常想睡</label>
+        <label><input type="checkbox" class="co sx" value="膝蓋或關節痛影響走路">膝蓋或關節痛，影響走路或爬樓梯</label>
+        <label><input type="checkbox" class="co sx" value="常覺得疲倦沒精神">常覺得疲倦、沒精神</label>
+        <label><input type="checkbox" class="co sx" value="長期情緒低落或焦慮">長期情緒低落、焦慮，或對自己的身材很困擾</label>
+        <label><input type="checkbox" class="co sx" value="家人有心臟病或中風">父母或兄弟姊妹有心臟病或中風</label>
+      </div>
+    </fieldset>
+    <label class="none"><input type="checkbox" id="none">以上都沒有</label>
+    <div class="btns2">
+      <button class="back" type="button" id="back">← 上一步</button>
+      <button class="go" type="button" id="go">看結果</button>
     </div>
-  </div></div>
-  <button class="go" type="button" id="go">看結果</button>
+  </section>
+
   <div id="res" role="status"></div>
-  <p class="priv">依據：衛福部國健署成人體位標準（BMI 24 過重／27 肥胖；腰圍男 90、女 80 公分）。結果僅供參考，不能取代醫療評估。</p>
+
+  <div class="slip" id="slip" hidden>
+    <div class="slot" aria-hidden="true"></div>
+    <div class="ticket" id="card" aria-label="自評結果卡"></div>
+    <div class="cardbtns">
+      <button type="button" class="pbtn" id="print">列印或存成 PDF</button>
+      <button type="button" class="back" id="redo">修改資料</button>
+    </div>
+    <p class="tip">看診時把這張卡給醫師看（手機截圖也可以），醫師能更快掌握你的狀況。</p>
+  </div>
+
+  <p class="priv">依據：衛福部國健署成人體位標準（BMI 24 過重／27 肥胖；腰圍男 90、女 80 公分）。腰高比（腰圍 ÷ 身高）0.5 以上表示腹部脂肪偏多，僅供參考、不影響燈號。結果僅供參考，不能取代醫療評估。</p>
 </div>
 </article>
 <div class="chnav">
@@ -324,52 +435,95 @@ footer b{color:var(--ink)}
 </div>
 <script>
 (function(){
-  var sex='m';
-  var seg=document.getElementById('sex');
+  var sex='m', d=null;
+  var $=function(id){return document.getElementById(id);};
+  var seg=$('sex');
   seg.addEventListener('click',function(e){
     var b=e.target.closest('button'); if(!b)return;
     sex=b.dataset.v;
     seg.querySelectorAll('button').forEach(function(x){x.classList.toggle('on',x===b);});
   });
-  document.getElementById('go').addEventListener('click',function(){
-    var h=parseFloat(document.getElementById('h').value);
-    var w=parseFloat(document.getElementById('w').value);
-    var wc=parseFloat(document.getElementById('wc').value);
-    var res=document.getElementById('res');
-    if(!(h>=100&&h<=230)||!(w>=25&&w<=300)){
-      res.className='u';
-      res.innerHTML='<div class="big">請先填身高與體重</div>身高 100–230 公分、體重 25–300 公斤之間的數字才算得出來。';
-      return;
-    }
-    var bmi=w/Math.pow(h/100,2);
-    var b1=Math.round(bmi*10)/10;
-    var cut=sex==='f'?80:90;
-    var wcHigh=(wc>=40&&wc<=220)?(wc>=cut):null;
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function goStep(n){
+    $('step1').hidden=n!==1; $('step2').hidden=n!==2;
+    document.querySelectorAll('.stepbar li').forEach(function(li){
+      var s=+li.dataset.s; li.classList.toggle('on',s===n); li.classList.toggle('ok',s<n);
+    });
+  }
+  function hideResult(){ $('res').className=''; $('res').innerHTML=''; $('slip').hidden=true; }
+
+  $('next').addEventListener('click',function(){
+    var h=parseFloat($('h').value), w=parseFloat($('w').value), wc=parseFloat($('wc').value);
+    if(!(h>=100&&h<=230)||!(w>=25&&w<=300)){ $('err1').hidden=false; return; }
+    $('err1').hidden=true;
+    d={h:h,w:w,wc:(wc>=40&&wc<=220)?wc:null,sex:sex};
+    $('got').innerHTML='身高 '+h+' 公分｜體重 '+w+' 公斤'+(d.wc?'｜腰圍 '+d.wc+' 公分':'')+' <button type="button" class="edit" id="edit">修改</button>';
+    $('edit').addEventListener('click',function(){hideResult();goStep(1);});
+    hideResult(); goStep(2);
+    $('step2').scrollIntoView({behavior:'smooth',block:'nearest'});
+  });
+  $('back').addEventListener('click',function(){hideResult();goStep(1);});
+  $('redo').addEventListener('click',function(){hideResult();goStep(1);$('step1').scrollIntoView({behavior:'smooth',block:'center'});});
+  $('print').addEventListener('click',function(){window.print();});
+
+  // 「以上都沒有」與其他選項互斥
+  var cos=[].slice.call(document.querySelectorAll('.co'));
+  $('none').addEventListener('change',function(){ if(this.checked) cos.forEach(function(c){c.checked=false;}); });
+  cos.forEach(function(c){ c.addEventListener('change',function(){ if(c.checked) $('none').checked=false; }); });
+
+  $('go').addEventListener('click',function(){
+    if(!d){goStep(1);return;}
+    var picked=function(cls){return [].slice.call(document.querySelectorAll('.'+cls+':checked')).map(function(x){return x.value;});};
+    var dx=picked('dx'), sx=picked('sx');
+    var bmi=d.w/Math.pow(d.h/100,2), b1=(Math.round(bmi*10)/10).toFixed(1);
+    var cut=d.sex==='f'?80:90;
+    var wcHigh=d.wc===null?null:(d.wc>=cut);
+    var whtr=d.wc===null?null:d.wc/d.h;
     var grade=bmi<18.5?'體重過輕':bmi<24?'健康體位':bmi<27?'過重':bmi<30?'輕度肥胖':bmi<35?'中度肥胖':'重度肥胖';
-    var co=[].slice.call(document.querySelectorAll('.co:checked')).map(function(x){return x.value;});
-    var nums='BMI <strong>'+b1+'</strong>（'+grade+'）'+(wcHigh===null?'｜腰圍未填':'｜腰圍 '+wc+' cm（標準：未滿 '+cut+' cm）');
-    var html='';
+    var nums='BMI <strong>'+b1+'</strong>（'+grade+'）'+(wcHigh===null?'｜腰圍未填':'｜腰圍 '+d.wc+' cm（標準：未滿 '+cut+' cm）');
+    var res=$('res'), html='', light, lightTxt;
     if(bmi<18.5){
-      res.className='u';
+      light='u'; lightTxt='體重過輕｜請找醫師評估';
       html='<div class="big">體重過輕</div><div class="nums">'+nums+'</div>本站的減重建議不適用於你。體重過輕也有健康風險，建議找醫師評估原因。';
-    }else if(bmi>=27||(bmi>=24&&(co.length>0))){
-      res.className='r';
-      html='<div class="big">🔴 紅燈｜建議就醫評估</div><div class="nums">'+nums+(co.length?'｜合併：'+co.join('、'):'')+'</div>'
+    }else if(bmi>=27||(bmi>=24&&dx.length>0)){
+      light='r'; lightTxt='紅燈｜建議就醫評估';
+      html='<div class="big">🔴 紅燈｜建議就醫評估</div><div class="nums">'+nums+(dx.length?'｜合併：'+dx.join('、'):'')+'</div>'
         +'符合減重門診的評估條件。這不是最後手段，是最有效率的起點——完整評估、個人化計畫，需要時才討論藥物。'
         +'<br>下一步：<a href="clinic.html">第⑦章：何時該就醫</a>';
     }else if(bmi>=24||wcHigh===true){
-      res.className='y';
+      light='y'; lightTxt='黃燈｜開始調整';
       html='<div class="big">🟡 黃燈｜開始調整</div><div class="nums">'+nums+'</div>'
         +(wcHigh===true&&bmi<24?'BMI 正常但腰圍超標——內臟脂肪偏多，第②章說的「泡芙人」就是這個情況。':'還不需要急著就醫，但現在正是開始的好時機。')
         +'<br>下一步：<a href="eat.html">第④章：吃</a>＋<a href="move.html">第⑤章：動</a>，三個月後再量一次。'
-        +(co.length===0?'<br><small>若之後健檢發現血壓、血糖、血脂異常或脂肪肝，建議直接就醫評估。</small>':'');
+        +(dx.length===0?'<br><small>若之後健檢發現血壓、血糖、血脂異常或脂肪肝，建議直接就醫評估。</small>':'');
     }else{
-      res.className='g';
+      light='g'; lightTxt='綠燈｜維持現況';
       html='<div class="big">🟢 綠燈｜維持現況</div><div class="nums">'+nums+'</div>'
         +'目前體位在健康範圍'+(wcHigh===null?'（建議也量個腰圍，見<a href="check.html">第②章</a>的量法）':'，腰圍也未超標')+'。'
         +'保持現在的生活型態，之後定期再量就好。';
     }
-    res.innerHTML=html;
+    res.className=light; res.innerHTML=html;
+
+    // 結果卡
+    var t=new Date(), ds=t.getFullYear()+'/'+(t.getMonth()+1)+'/'+t.getDate();
+    var pos=Math.max(0,Math.min(100,(bmi-15)/(35-15)*100));
+    var list=function(a){return a.length?'<ol>'+a.map(function(x){return '<li>'+esc(x)+'</li>';}).join('')+'</ol>':'<p class="nil">無</p>';};
+    var rows='<tr><th>身高</th><td>'+d.h+' 公分</td></tr><tr><th>體重</th><td>'+d.w+' 公斤</td></tr>'
+      +'<tr><th>腰圍</th><td>'+(d.wc===null?'未填':d.wc+' 公分'+(wcHigh?'<em>超過 '+cut+'</em>':''))+'</td></tr>'
+      +(whtr===null?'':'<tr><th>腰高比</th><td>'+whtr.toFixed(2)+(whtr>=0.5?'<em>0.5 以上</em>':'')+'</td></tr>');
+    $('card').innerHTML=
+      '<div class="th"><b>體重自我評估結果</b><span>'+ds+'</span></div>'
+      +'<div class="tlight '+light+'">'+lightTxt+'</div>'
+      +'<div class="tbmi"><span class="lab">BMI</span><span class="val">'+b1+'</span><span class="gr">'+grade+'</span></div>'
+      +'<div class="tbar"><i style="left:'+pos+'%"></i></div>'
+      +'<div class="tscale"><span style="left:17.5%">18.5</span><span style="left:45%">24</span><span style="left:60%">27</span><span style="left:75%">30</span></div>'
+      +'<table class="tt">'+rows+'</table>'
+      +'<div class="tsec"><b>醫師告知過的疾病</b>'+list(dx)+'</div>'
+      +'<div class="tsec"><b>最近的情況</b>'+list(sx)+'</div>'
+      +'<p class="tfoot">依國健署成人體位標準計算，僅供參考，不是診斷。本卡在你的裝置上產生，網站沒有保存任何資料。<br>健康體重管理｜潘湘如醫師 民眾衛教</p>';
+    var slip=$('slip'); slip.hidden=false;
+    slip.classList.remove('run'); void slip.offsetWidth; slip.classList.add('run');
+    res.scrollIntoView({behavior:'smooth',block:'start'});
   });
 })();
 </script>
