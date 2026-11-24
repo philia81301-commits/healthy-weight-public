@@ -225,15 +225,20 @@ article,article h2,article h3{scroll-margin-top:76px}
 .cardbtns .pbtn{flex:1;padding:12px 0;border:0;border-radius:10px;background:var(--rx);color:#fff;font-size:16px;font-weight:700;font-family:inherit;cursor:pointer}
 .slip .tip{font-size:14px;color:var(--muted);margin:10px 14px 0}
 @media (max-width:640px){.ticket .th b{font-size:15.5px}.calc .grp .cbs{grid-template-columns:1fr}.ticket{padding:18px 16px 14px;margin:-7px 6px 0}.cardbtns,.slip .tip{margin-left:6px;margin-right:6px}}
-/* 列印只在結果卡已產生時接管（其他頁照常列印） */
+/* 列印只在結果卡已產生時接管（其他頁照常列印）：把結果卡以外的元素移出版面，只印一頁 */
 @media print{
   body:has(#slip:not([hidden])){background:#fff}
   body:has(#slip:not([hidden]))::before{display:none}
-  body:has(#slip:not([hidden])) *{visibility:hidden}
-  #card,#card *{visibility:visible}
-  #card{position:absolute;left:0;top:0;width:100%;margin:0;box-shadow:none;border:1px solid #999;animation:none;
-    -webkit-print-color-adjust:exact;print-color-adjust:exact}
-  body:has(#slip:not([hidden])) .top,body:has(#slip:not([hidden])) .totop{display:none}
+  body:has(#slip:not([hidden])) .top,
+  body:has(#slip:not([hidden])) footer,
+  body:has(#slip:not([hidden])) .totop,
+  body:has(#slip:not([hidden])) .chnav,
+  body:has(#slip:not([hidden])) article > :not(.calc),
+  body:has(#slip:not([hidden])) .calc > :not(.slip),
+  body:has(#slip:not([hidden])) .slip > :not(#card){display:none!important}
+  body:has(#slip:not([hidden])) article,body:has(#slip:not([hidden])) .calc{border:0;padding:0;margin:0;box-shadow:none;background:none}
+  body:has(#slip:not([hidden])) .slip{margin:0 auto}
+  #card{margin:0;box-shadow:none;border:1px solid #999;animation:none;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 }
 
 footer{border-top:1px solid var(--line);margin-top:20px;padding:26px 0 46px;
