@@ -142,6 +142,19 @@ article,article h2,article h3{scroll-margin-top:76px}
 .chnav a:hover{border-color:var(--move);color:var(--move)}
 .chnav .next{text-align:right}
 
+/* ①1-2 共病風險倍數卡 */
+.risks{margin:22px 0 8px;text-align:left}
+.risks .rk-lead{margin:0 0 12px;font-size:16px}
+.risks .rk-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.risks .rk{background:#fff;border:1px solid var(--line);border-top:4px solid var(--flag);border-radius:12px;padding:14px 16px 12px}
+.risks .rk-name{font-weight:700;font-size:15.5px;line-height:1.4}
+.risks .rk-x{display:flex;align-items:baseline;gap:4px;margin:4px 0 2px}
+.risks .rk-x b{font-size:44px;line-height:1.1;color:var(--flag);font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.risks .rk-x span{font-weight:700}
+.risks .rk-note{font-size:13.5px;color:var(--muted);line-height:1.5}
+.risks figcaption{text-align:left;margin-top:10px}
+@media (max-width:760px){.risks .rk-grid{grid-template-columns:1fr 1fr}.risks .rk-x b{font-size:38px}}
+
 /* ①1-4 效益階梯 */
 .stairs{margin:26px 0 8px;text-align:left}
 .stairs .st-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;align-items:end}

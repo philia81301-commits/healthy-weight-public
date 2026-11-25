@@ -230,6 +230,8 @@ function mdToHtml(md) {
 
     // ①1-4 效益階梯元件
     if (line.trim() === '[[效益階梯]]') { closeList(); out.push(STAIRS_HTML); i++; continue; }
+    // ①1-2 共病風險倍數卡
+    if (line.trim() === '[[共病倍數卡]]') { closeList(); out.push(RISK_HTML); i++; continue; }
 
     // 出處小字
     if (/^※出處：/.test(line)) {
@@ -477,6 +479,19 @@ article,article h2,article h3{scroll-margin-top:76px}
   padding:12px 16px;text-decoration:none;color:var(--ink);font-size:14.5px;transition:.16s}
 .chnav a:hover{border-color:var(--move);color:var(--move)}
 .chnav .next{text-align:right}
+
+/* ①1-2 共病風險倍數卡 */
+.risks{margin:22px 0 8px;text-align:left}
+.risks .rk-lead{margin:0 0 12px;font-size:16px}
+.risks .rk-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.risks .rk{background:#fff;border:1px solid var(--line);border-top:4px solid var(--flag);border-radius:12px;padding:14px 16px 12px}
+.risks .rk-name{font-weight:700;font-size:15.5px;line-height:1.4}
+.risks .rk-x{display:flex;align-items:baseline;gap:4px;margin:4px 0 2px}
+.risks .rk-x b{font-size:44px;line-height:1.1;color:var(--flag);font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.risks .rk-x span{font-weight:700}
+.risks .rk-note{font-size:13.5px;color:var(--muted);line-height:1.5}
+.risks figcaption{text-align:left;margin-top:10px}
+@media (max-width:760px){.risks .rk-grid{grid-template-columns:1fr 1fr}.risks .rk-x b{font-size:38px}}
 
 /* ①1-4 效益階梯 */
 .stairs{margin:26px 0 8px;text-align:left}
@@ -840,6 +855,47 @@ function quizHtml(slug) {
   <script>${js}</script>
 </section>`;
 }
+
+/* ---------- ①1-2 共病風險倍數卡（md 裡寫 [[共病倍數卡]] 的位置會換成這段） ---------- */
+// Haase 2021（PMID 33841883）BMI 30.0–34.9 vs 18.5–24.9 的 HR；數值出自補充資料 Table S3
+// 2026-11-25 已對照 Table S3 原表：T2D 5.17 (5.09–5.25)、睡眠呼吸中止 5.11 (4.90–5.33)、高血壓 1.99 (1.97–2.01)、心衰竭 1.57 (1.55–1.60)，四捨五入到小數一位
+const RISKS = [
+  { name: '第二型糖尿病', x: 5.2, note: '血糖失控的機會' },
+  { name: '睡眠呼吸中止症', x: 5.1, note: '打鼾、睡到一半沒呼吸' },
+  { name: '高血壓', x: 2.0, note: '心臟、腦血管的負擔' },
+  { name: '心衰竭', x: 1.6, note: '心臟打不動、容易喘' },
+];
+const RISK_HTML = `<figure class="risks" id="risks">
+  <p class="rk-lead">英國一項追蹤 290 萬名成人、平均 11 年的研究：BMI 30–34.9 的人，和 BMI 18.5–24.9 的人相比，得到這些病的機會是</p>
+  <div class="rk-grid">
+${RISKS.map(r => `    <div class="rk"><div class="rk-name">${r.name}</div><div class="rk-x"><b data-x="${r.x.toFixed(1)}">${r.x.toFixed(1)}</b><span>倍</span></div><div class="rk-note">${r.note}</div></div>`).join('\n')}
+  </div>
+  <figcaption>BMI 越高，倍數越高。這份研究用的是西方的肥胖標準（BMI 30 以上）；台灣的標準更嚴，BMI 27 以上就算肥胖。</figcaption>
+</figure>
+<script>
+(function(){
+  var f=document.getElementById('risks'); if(!f)return;
+  if(!('IntersectionObserver' in window)||window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var bs=[].slice.call(f.querySelectorAll('.rk-x b'));
+  // 數字平常就是正確值；捲到這裡時才從 1.0 跳上去，列印前一律換回正確值
+  var stop=false;
+  function fin(){ stop=true; bs.forEach(function(b){b.textContent=b.dataset.x;}); }
+  window.addEventListener('beforeprint',fin);
+  function run(){
+    var t0=null, dur=1200;
+    bs.forEach(function(b){b.textContent='1.0';});
+    function step(t){
+      if(stop)return;
+      if(!t0)t0=t; var k=Math.min(1,(t-t0)/dur), e=1-Math.pow(1-k,3);
+      bs.forEach(function(b){var x=parseFloat(b.dataset.x); b.textContent=(1+(x-1)*e).toFixed(1);});
+      if(k<1)requestAnimationFrame(step); else fin();
+    }
+    requestAnimationFrame(step);
+  }
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){run();io.disconnect();}});},{threshold:.3});
+  io.observe(f);
+})();
+</script>`;
 
 /* ---------- ①1-4 效益階梯（md 裡寫 [[效益階梯]] 的位置會換成這段） ---------- */
 // 人形剪影：身形寬度隨階梯變窄（rx 越小越瘦）

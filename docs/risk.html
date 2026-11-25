@@ -142,6 +142,19 @@ article,article h2,article h3{scroll-margin-top:76px}
 .chnav a:hover{border-color:var(--move);color:var(--move)}
 .chnav .next{text-align:right}
 
+/* ①1-2 共病風險倍數卡 */
+.risks{margin:22px 0 8px;text-align:left}
+.risks .rk-lead{margin:0 0 12px;font-size:16px}
+.risks .rk-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.risks .rk{background:#fff;border:1px solid var(--line);border-top:4px solid var(--flag);border-radius:12px;padding:14px 16px 12px}
+.risks .rk-name{font-weight:700;font-size:15.5px;line-height:1.4}
+.risks .rk-x{display:flex;align-items:baseline;gap:4px;margin:4px 0 2px}
+.risks .rk-x b{font-size:44px;line-height:1.1;color:var(--flag);font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.risks .rk-x span{font-weight:700}
+.risks .rk-note{font-size:13.5px;color:var(--muted);line-height:1.5}
+.risks figcaption{text-align:left;margin-top:10px}
+@media (max-width:760px){.risks .rk-grid{grid-template-columns:1fr 1fr}.risks .rk-x b{font-size:38px}}
+
 /* ①1-4 效益階梯 */
 .stairs{margin:26px 0 8px;text-align:left}
 .stairs .st-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;align-items:end}
@@ -449,7 +462,41 @@ footer b{color:var(--ink)}
 <li><strong>睡眠</strong>：脖子與胸腹的脂肪壓迫呼吸道，<strong>打鼾、睡眠呼吸中止</strong>，白天精神差</li>
 <li><strong>癌症風險</strong>：肥胖與多種癌症（大腸癌、乳癌、子宮內膜癌等）風險升高有關</li>
 </ul>
-<p class="src">出處：肥胖共病通則（AACE/國健署肥胖防治指引方向）</p>
+<figure class="risks" id="risks">
+  <p class="rk-lead">英國一項追蹤 290 萬名成人、平均 11 年的研究：BMI 30–34.9 的人，和 BMI 18.5–24.9 的人相比，得到這些病的機會是</p>
+  <div class="rk-grid">
+    <div class="rk"><div class="rk-name">第二型糖尿病</div><div class="rk-x"><b data-x="5.2">5.2</b><span>倍</span></div><div class="rk-note">血糖失控的機會</div></div>
+    <div class="rk"><div class="rk-name">睡眠呼吸中止症</div><div class="rk-x"><b data-x="5.1">5.1</b><span>倍</span></div><div class="rk-note">打鼾、睡到一半沒呼吸</div></div>
+    <div class="rk"><div class="rk-name">高血壓</div><div class="rk-x"><b data-x="2.0">2.0</b><span>倍</span></div><div class="rk-note">心臟、腦血管的負擔</div></div>
+    <div class="rk"><div class="rk-name">心衰竭</div><div class="rk-x"><b data-x="1.6">1.6</b><span>倍</span></div><div class="rk-note">心臟打不動、容易喘</div></div>
+  </div>
+  <figcaption>BMI 越高，倍數越高。這份研究用的是西方的肥胖標準（BMI 30 以上）；台灣的標準更嚴，BMI 27 以上就算肥胖。</figcaption>
+</figure>
+<script>
+(function(){
+  var f=document.getElementById('risks'); if(!f)return;
+  if(!('IntersectionObserver' in window)||window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var bs=[].slice.call(f.querySelectorAll('.rk-x b'));
+  // 數字平常就是正確值；捲到這裡時才從 1.0 跳上去，列印前一律換回正確值
+  var stop=false;
+  function fin(){ stop=true; bs.forEach(function(b){b.textContent=b.dataset.x;}); }
+  window.addEventListener('beforeprint',fin);
+  function run(){
+    var t0=null, dur=1200;
+    bs.forEach(function(b){b.textContent='1.0';});
+    function step(t){
+      if(stop)return;
+      if(!t0)t0=t; var k=Math.min(1,(t-t0)/dur), e=1-Math.pow(1-k,3);
+      bs.forEach(function(b){var x=parseFloat(b.dataset.x); b.textContent=(1+(x-1)*e).toFixed(1);});
+      if(k<1)requestAnimationFrame(step); else fin();
+    }
+    requestAnimationFrame(step);
+  }
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){run();io.disconnect();}});},{threshold:.3});
+  io.observe(f);
+})();
+</script>
+<p class="src">出處：肥胖共病通則（AACE/國健署肥胖防治指引方向）；倍數卡：Haase CL, et al. Obes Sci Pract 2021;7(2):137-147</p>
 <h2 id="1-3兩個數字看出你的風險BMI與腰圍">1-3 兩個數字，看出你的風險：BMI 與腰圍</h2>
 <p>不用抽血，先看兩個數字——</p>
 <ul>
