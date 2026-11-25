@@ -72,6 +72,16 @@ a{color:var(--rx)}
 @media(max-width:900px){.slides{grid-template-columns:1fr}}
 
 /* 自評工具橫幅（與簡報區同寬，上半版面的行動入口） */
+/* 首頁開場情境短片（直式 9:16） */
+.hero-intro{display:flex;align-items:center;gap:36px}
+.hero-intro .hero-txt{flex:1}
+.intro-vid{flex:0 0 230px;display:block;text-decoration:none;color:var(--ink)}
+.intro-vid video{display:block;width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:18px;background:#F3E6DA;
+  box-shadow:0 10px 26px rgba(0,0,0,.14);border:4px solid #fff}
+.intro-vid .iv-cap{display:block;margin-top:10px;font-size:14px;line-height:1.5;text-align:center;color:var(--muted)}
+.intro-vid .iv-cap b{color:var(--diet);white-space:nowrap}
+.intro-vid:hover video{box-shadow:0 14px 30px rgba(0,0,0,.18)}
+@media (max-width:640px){.hero-intro{flex-direction:column;align-items:stretch;gap:20px}.intro-vid{flex:none;width:62%;max-width:240px;margin:0 auto}}
 .toolban{display:flex;align-items:center;gap:28px;background:var(--move-soft);
   border:1px solid var(--line);border-left:6px solid var(--move);border-radius:14px;
   padding:28px 34px;text-decoration:none;color:inherit;transition:.16s;margin-bottom:8px}
@@ -414,11 +424,23 @@ footer b{color:var(--ink)}
   
 </div></nav>
 <div class="wrap">
-  <div class="hero">
-    <span class="pill">民眾衛教</span>
-    <h1>體重管理，用對方法就不辛苦</h1>
-    <p>寫給一般民眾的健康體重管理指南。不是「少吃多動」四個字，而是講清楚為什麼、怎麼自我評估、飲食運動具體怎麼做、藥物什麼時候找誰談。七章按順序讀，或挑你需要的看。每章開頭有五題闖關小遊戲，先玩再讀、全對就能收集通關徽章 🏅。</p>
+  <div class="hero hero-intro">
+    <div class="hero-txt">
+      <span class="pill">民眾衛教</span>
+      <h1>體重管理，用對方法就不辛苦</h1>
+      <p>寫給一般民眾的健康體重管理指南。不是「少吃多動」四個字，而是講清楚為什麼、怎麼自我評估、飲食運動具體怎麼做、藥物什麼時候找誰談。七章按順序讀，或挑你需要的看。每章開頭有五題闖關小遊戲，先玩再讀、全對就能收集通關徽章 🏅。</p>
+    </div>
+    <a class="intro-vid" href="eat.html" aria-label="6 秒短片：天天走路，體重還是不動？點進第④章：吃">
+      <video src="assets/intro/intro-walk.mp4" poster="assets/intro/intro-walk-poster.jpg" autoplay muted loop playsinline preload="metadata"></video>
+      <span class="iv-cap">天天走路，體重還是不動？ <b>第④章 →</b></span>
+    </a>
   </div>
+  <script>
+  (function(){ // 開了「減少動態效果」就不自動播放，停在封面
+    var v=document.querySelector('.intro-vid video');
+    if(v&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){v.removeAttribute('autoplay');v.pause();}
+  })();
+  </script>
 
 </div>
 

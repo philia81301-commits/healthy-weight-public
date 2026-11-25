@@ -72,6 +72,16 @@ a{color:var(--rx)}
 @media(max-width:900px){.slides{grid-template-columns:1fr}}
 
 /* 自評工具橫幅（與簡報區同寬，上半版面的行動入口） */
+/* 首頁開場情境短片（直式 9:16） */
+.hero-intro{display:flex;align-items:center;gap:36px}
+.hero-intro .hero-txt{flex:1}
+.intro-vid{flex:0 0 230px;display:block;text-decoration:none;color:var(--ink)}
+.intro-vid video{display:block;width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:18px;background:#F3E6DA;
+  box-shadow:0 10px 26px rgba(0,0,0,.14);border:4px solid #fff}
+.intro-vid .iv-cap{display:block;margin-top:10px;font-size:14px;line-height:1.5;text-align:center;color:var(--muted)}
+.intro-vid .iv-cap b{color:var(--diet);white-space:nowrap}
+.intro-vid:hover video{box-shadow:0 14px 30px rgba(0,0,0,.18)}
+@media (max-width:640px){.hero-intro{flex-direction:column;align-items:stretch;gap:20px}.intro-vid{flex:none;width:62%;max-width:240px;margin:0 auto}}
 .toolban{display:flex;align-items:center;gap:28px;background:var(--move-soft);
   border:1px solid var(--line);border-left:6px solid var(--move);border-radius:14px;
   padding:28px 34px;text-decoration:none;color:inherit;transition:.16s;margin-bottom:8px}
