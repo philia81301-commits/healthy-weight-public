@@ -23,7 +23,7 @@
   - [x] ④吃：飲食實作（已審定 2026-08-24；4-1 手搖飲舉例 08-26 定稿）
   - [x] ⑤動：運動實作（**已審定 2026-08-26**）
   - [x] ⑥認識減重藥物（**已審定 2026-08-26**）
-  - [x] ⑦何時該就醫（**已審定 2026-08-26**；7-4 本院掛號資訊待醫師提供，不影響審定）
+  - [x] ⑦何時該就醫（**已審定 2026-08-26**；7-4 本院掛號資訊與浮動掛號按鈕：醫師 2026-11-25 決定不做）
   - [x] 總覽 index（體系結構＋全站骨幹訊息六條＋跨章固定句）
 - [x] **階段二：網站**（2026-08-24 上線：<https://philia81301-commits.github.io/healthy-weight-public/>）
   - [x] 移植病人版視覺識別與 `build-site.js` 建站流程（民眾版差異：剝除醫師備註、出處轉小字）
@@ -33,6 +33,11 @@
   - [x] 七章各 5 題四選一（共 35 題），規格比照姊妹站病人版；題庫在 `tools/build-site.js` 的 `QUIZ`
   - [x] 七隻吉祥物貼圖（Pollinations 免費生圖，不吃 Canva 額度）；通關獎牌用 CSS 金牌框包貼圖
   - [x] 通關記錄 localStorage（key 前綴 `hw-quiz-`），首頁章節卡片顯示「🏅 已通關」
+- [x] **參考 TMASO 疾病認知網站改版**（2026-11-25，全部醫師審定並上線）
+  - [x] 自評工具：兩步驟＋擴充共病（睡眠呼吸中止、心肌梗塞／中風計入紅燈）＋腰高比＋可列印結果卡
+  - [x] ①1-4 效益階梯（5%／10%／15%）
+  - [x] ①1-2 共病風險倍數卡（4 張，數值對照 Haase 2021 Table S3；癌症不給倍數）
+  - [x] 首頁開場情境短片「天天走路，體重還是不動？」（6 秒直式，`tools/build_intro_video.py`）
 - [ ] **階段四：4 頁簡報 PDF**（內容已全審定，可以做了；使用者 2026-08-24 追加）
 - [ ] **階段五：實機驗證與微調**
 
@@ -49,9 +54,12 @@ healthy-weight-public/
 │   ├── 腰圍量測-插圖.svg          # 舊的獨立示意圖，已不上站（保留備用）
 │   ├── generated/                 # 腰圍寫實示範照
 │   ├── assets-quiz/               # 小遊戲吉祥物 <slug>-mascot.png ×7
+│   ├── exercise-cards/ exercise-video/  # ⑤5-6 運動圖卡與影片
+│   ├── intro-video/               # 首頁開場短片：AI 插圖（high）＋ intro-walk.mp4＋封面
 │   └── site-qr.png
 ├── slides/            # 4 頁簡報：spec.yaml＋images/ 底圖＋export/ 頁圖＋PPTX
-├── tools/             # build-site.js（剝醫師備註、自評工具、寬版首頁、QUIZ 題庫、.inline.svg 內嵌）
+├── tools/             # build-site.js（剝醫師備註、自評工具、寬版首頁、QUIZ 題庫、.inline.svg 內嵌、
+│                      #   [[效益階梯]]／[[共病倍數卡]] 元件）；build_intro_video.py（開場短片）
 ├── .claude/           # launch.json：本地預覽伺服器（http-server docs -p 8088）
 └── docs/              # GitHub Pages 網站（build 產生，勿手改；含 assets/quiz/）
 ```

@@ -4,92 +4,62 @@
 
 ## ⏯️ 目前做到哪
 
-**網站已上線，七章內容全數審定，並加上章首闖關小遊戲**：<https://philia81301-commits.github.io/healthy-weight-public/>
+**網站已上線，七章內容全數審定**：<https://philia81301-commits.github.io/healthy-weight-public/>
 
-2026-11-25 完成：**首頁開場情境短片**（6 秒直式無聲循環，點了進第④章）。插圖 gpt-image-2 high（`design/intro-video/intro-walk-hq_20261125_093733_1.png`，_2 為備選），字卡由 `tools/build_intro_video.py` 疊上（AI 不畫字），輸出 `intro-walk.mp4`＋封面，build 複製到 `docs/assets/intro/`。結語用跨章固定句；開頭提問「天天走路，體重還是不動？」醫師同日核可。減少動態效果時不自動播放。low 品質的兩張草圖未進版控。
+2026-11-25 參考 TMASO 疾病認知網站（藥廠贊助的單頁導流頁）改版，四項全部醫師審定並上線：
 
-2026-11-25 完成：**①1-2 共病風險倍數卡**（4 張：糖尿病 5.2、睡眠呼吸中止 5.1、高血壓 2.0、心衰竭 1.6 倍；`RISKS`／`RISK_HTML`，md 寫 `[[共病倍數卡]]`）。
-醫師改定原則：只放 4 張不擴充，癌症仍不給倍數。數值出自 Haase 2021 補充資料 Table S3（BMI 30–34.9 對 18.5–24.9），已逐項對照原表。
-數字跳動動畫：平常顯示正確值，捲到才從 1.0 起跳，`beforeprint` 時強制換回正確值（初版預先歸零，列印印出 1.0）。
+1. **自評工具改版**（`5577bbc`、列印修正 `b348ebb`）——兩步驟＋進度條；「醫師告知過的疾病」計入紅燈
+   （新增睡眠呼吸中止症、曾心肌梗塞或中風，醫師同意）；「最近的情況」五項只印結果卡、不影響燈號；
+   腰高比 ≥0.5 只標示不影響燈號；結果卡可列印／存 PDF，只印一頁
+2. **①1-4 效益階梯**（`c352d8e`）——5%／10%／15%，15% 為 DiRECT 糖尿病緩解（原研究以公斤計，限制寫在醫師備註）；心衰竭不放
+3. **①1-2 共病風險倍數卡**（`0d5670e`）——4 張：糖尿病 5.2、睡眠呼吸中止 5.1、高血壓 2.0、心衰竭 1.6 倍，
+   對照 Haase 2021 補充資料 Table S3（BMI 30–34.9 對 18.5–24.9）。醫師改定原則：只放 4 張、癌症不給倍數
+4. **首頁開場情境短片**（`a596419`）——「天天走路，體重還是不動？」6 秒直式無聲循環，點了進第④章；
+   插圖 gpt-image-2 high，字卡由 `tools/build_intro_video.py` 疊上
 
-2026-11-25 完成：**①1-4 效益階梯**（5%／10%／15%，`tools/build-site.js` 的 `STAIRS`／`STAIRS_HTML`，md 寫 `[[效益階梯]]` 的位置會換成元件；醫師同日審定）。
-15% 一階證據為 DiRECT（以公斤計），限制寫在 1-4 醫師備註；心衰竭不放（證據多為藥物試驗）。**醫師備註的行首必須是 `- **醫師備註**：`**，括號寫在冒號後，否則 build 剝不掉會上站。
-
-2026-11-25 完成：**自評工具改版**（參考 TMASO 疾病認知網站的 BMI 計算機）——
-兩步驟（身高體重 → 健康狀況）＋進度條；共病分兩組：「醫師告知過的疾病」計入紅燈
-（高血壓、血糖異常、血脂異常、脂肪肝，**新增睡眠呼吸中止症、曾心肌梗塞或中風**——醫師 11-25 同意），
-「最近的情況」五項只印在結果卡、不影響燈號；「以上都沒有」互斥。腰高比（≥0.5 標示）僅資訊、不影響燈號。
-結果卡有出紙動畫（尊重 reduced-motion），可列印／存 PDF。列印 CSS 每條都帶 `body:has(#slip:not([hidden]))`
-前綴，只在自評頁接管（全站共用 CSS，別拿掉前綴，否則章節頁會印成空白），做法是把卡片以外的元素 display:none，只印一頁。
-**踩過的坑**：初版用 visibility:hidden 藏全部再讓 #card visible，但 #card 的選擇器權重輸給帶 :has 的隱藏規則，醫師實印整張空白（11-25 修正）。
-驗證法：Edge headless `--print-to-pdf` 加自動填表腳本，再用 pymupdf 轉圖檢查。
-
-2026-09-10 完成：**第⑤章新增 5-6 動作圖解**（`f48a9b7`）——六張居家運動圖卡上站
-（核心四合一／深蹲／分腿蹲＋靠牆深蹲／原地抬膝三格／開合跳三格／甩壺鈴三格；
-gpt-image-2 plus-size 人物、醫師逐張審定、中文 PIL 疊字）。圖卡母檔在
-`Obesity-lecture/slides/generated/`，本 repo 存 1600px 壓縮版於 `design/exercise-cards/`，
-build 複製到 `docs/assets/exercise/`。生圖 SOP 見 Obesity-lecture 專案 memory `exercise-card-workflow`。
-
-2026-08-28 完成：**闖關遊戲尺寸改用全站統一規格**（標準出自 osteoporosis-clinic：
-標題 27／題目 21／選項 18／星星 38；規格全文在 auto-memory `quiz-uniform-layout`），
-`tools/build-site.js` 的遊戲 CSS 更新後七章重建、已推上線（`2ee0eea`）。
-同日 HP-clinic 與 pneumonia-clinic 的衛教單張也改成 hero＋分頁膠囊版型並套同一套尺寸——
-三站的遊戲版面自此一致。另在 `.claude/launch.json` 加了 `hp-leaflet`、`pneumo-leaflet`
-兩個跨專案預覽設定（驗證姊妹站單張用）。
-
-2026-08-26 完成：
-
-1. **⑤⑥⑦章審定通過**——三章 `> 狀態` 改已審定、審稿追蹤表結案、`content/index.md` 狀態表全綠；網站「本章內容仍在最終審訂中」橫幅隨之消失（`isDraft` 靠 `> 狀態：**草稿**` 判定）。
-2. **七章各加五題闖關小遊戲**——答對才出下一題、答錯抖動不扣分、答對附一行解說，集滿五星得稱號（健康明白人／量測小達人／三腳凳大師／點餐高手／走路冠軍／不上當專家／起點勇者）。
-3. **七隻吉祥物貼圖**（Pollinations 免費生圖）；通關獎牌用 CSS 金牌框包貼圖。
-4. **②2-2 兩張腰圍圖合併為一張**——標示直接畫在示範照上；新增 `.inline.svg` 內嵌機制。
-5. **醫師審題／審稿修正五處**（見下方「內容與出題守則」）。
-
-先前輪次：F 能量斜紋底圖、首頁嵌 4 頁簡報圖（寬版 1240px）、自評工具寬版橫幅、頁首「總覽」黃色立體按鈕、站名 26px；工具集首頁與 QR 總表已上架。
+醫師決定**不做**：浮動掛號按鈕、⑦7-4 本院掛號資訊。
 
 ## 🚦 目前狀態
 
-- **建站流程**：改 `content/*.md` 或 `QUIZ` → `node tools/build-site.js` → `docs/` 一起 commit（docs 是產出物，勿手改）
-- **小遊戲題庫**在 `tools/build-site.js` 的 `QUIZ` 常數；圖檔來源 `design/assets-quiz/`，build 複製到 `docs/assets/quiz/`，**缺圖自動退回 emoji 不會壞版**。通關記錄 localStorage key 前綴 `hw-quiz-`
-- **`.inline.svg` 機制**：md 裡引用 `../design/*.inline.svg` 時，build 會把 SVG **內容直接寫進頁面**而不是用 `<img>`——因為 `<img>` 載入的 SVG 讀不到外部圖檔（②2-2 的標示圖靠這個才能疊在照片上）
-- **腰圍標示圖座標**（照片 1024×1024）：肋骨下緣 y=452、骨盆上緣 y=620（褲頭側邊＝髂嵴）、中間點 y=536 恰落在照片皮尺上。**改圖務必重新對位**——初版 pelvis=582 在肚臍高度、偏高
-- 簡報：spec 在 `slides/spec.yaml`，底圖在 `slides/images/`；文字用「jf open 粉圓 2.1」疊在 PPTX 層，改字直接開 PPTX
-- **簡報改版後**要重跑 `slides/export/` 頁圖輸出（python win32com `Slide.Export`）再 build，首頁嵌圖才會同步
+- **建站流程**：改 `content/*.md` 或 `tools/build-site.js` → `node tools/build-site.js` → `docs/` 一起 commit（docs 是產出物，勿手改）
+- **章節內元件**：md 裡單獨一行寫 `[[效益階梯]]`、`[[共病倍數卡]]`，build 換成 `STAIRS_HTML`／`RISK_HTML`（資料在 `STAIRS`／`RISKS`）
+- **開場短片**：改字或換圖 → `python tools/build_intro_video.py`（`--preview` 先看 4 個時間點）→ 再 build；build 會把 mp4＋封面複製到 `docs/assets/intro/`
+- **小遊戲題庫**在 `tools/build-site.js` 的 `QUIZ`；圖檔 `design/assets-quiz/` → `docs/assets/quiz/`，缺圖自動退回 emoji。通關記錄 localStorage 前綴 `hw-quiz-`
+- **`.inline.svg` 機制**：md 引用 `../design/*.inline.svg` 時直接把 SVG 內容寫進頁面（②2-2 腰圍標示圖靠這個疊在照片上）
+- **腰圍標示圖座標**（照片 1024×1024）：肋骨下緣 y=452、骨盆上緣 y=620、中間點 y=536。改圖務必重新對位
+- 簡報：spec 在 `slides/spec.yaml`；改版後要重跑 `slides/export/` 頁圖輸出（python win32com `Slide.Export`）再 build
 
 ## ➡️ 下一步
 
-1. **章節頁改成分頁式版型**（潘醫師 2026-08-28 指示 next time 做）——比照 HP-clinic／pneumonia-clinic
-   衛教單張的 hero＋分頁膠囊版型：預設停在「先來闖關」，本章內容點分頁才出現（小節 1-1、1-2⋯
-   可考慮做成膠囊分頁）。改 `tools/build-site.js` 的頁面模板可一次套七章；
-   參考實作：`C:\projects\HP-clinic\src\leaflet.template.html`（雙模式 CSS：base 網頁版＋
-   `@media print` 還原）。注意本站章節頁有目錄（toc）、錨點、回頂端等既有機制要整合
-2. **4 頁簡報 PDF**（階段四）——內容已全數審定，可以做了；轉法 python win32com SaveAs 32（PowerShell COM 會 TYPE_E_CANTLOADLIBRARY）
-2. **⑦7-4 本院掛號資訊**——待醫師提供連結／時段，補成網站區塊；不影響七章審定狀態
-3. 可選：小遊戲吉祥物目前是 Pollinations 絨毛風，與姊妹站的 Canva 扁平貼圖風不同。若要兩站統一，等 Canva 額度／帳號可用後重生一套
+1. **章節頁改成分頁式版型**（醫師 2026-08-28 指示）——比照 HP-clinic／pneumonia-clinic 衛教單張的 hero＋分頁膠囊版型，
+   參考 `C:\projects\HP-clinic\src\leaflet.template.html`；要整合既有目錄、錨點、回頂端，以及今天新增的兩個章節元件
+2. **4 頁簡報 PDF**（階段四）——轉法 python win32com SaveAs 32（PowerShell COM 會 TYPE_E_CANTLOADLIBRARY）
+3. **診間印表機實印自評結果卡**——目前只用 Edge headless 印 PDF 驗證過
 
 ## 🎯 內容與出題守則（醫師審稿換來的，改內容或改題必看）
 
-1. **跨章固定句不得各章各寫**（已鎖進 `content/index.md` 內容鐵律）：
-   - 含糖飲料 vs 運動一律寫「**一杯全糖手搖飲的熱量，快走一小時都消耗不完**」（③3-1＝④4-1）
-   - 用藥一律用**減量框架**，不與藥物做效果比較（不寫「比吃降血糖藥更好」）；寫「可能減少用藥、由醫師評估、**不要自己停藥**」
-2. **選項要同構**——四個都是情境或都是數值，不要混入「⋯⋯才算」這種在講判定標準的句子
-3. **干擾項不能也成立**——例：「肌肉量」在減重時本來就可能變少，不能當「明確錯誤」的干擾項
-4. **問法用民眾語言**——「未滿幾公分」改「幾公分以下」；問俗稱不如問健康風險
-5. **DPP 對照數據（58% vs metformin 31%）留醫師講解層**，民眾版不出現
+1. **跨章固定句不得各章各寫**：含糖飲料一律寫「**一杯全糖手搖飲的熱量，快走一小時都消耗不完**」；
+   用藥一律用**減量框架**（可能減少用藥、由醫師評估、**不要自己停藥**），不與藥物做效果比較
+2. **新增數字一律查原始文獻**：PubMed 核對 PMID；摘要沒有的要讀原表（倍數卡就是在補充資料 Table S3 才找到）。PMID 與研究限制寫醫師備註，網頁只放出處小字
+3. **①1-2 數字原則**：倍數卡只放 4 張，癌症只講「風險升高有關」、不給倍數
+4. 選項要同構；干擾項不能也成立；問法用民眾語言
+5. DPP 對照數據（58% vs metformin 31%）留醫師講解層，民眾版不出現
 
 ## ⚠️ 注意事項
 
-- **兩台電腦都放 `C:\projects\healthy-weight-public\`**，開工前 `git pull`、收工後 `git push`；不要放進 OneDrive／雲端硬碟
-- 藥物章（⑥）停在民眾層級：不列劑量、不寫副作用處置，一律導流「須經醫師評估」——治療細節在姊妹專案 obesity-education-clinic
-- 270 份問卷數據只引比例、去識別，原始檔不進 repo（本 repo 是**公開**的）
-- 自評工具不收任何資料——與篩檢工具的模式刻意不同，不要「補上」資料回傳
-- **中文內容檔只用 Edit 工具改，不要用 PowerShell `-replace`**（姊妹專案曾造成整份編碼毀損）
-- GitHub Pages 有瀏覽器快取，改版後看不到新版是正常的，Ctrl+Shift+R 強制重整
+- **醫師備註行首必須是 `- **醫師備註**：`**，括號寫在冒號後；寫成 `- **醫師備註（…）**` 會剝不掉、上站
+- **列印 CSS 每條都帶 `body:has(#slip:not([hidden]))` 前綴**（全站共用 CSS，拿掉會讓章節頁印成空白）；要藏元素用 display:none，不要用 visibility（權重會輸給 :has 規則，醫師實印整張空白）
+- **數字動畫不要預先歸零**：平常顯示正確值，捲到才起跳，`beforeprint` 換回正確值（初版列印印出 1.0）
+- 驗證列印：Edge headless `--print-to-pdf`（加自動填表腳本）→ pymupdf 轉圖檢查
+- 兩台電腦都放 `C:\projects\healthy-weight-public\`，開工前 `git pull`、收工後 `git push`；不要放進雲端硬碟
+- 藥物章停在民眾層級；270 份問卷只引比例；自評工具不收任何資料（本 repo 公開）
+- 中文內容檔只用 Edit 工具或 Python（utf-8）改，不要用 PowerShell `-replace`
+- GitHub Pages 有約 10 分鐘瀏覽器快取，改版後看不到新版是正常的，Ctrl+Shift+R 強制重整（手機上影片在介紹文字下方）
 
 ## 🕐 最後更新
 
-- 時間：2026-08-28（遊戲尺寸全站統一）
-- 更新者：Claude Code（Fable 5）@ X108521（醫院）
-- Git push：✅ 已推（`2ee0eea` 尺寸統一 → `d9ace9d` launch.json → 本收工 commit）
-- L3 Obsidian：⚠️ 本次在醫院電腦收工，此電腦無 Obsidian vault，L3 未更新——下次在家用電腦開工時補
-- 前一筆：2026-08-27 @ X108521 · ✅ 已推（84f8768，章節頁遊戲移到內容前）
+- 時間：2026-11-25（TMASO 參考改版四項上線）
+- 更新者：Claude Code（Opus 5.5）@ X108521
+- Git push：待推
+- L3 Obsidian：待寫
+- 前一筆：2026-08-28 @ X108521 · ✅ 已推（遊戲尺寸全站統一）
