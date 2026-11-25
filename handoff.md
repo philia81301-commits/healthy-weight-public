@@ -60,6 +60,6 @@
 
 - 時間：2026-11-25（TMASO 參考改版四項上線）
 - 更新者：Claude Code（Opus 5.5）@ X108521
-- Git push：待推
-- L3 Obsidian：待寫
+- Git push：✅ 已推（四項上線 `5577bbc`→`a596419`，收工 `29c131f`＋本次回填 commit）
+- L3 Obsidian：✅ 已寫（`2ndBrain/healthy-weight-public/專案工作流程.md`：上次做到哪、11-25 決策、6 條踩坑、更動表）
 - 前一筆：2026-08-28 @ X108521 · ✅ 已推（遊戲尺寸全站統一）
